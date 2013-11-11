@@ -1,0 +1,9 @@
+D:\Velmond\School\Telerik\1.3. OOP\Homework\TeamRubellite\ToDo\bin\Debug\ToDo.exe.config
+D:\Velmond\School\Telerik\1.3. OOP\Homework\TeamRubellite\ToDo\bin\Debug\ToDo.exe
+D:\Velmond\School\Telerik\1.3. OOP\Homework\TeamRubellite\ToDo\bin\Debug\ToDo.pdb
+D:\Velmond\School\Telerik\1.3. OOP\Homework\TeamRubellite\ToDo\obj\Debug\ToDo.csprojResolveAssemblyReference.cache
+D:\Velmond\School\Telerik\1.3. OOP\Homework\TeamRubellite\ToDo\obj\Debug\ToDo.exe
+D:\Velmond\School\Telerik\1.3. OOP\Homework\TeamRubellite\ToDo\obj\Debug\ToDo.pdb
+D:\Velmond\School\Telerik\Projects\TeamRubellite\ToDo\bin\Debug\ToDo.exe.config
+D:\Velmond\School\Telerik\Projects\TeamRubellite\ToDo\obj\Debug\ToDo.exe
+D:\Velmond\School\Telerik\Projects\TeamRubellite\ToDo\obj\Debug\ToDo.pdb
