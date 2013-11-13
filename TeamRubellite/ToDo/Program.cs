@@ -10,8 +10,7 @@
     {
         static void Main()
         {
-            // this is it
-            DateTime dt = new DateTime(2013, 11, 13, 13,50,0);
+            DateTime dt = new DateTime(2013, 12, 13, 17, 30, 0);
             Console.WriteLine("Test upload " + dt);
         }
     }

@@ -13,3 +13,6 @@ C:\Users\Angel\Documents\Visual Studio 2012\Projects\OOP Team Work\TeamRubellite
 C:\Users\Angel\Documents\Visual Studio 2012\Projects\OOP Team Work\TeamRubellite\ToDo\bin\Debug\ToDo.exe
 C:\Users\Angel\Documents\Visual Studio 2012\Projects\OOP Team Work\TeamRubellite\ToDo\bin\Debug\ToDo.pdb
 C:\Users\Angel\Documents\Visual Studio 2012\Projects\OOP Team Work\TeamRubellite\ToDo\obj\Debug\ToDo.csprojResolveAssemblyReference.cache
+D:\Velmond\School\Telerik\Projects\TeamRubellite\ToDo\bin\Debug\ToDo.exe
+D:\Velmond\School\Telerik\Projects\TeamRubellite\ToDo\bin\Debug\ToDo.pdb
+D:\Velmond\School\Telerik\Projects\TeamRubellite\ToDo\obj\Debug\ToDo.csprojResolveAssemblyReference.cache
