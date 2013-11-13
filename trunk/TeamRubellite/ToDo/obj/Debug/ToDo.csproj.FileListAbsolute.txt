@@ -7,3 +7,9 @@ D:\Velmond\School\Telerik\1.3. OOP\Homework\TeamRubellite\ToDo\obj\Debug\ToDo.pd
 D:\Velmond\School\Telerik\Projects\TeamRubellite\ToDo\bin\Debug\ToDo.exe.config
 D:\Velmond\School\Telerik\Projects\TeamRubellite\ToDo\obj\Debug\ToDo.exe
 D:\Velmond\School\Telerik\Projects\TeamRubellite\ToDo\obj\Debug\ToDo.pdb
+C:\Users\Angel\Documents\Visual Studio 2012\Projects\OOP Team Work\TeamRubellite\ToDo\bin\Debug\ToDo.exe.config
+C:\Users\Angel\Documents\Visual Studio 2012\Projects\OOP Team Work\TeamRubellite\ToDo\obj\Debug\ToDo.exe
+C:\Users\Angel\Documents\Visual Studio 2012\Projects\OOP Team Work\TeamRubellite\ToDo\obj\Debug\ToDo.pdb
+C:\Users\Angel\Documents\Visual Studio 2012\Projects\OOP Team Work\TeamRubellite\ToDo\bin\Debug\ToDo.exe
+C:\Users\Angel\Documents\Visual Studio 2012\Projects\OOP Team Work\TeamRubellite\ToDo\bin\Debug\ToDo.pdb
+C:\Users\Angel\Documents\Visual Studio 2012\Projects\OOP Team Work\TeamRubellite\ToDo\obj\Debug\ToDo.csprojResolveAssemblyReference.cache
