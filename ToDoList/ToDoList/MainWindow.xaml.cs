@@ -24,5 +24,15 @@ namespace ToDoList
         {
             InitializeComponent();
         }
+
+        //some basic logic for displaying a message on the screen
+        //enter a text and click on "Send" button
+        private void InputButton_Click(object sender, RoutedEventArgs e)
+        {
+            var inputText = this.InputBox.Text;
+            TextBlock printTextBlock = new TextBlock();
+            printTextBlock.Text = inputText;
+            this.DisplayInfo.Children.Add(printTextBlock);
+        }
     }
 }
