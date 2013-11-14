@@ -11,7 +11,7 @@
         static void Main()
         {
             DateTime dt = new DateTime(2013, 12, 13, 17, 30, 0);
-            Console.WriteLine("Test upload " + dt);
+            Console.WriteLine("Test uploade " + dt);
         }
     }
 }
