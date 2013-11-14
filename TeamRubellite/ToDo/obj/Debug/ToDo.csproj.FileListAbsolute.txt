@@ -16,3 +16,6 @@ C:\Users\Angel\Documents\Visual Studio 2012\Projects\OOP Team Work\TeamRubellite
 D:\Velmond\School\Telerik\Projects\TeamRubellite\ToDo\bin\Debug\ToDo.exe
 D:\Velmond\School\Telerik\Projects\TeamRubellite\ToDo\bin\Debug\ToDo.pdb
 D:\Velmond\School\Telerik\Projects\TeamRubellite\ToDo\obj\Debug\ToDo.csprojResolveAssemblyReference.cache
+E:\nix\telerik\projects\team-rubellite\TeamRubellite\ToDo\bin\Debug\ToDo.exe.config
+E:\nix\telerik\projects\team-rubellite\TeamRubellite\ToDo\obj\Debug\ToDo.exe
+E:\nix\telerik\projects\team-rubellite\TeamRubellite\ToDo\obj\Debug\ToDo.pdb
