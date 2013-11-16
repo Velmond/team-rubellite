@@ -11,8 +11,8 @@
     {
         public Priority Priority { get; protected set; }
 
-        public Task(string title, string description, Priority priority = Priority.None)
-            : base(title, description)
+        public Task(string title, string description, DateTime dateCreated, Priority priority = Priority.None)
+            : base(title, description, dateCreated)
         { this.Priority = priority; }
 
         /// <summary>
