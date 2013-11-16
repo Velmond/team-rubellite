@@ -33,3 +33,6 @@ C:\Users\Radoslav\Desktop\my work\bin\Debug\ToDoList.pdb
 C:\Users\Radoslav\Desktop\my work\obj\Debug\ToDoList.csprojResolveAssemblyReference.cache
 C:\Users\Radoslav\Desktop\my work\obj\Debug\ToDoList.Properties.Resources.resources
 C:\Users\Radoslav\Desktop\my work\obj\Debug\ToDoList.csproj.GenerateResource.Cache
+C:\Users\Radoslav\Desktop\ team-rubellite-read-only\Windows Forms\bin\Debug\ToDoList.exe.config
+C:\Users\Radoslav\Desktop\ team-rubellite-read-only\Windows Forms\obj\Debug\ToDoList.exe
+C:\Users\Radoslav\Desktop\ team-rubellite-read-only\Windows Forms\obj\Debug\ToDoList.pdb
