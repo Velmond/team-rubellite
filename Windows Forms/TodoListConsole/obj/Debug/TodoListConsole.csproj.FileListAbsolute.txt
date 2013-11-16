@@ -1,0 +1,6 @@
+C:\Users\Radoslav\Desktop\my work\TodoListConsole\bin\Debug\TodoListConsole.exe.config
+C:\Users\Radoslav\Desktop\my work\TodoListConsole\bin\Debug\TodoListConsole.exe
+C:\Users\Radoslav\Desktop\my work\TodoListConsole\bin\Debug\TodoListConsole.pdb
+C:\Users\Radoslav\Desktop\my work\TodoListConsole\obj\Debug\TodoListConsole.exe
+C:\Users\Radoslav\Desktop\my work\TodoListConsole\obj\Debug\TodoListConsole.pdb
+C:\Users\Radoslav\Desktop\my work\TodoListConsole\obj\Debug\TodoListConsole.csprojResolveAssemblyReference.cache
