@@ -1,0 +1,11 @@
+C:\Users\Radoslav\Desktop\my work\WFAgenda\obj\Debug\WFAgenda.csprojResolveAssemblyReference.cache
+C:\Users\Radoslav\Desktop\my work\WFAgenda\obj\Debug\WFAgenda.Form1.resources
+C:\Users\Radoslav\Desktop\my work\WFAgenda\obj\Debug\WFAgenda.Properties.Resources.resources
+C:\Users\Radoslav\Desktop\my work\WFAgenda\obj\Debug\WFAgenda.csproj.GenerateResource.Cache
+C:\Users\Radoslav\Desktop\my work\WFAgenda\bin\Debug\WFAgenda.exe.config
+C:\Users\Radoslav\Desktop\my work\WFAgenda\bin\Debug\WFAgenda.exe
+C:\Users\Radoslav\Desktop\my work\WFAgenda\bin\Debug\WFAgenda.pdb
+C:\Users\Radoslav\Desktop\my work\WFAgenda\obj\Debug\WFAgenda.exe
+C:\Users\Radoslav\Desktop\my work\WFAgenda\obj\Debug\WFAgenda.pdb
+C:\Users\Radoslav\Desktop\my work\WFAgenda\bin\Debug\TodoListConsole.exe
+C:\Users\Radoslav\Desktop\my work\WFAgenda\bin\Debug\TodoListConsole.pdb
