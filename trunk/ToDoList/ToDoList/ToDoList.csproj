@@ -53,6 +53,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Note.cs" />
     <Compile Include="TagCloud.cs" />
     <Compile Include="Task.cs" />
     <Page Include="MainWindow.xaml">
