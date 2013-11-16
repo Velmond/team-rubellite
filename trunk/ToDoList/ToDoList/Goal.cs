@@ -16,8 +16,8 @@
         // When you select Goal you must be able to see subtask and vice versa
         // When you select task that is part of bigger Goal you have to see part of which goal it is
 
-        public Goal(string title, string description, Priority priority)
-            : base(title, description, priority)
+        public Goal(string title, string description, Priority priority, DateTime dateCreated)
+            : base(title, description,dateCreated, priority)
         { }
 
         public DateTime End

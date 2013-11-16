@@ -15,8 +15,8 @@
         public DateTime End { get; set; }
         // TODO: Recurring event; sanitize Beginning and End
 
-        public Meeting(string title, string description, DateTime start, DateTime end)
-            : base(title, description)
+        public Meeting(string title, string description, DateTime start, DateTime end, DateTime dateCreated)
+            : base(title, description, dateCreated)
         {
             if (this.Beginning > this.End)
             {

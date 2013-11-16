@@ -13,13 +13,13 @@ namespace TodoListConsole
         IEnumerable<string> tags = new List<string>();
 
 
-        public Note(string title, string description)
-            : base(title, description)
+        public Note(string title, string description, DateTime dateCreated)
+            : base(title, description, dateCreated)
         {
         }
 
         public Note(DateTime dateCreated, string title, string description)
-            : base(dateCreated, title, description)
+            : base(title, description, dateCreated)
         {
         }
 

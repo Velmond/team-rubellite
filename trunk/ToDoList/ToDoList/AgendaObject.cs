@@ -31,11 +31,12 @@
                 throw new NotImplementedException();
             }
         }
-        public AgendaObject(string title, string description)
+        public AgendaObject(string title, string description,DateTime dateCreated)
         {
             this.Title = title;
             this.Description = description;
             this.Done = false;
+            this.DateCreated = dateCreated;
         }
 
         /*
