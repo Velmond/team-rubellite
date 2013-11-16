@@ -9,3 +9,6 @@ C:\Users\Radoslav\Desktop\my work\WFAgenda\obj\Debug\WFAgenda.exe
 C:\Users\Radoslav\Desktop\my work\WFAgenda\obj\Debug\WFAgenda.pdb
 C:\Users\Radoslav\Desktop\my work\WFAgenda\bin\Debug\TodoListConsole.exe
 C:\Users\Radoslav\Desktop\my work\WFAgenda\bin\Debug\TodoListConsole.pdb
+C:\Users\Radoslav\Desktop\ team-rubellite-read-only\Windows Forms\WFAgenda\bin\Debug\WFAgenda.exe.config
+C:\Users\Radoslav\Desktop\ team-rubellite-read-only\Windows Forms\WFAgenda\obj\Debug\WFAgenda.exe
+C:\Users\Radoslav\Desktop\ team-rubellite-read-only\Windows Forms\WFAgenda\obj\Debug\WFAgenda.pdb
