@@ -4,3 +4,9 @@ C:\Users\Radoslav\Desktop\my work\TodoListConsole\bin\Debug\TodoListConsole.pdb
 C:\Users\Radoslav\Desktop\my work\TodoListConsole\obj\Debug\TodoListConsole.exe
 C:\Users\Radoslav\Desktop\my work\TodoListConsole\obj\Debug\TodoListConsole.pdb
 C:\Users\Radoslav\Desktop\my work\TodoListConsole\obj\Debug\TodoListConsole.csprojResolveAssemblyReference.cache
+C:\Users\Radoslav\Desktop\ team-rubellite-read-only\Windows Forms\TodoListConsole\bin\Debug\TodoListConsole.exe.config
+C:\Users\Radoslav\Desktop\ team-rubellite-read-only\Windows Forms\TodoListConsole\bin\Debug\TodoListConsole.exe
+C:\Users\Radoslav\Desktop\ team-rubellite-read-only\Windows Forms\TodoListConsole\bin\Debug\TodoListConsole.pdb
+C:\Users\Radoslav\Desktop\ team-rubellite-read-only\Windows Forms\TodoListConsole\obj\Debug\TodoListConsole.csprojResolveAssemblyReference.cache
+C:\Users\Radoslav\Desktop\ team-rubellite-read-only\Windows Forms\TodoListConsole\obj\Debug\TodoListConsole.exe
+C:\Users\Radoslav\Desktop\ team-rubellite-read-only\Windows Forms\TodoListConsole\obj\Debug\TodoListConsole.pdb

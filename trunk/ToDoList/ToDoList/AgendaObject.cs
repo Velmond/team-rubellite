@@ -39,6 +39,21 @@
             this.DateCreated = dateCreated;
         }
 
+        public AgendaObject(string title, string description)
+        {
+            // TODO: Complete member initialization
+            this.Title = title;
+            this.Description = description;
+        }
+
+        public AgendaObject(DateTime dateCreated, string title, string description)
+        {
+            // TODO: Complete member initialization
+            this.DateCreated = dateCreated;
+            this.Title = title;
+            this.Description = description;
+        }
+
         /*
          * TODO: Proper Hashing
          */

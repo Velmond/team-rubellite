@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="AgendaBackend.AgendaObject">
-    <Position X="3" Y="0.5" Width="1.5" />
+    <Position X="2.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABAAAAAAAAgAEAAAAAAAAAAAAAAAEAAAAAEAAAAAAA=</HashCode>
+      <HashCode>AABAAAAAQAAgQEAAAAAAAAAACAAAQEAAAABEAAAAAAA=</HashCode>
       <FileName>AgendaObject.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="AgendaBackend.Goal">
-    <Position X="4.75" Y="6.5" Width="1.5" />
+    <Position X="5.25" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
       <FileName>Goal.cs</FileName>
@@ -17,7 +17,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="AgendaBackend.Meeting">
-    <Position X="3" Y="5.75" Width="1.5" />
+    <Position X="2.75" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAI=</HashCode>
       <FileName>Meeting.cs</FileName>
@@ -25,14 +25,22 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="AgendaBackend.TagCloud&lt;T&gt;">
-    <Position X="8" Y="3" Width="1.5" />
+    <Position X="9.75" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAAAACBAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>TagCloud.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AgendaBackend.Task">
-    <Position X="4.75" Y="3.5" Width="1.5" />
+    <Position X="5.25" Y="5.5" Width="1.5" />
+    <InheritanceLine Type="AgendaBackend.AgendaObject" FixedToPoint="true">
+      <Path>
+        <Point X="3.5" Y="4.045" />
+        <Point X="3.5" Y="5.125" />
+        <Point X="5.875" Y="5.125" />
+        <Point X="5.875" Y="5.5" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Task.cs</FileName>
@@ -40,36 +48,43 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TodoListConsole.Note">
-    <Position X="1.5" Y="3.5" Width="1.5" />
+    <Position X="0.5" Y="6" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAEAAAABAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
       <FileName>Note.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TodoListConsole.Program">
-    <Position X="4.75" Y="0.5" Width="1.5" />
+    <Position X="6.25" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="TodoListConsole.BirthdayReminder" Collapsed="true">
+    <Position X="1.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAABEAIAAQAAAAAAEAAAAAIAAAAAAA=</HashCode>
+      <FileName>BirthdayReminder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
   <Interface Name="AgendaBackend.ITaggable">
-    <Position X="8.25" Y="0.75" Width="1.5" />
+    <Position X="6.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>ITaggable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="AgendaBackend.ITimeLimited">
-    <Position X="10" Y="0.75" Width="1.5" />
+    <Position X="8" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
       <FileName>ITimeLimited.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="AgendaBackend.Priority">
-    <Position X="11.75" Y="0.75" Width="1.5" />
+    <Position X="9.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAQAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Priority.cs</FileName>

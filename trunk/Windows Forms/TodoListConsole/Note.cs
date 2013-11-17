@@ -8,7 +8,7 @@ using AgendaBackend;
 
 namespace TodoListConsole
 {
-    class Note : AgendaObject
+    public class Note : AgendaObject
     {
         IEnumerable<string> tags = new List<string>();
 
