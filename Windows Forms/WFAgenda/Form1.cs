@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AgendaBackend;
@@ -14,20 +15,27 @@ namespace WFAgenda
 {
     public partial class Form1 : Form
     {
-        private List<AgendaObject> listOfAgendaObjects;
+
+
+        //todo have to run another thread to look for events which are about to happen
+        // if the end time is >= datetime.now then alert
+
+        private static List<AgendaObject> listOfAgendaObjects;
+        private Thread callThread;
+        private static int timeToRefresh = 1;
 
         public List<AgendaObject> ListOfAgendaObjects
         {
             get
             {
-                return this.listOfAgendaObjects;
+                return listOfAgendaObjects;
             }
             set
             {
-                this.listOfAgendaObjects = value;
+                listOfAgendaObjects = value;
             }
         }
-        
+
         public Form1()
         {
             InitializeComponent();
@@ -37,23 +45,27 @@ namespace WFAgenda
         {
             comboBoxPriority.Enabled = false;
             comboBoxExtDuration.Enabled = false;
-            this.listOfAgendaObjects = new List<AgendaObject>();
+            listOfAgendaObjects = new List<AgendaObject>();
+
+            callThread = new Thread(Form1.TimeTicker);
+            callThread.Start();
+        }
+        //1000 милисекунди са 1 секунда
+        //60 секунди са 1 минута
+        // => 60 000 милисекунди са 1 минута
+        private static void TimeTicker()
+        {
+            Thread.Sleep(60000*timeToRefresh);
+            CheckIfShouldAlert();
         }
 
         private void tabPage6_Click(object sender, EventArgs e)
         {
-
+                      
         }
 
         private void comboBoxTaskType_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            //Goal
-            //Meeting
-            //Note
-            //Task
-            //Birthday
-
             if (comboBoxTaskType.SelectedItem == "")
             {
                 groupBoxBirthday.Visible = false;
@@ -67,7 +79,7 @@ namespace WFAgenda
                 label6.Visible = false;
 
                 this.Size = new Size(437, 375);
-                
+
             }
             else if (comboBoxTaskType.SelectedItem == "Birthday")
             {
@@ -111,10 +123,10 @@ namespace WFAgenda
             }
             else if (comboBoxTaskType.SelectedItem == "Note")
             {
-                this.Size = new Size(437,375);
+                this.Size = new Size(437, 375);
                 groupBoxBirthday.Visible = false;
-                groupBoxEnd.Visible  = false;
-                groupBoxStart.Visible  = false;
+                groupBoxEnd.Visible = false;
+                groupBoxStart.Visible = false;
                 comboBoxExtDuration.Enabled = false;
                 comboBoxPriority.Enabled = false;
                 comboBoxExtDuration.Visible = false;
@@ -162,8 +174,8 @@ namespace WFAgenda
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            this.listOfAgendaObjects.Add(AddNewAgenda(comboBoxTaskType.Text));
-            
+            listOfAgendaObjects.Add(AddNewAgenda(comboBoxTaskType.Text));
+
         }
 
         public AgendaObject AddNewAgenda(string agendaType)
@@ -239,11 +251,13 @@ namespace WFAgenda
                                 }
                             case 2:
                                 {
-                                    return new AgendaBackend.Task(textBoxTitle.Text, richTextBoxDescription.Text, Priority.Important);
+                                    return new AgendaBackend.Task(textBoxTitle.Text, richTextBoxDescription.Text,
+                                        Priority.Important);
                                 }
                             case 3:
                                 {
-                                    return new AgendaBackend.Task(textBoxTitle.Text, richTextBoxDescription.Text, Priority.Important);
+                                    return new AgendaBackend.Task(textBoxTitle.Text, richTextBoxDescription.Text,
+                                        Priority.Important);
                                 }
                             default:
                                 break; //todo to implement exception
@@ -253,13 +267,16 @@ namespace WFAgenda
                 case "Birthday":
                     {
                         //start time
-                        int year = Convert.ToInt32(comboBoxStartYear.Text);
-                        int month = Convert.ToInt32(comboBoxStartMonth.Text);
-                        int day = Convert.ToInt32(comboBoxStartDay.Text);
+                        int year = Convert.ToInt32(comboBoxBirthYear.Text);
+                        int month = 0;
+                        month = Convert.ToInt32(comboBoxBirthMonth.Text);
+                        int day = 0;
+                        day = Convert.ToInt32(comboBoxBirthDayDay.Text);
 
                         DateTime startTime = new DateTime(year, month, day);
 
-                        return new BirthdayReminder(DateTime.Now, textBoxTitle.Text, richTextBoxDescription.Text, richTextBoxDescription.Text, 2,
+                        return new BirthdayReminder(DateTime.Now, textBoxTitle.Text, richTextBoxDescription.Text,
+                            richTextBoxDescription.Text, 2,
                             startTime);
                     }
                     break;
@@ -282,14 +299,85 @@ namespace WFAgenda
 
             if (tabControlBirthDay.SelectedIndex.ToString() == "0")
             {
-                if (this.listOfAgendaObjects.Count > 0)
+                if (listOfAgendaObjects.Count > 0)
                 {
-                    foreach (var agendaObject in this.listOfAgendaObjects)
+                    foreach (var agendaObject in listOfAgendaObjects)
                     {
                         this.listBox1.Items.Add(agendaObject);
                     }
                 }
             }
         }
+
+        public static void CheckIfShouldAlert()
+        {
+            try
+            {
+                if (listOfAgendaObjects.Count > 0)
+                {
+
+
+                    foreach (var agendaObject in listOfAgendaObjects)
+                    {
+                        if (agendaObject is BirthdayReminder)
+                        {
+                            int year = ((BirthdayReminder) (agendaObject)).BirthDate.Year;
+                            int month = ((BirthdayReminder) (agendaObject)).BirthDate.Month;
+                            int day = ((BirthdayReminder) (agendaObject)).BirthDate.Day;
+
+                            if ((year == DateTime.Now.Year) && (month == DateTime.Now.Month)
+                                && (day == DateTime.Now.Day) && !(agendaObject.Done))
+                            {
+                                MessageBox.Show("Birthday");
+                            }
+                        }
+                    }
+                }
+            }
+            finally
+            {
+                TimeTicker();
+            }
+
+    }
+
+
+
+ 
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            timeToRefresh = Convert.ToInt32(comboBox1.SelectedItem);
+
+            if (timeToRefresh == 0)
+            {
+                timeToRefresh++;
+            }
+
+            labelTimeToUpdate.Text = string.Format("Time to update set to {0} mins.", timeToRefresh);
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            foreach (var agendaObject in listOfAgendaObjects)
+            {
+                if (agendaObject is BirthdayReminder)
+                {
+                    int year = ((BirthdayReminder)(agendaObject)).BirthDate.Year;
+                    int month = ((BirthdayReminder)(agendaObject)).BirthDate.Month;
+                    int day = ((BirthdayReminder)(agendaObject)).BirthDate.Day;
+
+                    if ((year == DateTime.Now.Year) && (month == DateTime.Now.Month)
+                        && (day == e.Start.Day) && !(agendaObject.Done))
+                    {
+                        listBoxToday.Items.Add(agendaObject.ToString());
+                    }
+                } 
+            }
+        }
+
+
     }
 }
+
+//5000 izwikwaniq. ako sa prez 1 minutia, stack-a shte se prepylni sled okolo 80  chasa (~ 3 dena)

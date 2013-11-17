@@ -41,14 +41,14 @@
             this.groupBoxExtras = new System.Windows.Forms.GroupBox();
             this.groupBoxBirthday = new System.Windows.Forms.GroupBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBoxBirthMonth = new System.Windows.Forms.ComboBox();
+            this.comboBoxBirthDayDay = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.comboBoxBirthYear = new System.Windows.Forms.ComboBox();
+            this.textBoxBirthLName = new System.Windows.Forms.TextBox();
+            this.textBoxBirthFName = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.groupBoxEnd = new System.Windows.Forms.GroupBox();
@@ -98,8 +98,19 @@
             this.tabPageNote = new System.Windows.Forms.TabPage();
             this.tabPageTask = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.listBoxToday = new System.Windows.Forms.ListBox();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.tabControlBirthDay = new System.Windows.Forms.TabControl();
+            this.tabPageSettings = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelTimeToUpdate = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label26 = new System.Windows.Forms.Label();
             this.tabPage6.SuspendLayout();
             this.groupBoxExtras.SuspendLayout();
             this.groupBoxBirthday.SuspendLayout();
@@ -109,6 +120,9 @@
             this.groupBoxSortOptions.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControlBirthDay.SuspendLayout();
+            this.tabPageSettings.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPageBirthday
@@ -116,7 +130,7 @@
             this.tabPageBirthday.Location = new System.Drawing.Point(4, 22);
             this.tabPageBirthday.Name = "tabPageBirthday";
             this.tabPageBirthday.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageBirthday.Size = new System.Drawing.Size(753, 296);
+            this.tabPageBirthday.Size = new System.Drawing.Size(753, 362);
             this.tabPageBirthday.TabIndex = 6;
             this.tabPageBirthday.Text = "Birthdays";
             this.tabPageBirthday.UseVisualStyleBackColor = true;
@@ -138,7 +152,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(753, 296);
+            this.tabPage6.Size = new System.Drawing.Size(753, 362);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Tag = "add";
             this.tabPage6.Text = "Add  new ";
@@ -218,7 +232,7 @@
             this.groupBoxExtras.Controls.Add(this.comboBoxPriority);
             this.groupBoxExtras.Location = new System.Drawing.Point(404, 6);
             this.groupBoxExtras.Name = "groupBoxExtras";
-            this.groupBoxExtras.Size = new System.Drawing.Size(343, 235);
+            this.groupBoxExtras.Size = new System.Drawing.Size(343, 316);
             this.groupBoxExtras.TabIndex = 6;
             this.groupBoxExtras.TabStop = false;
             this.groupBoxExtras.Text = "Extras";
@@ -226,14 +240,14 @@
             // groupBoxBirthday
             // 
             this.groupBoxBirthday.Controls.Add(this.label24);
-            this.groupBoxBirthday.Controls.Add(this.comboBox2);
-            this.groupBoxBirthday.Controls.Add(this.comboBox3);
+            this.groupBoxBirthday.Controls.Add(this.comboBoxBirthMonth);
+            this.groupBoxBirthday.Controls.Add(this.comboBoxBirthDayDay);
             this.groupBoxBirthday.Controls.Add(this.label23);
             this.groupBoxBirthday.Controls.Add(this.label22);
             this.groupBoxBirthday.Controls.Add(this.label21);
-            this.groupBoxBirthday.Controls.Add(this.comboBox1);
-            this.groupBoxBirthday.Controls.Add(this.textBox3);
-            this.groupBoxBirthday.Controls.Add(this.textBox2);
+            this.groupBoxBirthday.Controls.Add(this.comboBoxBirthYear);
+            this.groupBoxBirthday.Controls.Add(this.textBoxBirthLName);
+            this.groupBoxBirthday.Controls.Add(this.textBoxBirthFName);
             this.groupBoxBirthday.Controls.Add(this.label20);
             this.groupBoxBirthday.Controls.Add(this.label19);
             this.groupBoxBirthday.Location = new System.Drawing.Point(12, 200);
@@ -252,10 +266,33 @@
             this.label24.TabIndex = 37;
             this.label24.Text = "Day";
             // 
-            // comboBox2
+            // comboBoxBirthMonth
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.comboBoxBirthMonth.FormattingEnabled = true;
+            this.comboBoxBirthMonth.Items.AddRange(new object[] {
+            "",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.comboBoxBirthMonth.Location = new System.Drawing.Point(149, 74);
+            this.comboBoxBirthMonth.Name = "comboBoxBirthMonth";
+            this.comboBoxBirthMonth.Size = new System.Drawing.Size(42, 21);
+            this.comboBoxBirthMonth.TabIndex = 36;
+            // 
+            // comboBoxBirthDayDay
+            // 
+            this.comboBoxBirthDayDay.FormattingEnabled = true;
+            this.comboBoxBirthDayDay.Items.AddRange(new object[] {
             "",
             "0",
             "1",
@@ -288,189 +325,11 @@
             "28",
             "29",
             "30",
-            "31",
-            "32",
-            "33",
-            "34",
-            "35",
-            "36",
-            "37",
-            "38",
-            "39",
-            "40",
-            "41",
-            "42",
-            "43",
-            "44",
-            "45",
-            "46",
-            "47",
-            "48",
-            "49",
-            "50",
-            "51",
-            "52",
-            "53",
-            "54",
-            "55",
-            "56",
-            "57",
-            "58",
-            "59",
-            "60",
-            "61",
-            "62",
-            "63",
-            "64",
-            "65",
-            "66",
-            "67",
-            "68",
-            "69",
-            "70",
-            "71",
-            "72",
-            "73",
-            "74",
-            "75",
-            "76",
-            "77",
-            "78",
-            "79",
-            "80",
-            "81",
-            "82",
-            "83",
-            "84",
-            "85",
-            "86",
-            "87",
-            "88",
-            "89",
-            "90",
-            "91",
-            "92",
-            "93",
-            "94",
-            "95",
-            "96",
-            "97",
-            "98",
-            "99"});
-            this.comboBox2.Location = new System.Drawing.Point(149, 74);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(42, 21);
-            this.comboBox2.TabIndex = 36;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "",
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31",
-            "32",
-            "33",
-            "34",
-            "35",
-            "36",
-            "37",
-            "38",
-            "39",
-            "40",
-            "41",
-            "42",
-            "43",
-            "44",
-            "45",
-            "46",
-            "47",
-            "48",
-            "49",
-            "50",
-            "51",
-            "52",
-            "53",
-            "54",
-            "55",
-            "56",
-            "57",
-            "58",
-            "59",
-            "60",
-            "61",
-            "62",
-            "63",
-            "64",
-            "65",
-            "66",
-            "67",
-            "68",
-            "69",
-            "70",
-            "71",
-            "72",
-            "73",
-            "74",
-            "75",
-            "76",
-            "77",
-            "78",
-            "79",
-            "80",
-            "81",
-            "82",
-            "83",
-            "84",
-            "85",
-            "86",
-            "87",
-            "88",
-            "89",
-            "90",
-            "91",
-            "92",
-            "93",
-            "94",
-            "95",
-            "96",
-            "97",
-            "98",
-            "99"});
-            this.comboBox3.Location = new System.Drawing.Point(240, 74);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(42, 21);
-            this.comboBox3.TabIndex = 36;
+            "31"});
+            this.comboBoxBirthDayDay.Location = new System.Drawing.Point(240, 74);
+            this.comboBoxBirthDayDay.Name = "comboBoxBirthDayDay";
+            this.comboBoxBirthDayDay.Size = new System.Drawing.Size(42, 21);
+            this.comboBoxBirthDayDay.TabIndex = 36;
             // 
             // label23
             // 
@@ -499,131 +358,32 @@
             this.label21.TabIndex = 33;
             this.label21.Text = "Year";
             // 
-            // comboBox1
+            // comboBoxBirthYear
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "",
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31",
-            "32",
-            "33",
-            "34",
-            "35",
-            "36",
-            "37",
-            "38",
-            "39",
-            "40",
-            "41",
-            "42",
-            "43",
-            "44",
-            "45",
-            "46",
-            "47",
-            "48",
-            "49",
-            "50",
-            "51",
-            "52",
-            "53",
-            "54",
-            "55",
-            "56",
-            "57",
-            "58",
-            "59",
-            "60",
-            "61",
-            "62",
-            "63",
-            "64",
-            "65",
-            "66",
-            "67",
-            "68",
-            "69",
-            "70",
-            "71",
-            "72",
-            "73",
-            "74",
-            "75",
-            "76",
-            "77",
-            "78",
-            "79",
-            "80",
-            "81",
-            "82",
-            "83",
-            "84",
-            "85",
-            "86",
-            "87",
-            "88",
-            "89",
-            "90",
-            "91",
-            "92",
-            "93",
-            "94",
-            "95",
-            "96",
-            "97",
-            "98",
-            "99"});
-            this.comboBox1.Location = new System.Drawing.Point(67, 74);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(42, 21);
-            this.comboBox1.TabIndex = 32;
+            this.comboBoxBirthYear.FormattingEnabled = true;
+            this.comboBoxBirthYear.Items.AddRange(new object[] {
+            "2013",
+            "2014"});
+            this.comboBoxBirthYear.Location = new System.Drawing.Point(67, 74);
+            this.comboBoxBirthYear.Name = "comboBoxBirthYear";
+            this.comboBoxBirthYear.Size = new System.Drawing.Size(42, 21);
+            this.comboBoxBirthYear.TabIndex = 32;
             // 
-            // textBox3
+            // textBoxBirthLName
             // 
-            this.textBox3.Location = new System.Drawing.Point(67, 48);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(115, 20);
-            this.textBox3.TabIndex = 18;
+            this.textBoxBirthLName.Location = new System.Drawing.Point(67, 48);
+            this.textBoxBirthLName.Multiline = true;
+            this.textBoxBirthLName.Name = "textBoxBirthLName";
+            this.textBoxBirthLName.Size = new System.Drawing.Size(115, 20);
+            this.textBoxBirthLName.TabIndex = 18;
             // 
-            // textBox2
+            // textBoxBirthFName
             // 
-            this.textBox2.Location = new System.Drawing.Point(67, 22);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(115, 20);
-            this.textBox2.TabIndex = 11;
+            this.textBoxBirthFName.Location = new System.Drawing.Point(67, 22);
+            this.textBoxBirthFName.Multiline = true;
+            this.textBoxBirthFName.Name = "textBoxBirthFName";
+            this.textBoxBirthFName.Size = new System.Drawing.Size(115, 20);
+            this.textBoxBirthFName.TabIndex = 11;
             // 
             // label20
             // 
@@ -2308,7 +2068,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(753, 296);
+            this.tabPage5.Size = new System.Drawing.Size(753, 362);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Get by tag";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -2391,7 +2151,7 @@
             this.tabPageMeeting.Location = new System.Drawing.Point(4, 22);
             this.tabPageMeeting.Name = "tabPageMeeting";
             this.tabPageMeeting.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageMeeting.Size = new System.Drawing.Size(753, 296);
+            this.tabPageMeeting.Size = new System.Drawing.Size(753, 362);
             this.tabPageMeeting.TabIndex = 3;
             this.tabPageMeeting.Text = "Meetings";
             this.tabPageMeeting.UseVisualStyleBackColor = true;
@@ -2401,7 +2161,7 @@
             this.tabPageNote.Location = new System.Drawing.Point(4, 22);
             this.tabPageNote.Name = "tabPageNote";
             this.tabPageNote.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageNote.Size = new System.Drawing.Size(753, 296);
+            this.tabPageNote.Size = new System.Drawing.Size(753, 362);
             this.tabPageNote.TabIndex = 2;
             this.tabPageNote.Text = "Notes";
             this.tabPageNote.UseVisualStyleBackColor = true;
@@ -2411,28 +2171,50 @@
             this.tabPageTask.Location = new System.Drawing.Point(4, 22);
             this.tabPageTask.Name = "tabPageTask";
             this.tabPageTask.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageTask.Size = new System.Drawing.Size(753, 296);
+            this.tabPageTask.Size = new System.Drawing.Size(753, 362);
             this.tabPageTask.TabIndex = 1;
             this.tabPageTask.Text = "Tasks";
             this.tabPageTask.UseVisualStyleBackColor = true;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label26);
+            this.tabPage1.Controls.Add(this.listBoxToday);
+            this.tabPage1.Controls.Add(this.monthCalendar1);
             this.tabPage1.Controls.Add(this.listBox1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(753, 296);
+            this.tabPage1.Size = new System.Drawing.Size(753, 362);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Full agenda";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // listBoxToday
+            // 
+            this.listBoxToday.FormattingEnabled = true;
+            this.listBoxToday.Items.AddRange(new object[] {
+            "Here will be shown the events for the date selected from the calendar"});
+            this.listBoxToday.Location = new System.Drawing.Point(375, 186);
+            this.listBoxToday.Name = "listBoxToday";
+            this.listBoxToday.Size = new System.Drawing.Size(372, 173);
+            this.listBoxToday.TabIndex = 2;
+            // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(375, 12);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 1;
+            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
+            // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
+            this.listBox1.Items.AddRange(new object[] {
+            "Here will be shown all the events "});
             this.listBox1.Location = new System.Drawing.Point(6, 6);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(722, 290);
+            this.listBox1.Size = new System.Drawing.Size(357, 355);
             this.listBox1.TabIndex = 0;
             // 
             // tabControlBirthDay
@@ -2445,23 +2227,119 @@
             this.tabControlBirthDay.Controls.Add(this.tabPageBirthday);
             this.tabControlBirthDay.Controls.Add(this.tabPage5);
             this.tabControlBirthDay.Controls.Add(this.tabPage6);
+            this.tabControlBirthDay.Controls.Add(this.tabPageSettings);
             this.tabControlBirthDay.HotTrack = true;
-            this.tabControlBirthDay.Location = new System.Drawing.Point(12, 12);
+            this.tabControlBirthDay.Location = new System.Drawing.Point(12, 27);
             this.tabControlBirthDay.Multiline = true;
             this.tabControlBirthDay.Name = "tabControlBirthDay";
             this.tabControlBirthDay.SelectedIndex = 0;
             this.tabControlBirthDay.ShowToolTips = true;
-            this.tabControlBirthDay.Size = new System.Drawing.Size(761, 322);
+            this.tabControlBirthDay.Size = new System.Drawing.Size(761, 388);
             this.tabControlBirthDay.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControlBirthDay.TabIndex = 6;
             this.tabControlBirthDay.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControlBirthDay_Selected);
+            // 
+            // tabPageSettings
+            // 
+            this.tabPageSettings.Controls.Add(this.groupBox1);
+            this.tabPageSettings.Location = new System.Drawing.Point(4, 22);
+            this.tabPageSettings.Name = "tabPageSettings";
+            this.tabPageSettings.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageSettings.Size = new System.Drawing.Size(753, 362);
+            this.tabPageSettings.TabIndex = 7;
+            this.tabPageSettings.Text = "Settings";
+            this.tabPageSettings.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.labelTimeToUpdate);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Location = new System.Drawing.Point(6, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(160, 85);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Update interval in minutes";
+            // 
+            // labelTimeToUpdate
+            // 
+            this.labelTimeToUpdate.AutoSize = true;
+            this.labelTimeToUpdate.Location = new System.Drawing.Point(6, 69);
+            this.labelTimeToUpdate.Name = "labelTimeToUpdate";
+            this.labelTimeToUpdate.Size = new System.Drawing.Size(0, 13);
+            this.labelTimeToUpdate.TabIndex = 6;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(79, 28);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Set";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.comboBox1.Location = new System.Drawing.Point(6, 28);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(52, 21);
+            this.comboBox1.TabIndex = 3;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(776, 24);
+            this.menuStrip1.TabIndex = 7;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.optionsToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.optionsToolStripMenuItem.Text = "Options";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(611, 21);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(136, 52);
+            this.label26.TabIndex = 3;
+            this.label26.Text = "*Note: click with the mouse\r\non a date to view all \r\nthe events for it \r\nin the l" +
+    "ist bellow.";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(776, 336);
+            this.ClientSize = new System.Drawing.Size(776, 427);
             this.Controls.Add(this.tabControlBirthDay);
+            this.Controls.Add(this.menuStrip1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -2479,8 +2357,15 @@
             this.tabPage5.PerformLayout();
             this.groupBoxSortOptions.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.tabControlBirthDay.ResumeLayout(false);
+            this.tabPageSettings.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -2547,17 +2432,28 @@
         private System.Windows.Forms.GroupBox groupBoxBirthday;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBoxBirthMonth;
+        private System.Windows.Forms.ComboBox comboBoxBirthDayDay;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox comboBoxBirthYear;
+        private System.Windows.Forms.TextBox textBoxBirthLName;
+        private System.Windows.Forms.TextBox textBoxBirthFName;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+        private System.Windows.Forms.TabPage tabPageSettings;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label labelTimeToUpdate;
+        private System.Windows.Forms.ListBox listBoxToday;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.Label label26;
     }
 }
 
