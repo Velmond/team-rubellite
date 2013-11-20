@@ -1,0 +1,25 @@
+﻿<Window x:Class="ToDoList.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:viewModels ="clr-namespace:ToDoList.ViewModels"
+        Title="MainWindow" Height="350" Width="525">
+
+    <Window.DataContext>
+        <viewModels:TaskViewModel/>
+    </Window.DataContext>
+    <DockPanel x:Name="root">
+        <ListBox ItemsSource="{Binding Path=Items}"
+                 Name="ListBoxTasks"
+                  Width="250"
+                  IsSynchronizedWithCurrentItem="True"
+                  DockPanel.Dock="Left"
+                 DisplayMemberPath="Title"/>
+        <StackPanel DockPanel.Dock="Right">
+            <TextBox Text="{Binding Mode=TwoWay, ElementName=ListBoxTasks, Path=SelectedItem.Title}"/>
+            <TextBox Text="{Binding Mode=TwoWay, ElementName=ListBoxTasks, Path=SelectedItem.Description}"
+                     Height="100"/>
+            <Button Content="Add" Command="{Binding AddNewItem}"/>
+            <Button Content="Delete" Command="{Binding DeleteItem}"/>
+        </StackPanel>
+    </DockPanel>
+</Window>

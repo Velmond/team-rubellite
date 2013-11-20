@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tasks>
+  <task>
+    <title>Test task</title>
+    <description>This is the first test task form xml</description>
+    <priority>2</priority>
+    <tags>
+      <tag>test</tag>
+      <tag>xml</tag>
+      <tag>db</tag>
+    </tags>
+  </task>
+  <task>
+    <title>Test task02</title>
+    <description>This the second test task form xml</description>
+    <priority>1</priority>
+    <tags>
+      <tag>test</tag>
+      <tag>prioritized</tag>
+      <tag>db</tag>
+    </tags>
+  </task>
+  <task>
+    <title>Test addTask</title>
+    <description>This is test for proper adding task to DB</description>
+    <priority>3</priority>
+    <tags>
+      <tag>test</tag>
+      <tag>addTask</tag>
+      <tag>db</tag>
+    </tags>
+  </task>
+  <task>
+    <title>Test addTask</title>
+    <description>This is test for proper adding task to DB</description>
+    <priority>3</priority>
+    <tags>
+      <tag>test</tag>
+      <tag>addTask</tag>
+      <tag>db</tag>
+    </tags>
+  </task>
+</tasks>
