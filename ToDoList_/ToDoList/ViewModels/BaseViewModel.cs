@@ -34,7 +34,7 @@
             //    }
             //}
         }
-        public T NewItem { get; set; }
+        //public T NewItem { get; set; }
         public ICommand AddNewItem { get; set; }
         public ICommand DeleteItem { get; set; }
 
@@ -45,7 +45,7 @@
                 new RelayCommand(this.HandleAddNewItem);
             this.DeleteItem =
                 new RelayCommand(this.HandleDeleteItem);
-            this.NewItem = new T();
+         //   this.NewItem = new T();
         }
 
         /* Methods */
