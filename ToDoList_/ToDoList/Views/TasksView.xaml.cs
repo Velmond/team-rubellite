@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 
 namespace ToDoList.Views
 {
+    using System;
+    using ToDoList.ViewModels;
     /// <summary>
     /// Interaction logic for TasksView.xaml
     /// </summary>
@@ -23,6 +25,15 @@ namespace ToDoList.Views
         public TasksView()
         {
             InitializeComponent();
+        }
+
+        private void TextBoxSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            var filterText = this.TextBoxSearch.Text;
+            if (filterText != null)
+            {
+                (this.DataContext as TaskViewModel).Filter(filterText);
+            }
         }
     }
 }
