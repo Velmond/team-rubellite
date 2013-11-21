@@ -69,5 +69,26 @@
                     new PropertyChangedEventArgs(propertyName));
             }
         }
+
+        public void Filter(string query)
+        {
+            var itemView = CollectionViewSource.GetDefaultView(this.itemPool);
+            if (query==string.Empty)
+            {
+                itemView.Filter = null;
+            }
+            else
+            {
+                var queryToLower = query.ToLower();
+                itemView.Filter = (item) =>
+                    {
+                        var currentItem = item as T;
+                        if (currentItem==null)
+                        { return false; }
+                        return currentItem.Title.ToLower().Contains(queryToLower) ||
+                               currentItem.Description.ToLower().Contains(queryToLower);
+                    };
+            }
+        }
     }
 }

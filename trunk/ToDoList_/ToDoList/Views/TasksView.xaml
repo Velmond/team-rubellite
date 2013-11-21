@@ -45,6 +45,7 @@
                     Command="{Binding AddNewItem}"/>
             <Button Content="Delete" 
                     Command="{Binding Path=DeleteItem}"/>
+            <TextBox ToolTip="Search" Name="TextBoxSearch" KeyUp="TextBoxSearch_KeyUp"/>
         </StackPanel>
     </DockPanel>
 </UserControl>
