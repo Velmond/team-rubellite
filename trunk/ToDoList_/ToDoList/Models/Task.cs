@@ -9,7 +9,16 @@
     /// </summary>
     public class Task : BaseObjectModel, IComparable<Task>
     {
-        public Priority Priority { get; set; }
+        private Priority priority;
+        public Priority Priority
+        {
+            get { return priority; }
+            set
+            {
+                this.priority ^= value;
+                this.OnPropertyChanged("Priority");
+            }
+        }
 
         public Task() { }
         public Task(string title, string description, Priority priority = Priority.None)
