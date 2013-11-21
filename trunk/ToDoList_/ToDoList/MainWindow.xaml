@@ -1,47 +1,25 @@
 ﻿<Window x:Class="ToDoList.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:viewModels ="clr-namespace:ToDoList.ViewModels"
-        xmlns:converters ="clr-namespace:ToDoList.Converters"
+        xmlns:views="clr-namespace:ToDoList.Views"
         Title="ToDoList" Height="350" Width="525">
-    <Window.Resources>
-        <converters:PriorityToIsUrgentCheck x:Key="UrgentConverter"/>
-        <converters:PriorityToIsImportantCheck x:Key="ImportantConverter"/>
-    </Window.Resources>
-        <Window.DataContext>
-        <viewModels:TaskViewModel/>
-    </Window.DataContext>
-    <DockPanel x:Name="root">
-        <ListBox ItemsSource="{Binding Path=Items}"
-                 Name="ListBoxTasks"
-                 Width="250"
-                 IsSynchronizedWithCurrentItem="True"
-                 DockPanel.Dock="Left">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <CheckBox Width="20" 
-                                  IsChecked="{Binding Mode=TwoWay, Path=Done}"/>
-                        <TextBlock Text="{Binding Path=Title}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <StackPanel DockPanel.Dock="Right">
-            <TextBox ToolTip="Title" 
-                     Text="{Binding Mode=TwoWay, ElementName=ListBoxTasks, Path=SelectedItem.Title}"/>
-            <TextBox AcceptsReturn="True" 
-                     Height="100"
-                     Text="{Binding Mode=TwoWay, ElementName=ListBoxTasks, Path=SelectedItem.Description}"
-                     TextWrapping="Wrap"
-                     ToolTip="Description"/>
-            <!--<TextBox Text="{Binding Mode=TwoWay, ElementName=ListBoxTasks, Path=SelectedItem.Priority}"/>-->
-            <CheckBox IsChecked="{Binding Mode=TwoWay,ElementName=ListBoxTasks,Path=SelectedItem.Priority,Converter={StaticResource UrgentConverter}}">Urgent</CheckBox>
-            <CheckBox IsChecked="{Binding Mode=TwoWay,ElementName=ListBoxTasks,Path=SelectedItem.Priority,Converter={StaticResource ImportantConverter}}">Important</CheckBox>
-            <Button Content="New Task"
-                    Command="{Binding AddNewItem}"/>
-            <Button Content="Delete" 
-                    Command="{Binding Path=DeleteItem}"/>
-        </StackPanel>
-    </DockPanel>
+    <TabControl>
+
+        <TabItem Header="Tasks">
+            <views:TasksView/>
+        </TabItem>
+
+        <TabItem Header="Meetings">
+        </TabItem>
+
+        <TabItem Header="Goals">
+        </TabItem>
+
+        <TabItem Header="Birthdays">
+        </TabItem>
+
+        <TabItem Header="Notes">
+        </TabItem>
+        
+    </TabControl>
 </Window>
