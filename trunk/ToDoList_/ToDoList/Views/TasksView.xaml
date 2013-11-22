@@ -10,42 +10,55 @@
     <UserControl.Resources>
         <converters:PriorityToIsUrgentCheck x:Key="UrgentConverter"/>
         <converters:PriorityToIsImportantCheck x:Key="ImportantConverter"/>
+        <converters:DoneToStrikethrough x:Key="DoneConverter"/>
     </UserControl.Resources>
     <UserControl.DataContext>
         <viewModels:TaskViewModel/>
     </UserControl.DataContext>
     <DockPanel x:Name="root">
-        <ListBox ItemsSource="{Binding Path=Items}"
-                 Name="ListBoxTasks"
-                 Width="250"
+        <ListBox Name="ListBoxTasks"
+                 ItemsSource="{Binding Path=Items}"
+                 Width="350"
                  IsSynchronizedWithCurrentItem="True"
                  DockPanel.Dock="Left">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <CheckBox Width="20" 
-                                  IsChecked="{Binding Mode=TwoWay, Path=Done}"/>
-                        <TextBlock Text="{Binding Path=Title}"/>
-                    </StackPanel>
+                    <Expander>
+                            <Expander.Header>
+                            <TextBox FontSize="14" 
+                                     BorderThickness="0" 
+                                     Text="{Binding Mode=TwoWay,Path=Title}"
+                                     Background="{Binding Path=ListBoxTasks.Background}" 
+                                     TextDecorations="{Binding Path=Done, Converter={StaticResource DoneConverter}}">
+                            </TextBox>
+                        </Expander.Header>
+                            <Expander.Content>
+                            <StackPanel>
+                                <TextBox Width="220" 
+                                         AcceptsReturn="True" 
+                                         TextWrapping="Wrap" 
+                                         Text="{Binding Mode=TwoWay,Path=Description}"/>
+                                <CheckBox Content="Urgent" 
+                                          IsChecked="{Binding Mode=TwoWay,Path=Priority,Converter={StaticResource UrgentConverter}}"/>
+                                <CheckBox Content="Important" 
+                                          IsChecked="{Binding Mode=TwoWay,Path=Priority,Converter={StaticResource ImportantConverter}}"/>
+                                <CheckBox Content="Done" 
+                                          IsChecked="{Binding Path=Done}"/>
+                            </StackPanel>
+                            </Expander.Content>
+                        </Expander>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
         <StackPanel DockPanel.Dock="Right">
-            <TextBox ToolTip="Title" 
-                     Text="{Binding Mode=TwoWay, ElementName=ListBoxTasks, Path=SelectedItem.Title}"/>
-            <TextBox AcceptsReturn="True" 
-                     Height="100"
-                     Text="{Binding Mode=TwoWay, ElementName=ListBoxTasks, Path=SelectedItem.Description}"
-                     TextWrapping="Wrap"
-                     ToolTip="Description"/>
             <!--<TextBox Text="{Binding Mode=TwoWay, ElementName=ListBoxTasks, Path=SelectedItem.Priority}"/>-->
-            <CheckBox IsChecked="{Binding Mode=TwoWay,ElementName=ListBoxTasks,Path=SelectedItem.Priority,Converter={StaticResource UrgentConverter}}">Urgent</CheckBox>
-            <CheckBox IsChecked="{Binding Mode=TwoWay,ElementName=ListBoxTasks,Path=SelectedItem.Priority,Converter={StaticResource ImportantConverter}}">Important</CheckBox>
+            <TextBox SelectedText="Search"
+                     Name="TextBoxSearch" 
+                     KeyUp="TextBoxSearch_KeyUp"/>
             <Button Content="New Task"
                     Command="{Binding AddNewItem}"/>
             <Button Content="Delete" 
                     Command="{Binding Path=DeleteItem}"/>
-            <TextBox ToolTip="Search" Name="TextBoxSearch" KeyUp="TextBoxSearch_KeyUp"/>
         </StackPanel>
     </DockPanel>
 </UserControl>
