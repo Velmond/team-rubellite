@@ -48,7 +48,7 @@
                             </Expander.Content>
                         </Expander>
                 </DataTemplate>
-            </ListBox.ItemTemplate>
+                </ListBox.ItemTemplate>
         </ListBox>
         <StackPanel DockPanel.Dock="Right">
             <!--<TextBox Text="{Binding Mode=TwoWay, ElementName=ListBoxTasks, Path=SelectedItem.Priority}"/>-->
@@ -59,6 +59,8 @@
                     Command="{Binding AddNewItem}"/>
             <Button Content="Delete" 
                     Command="{Binding Path=DeleteItem}"/>
+            <Button Content="Save"
+                    Command="{Binding Path=SaveItem}"/>
         </StackPanel>
     </DockPanel>
 </UserControl>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfTask xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Task>
+    <Title>Test task</Title>
+    <Description>This is the first test task form xml</Description>
+    <Done>false</Done>
+    <Priority>Important</Priority>
+  </Task>
+  <Task>
+    <Title>Test task02</Title>
+    <Description>This the second test task form xml</Description>
+    <Done>false</Done>
+    <Priority>Urgent</Priority>
+  </Task>
+  <Task>
+    <Title>Test addTask</Title>
+    <Description>This is test for proper adding task to DB</Description>
+    <Done>true</Done>
+    <Priority>Urgent Important</Priority>
+  </Task>
+  <Task>
+    <Title>Test addTask</Title>
+    <Description>This is test for proper adding task to DB</Description>
+    <Done>false</Done>
+    <Priority>Urgent Important</Priority>
+  </Task>
+  <Task>
+    <Title>Serialization</Title>
+    <Description>Serialize this</Description>
+    <Done>false</Done>
+    <Priority>Urgent Important</Priority>
+  </Task>
+  <Task>
+    <Title>Have Lunch</Title>
+    <Description>You have to Eat mother fucker</Description>
+    <Done>false</Done>
+    <Priority>Urgent</Priority>
+  </Task>
+</ArrayOfTask>

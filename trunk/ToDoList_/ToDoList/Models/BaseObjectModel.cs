@@ -4,6 +4,7 @@
     using System.Linq;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.Xml.Serialization;
 
     /// <summary>
     /// The basic class for ToDo list entities
@@ -34,6 +35,7 @@
                 this.OnPropertyChanged("Done");
             }
         }
+        [XmlIgnore()] 
         public IEnumerable<string> Tags { get; set; }
 
         public BaseObjectModel() 
