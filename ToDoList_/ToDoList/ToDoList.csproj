@@ -62,6 +62,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\ExecuteCommandDelegate.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Converters\DoneToStrikethrough.cs" />
     <Compile Include="Converters\PriorityToIsImportantCheck.cs" />
     <Compile Include="Converters\PriorityToIsUrgentCheck.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />

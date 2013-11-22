@@ -13,6 +13,7 @@
     /// </summary>
     public abstract class BaseObjectModel : INotifyPropertyChanged
     {
+        private bool done;
         private string title;
         public string Title
         {
@@ -24,12 +25,20 @@
             }
         }
         public string Description { get; set; }
-        public bool Done { get; set; }
+        public bool Done
+        {
+            get { return this.done; }
+            set
+            {
+                this.done = value;
+                this.OnPropertyChanged("Done");
+            }
+        }
         public IEnumerable<string> Tags { get; set; }
 
         public BaseObjectModel() 
         {
-            this.Title = "New Item";
+            this.Title = "NewItem";
             this.Description = "Enter Description";
         }
 
