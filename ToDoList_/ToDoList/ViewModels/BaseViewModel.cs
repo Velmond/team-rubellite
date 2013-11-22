@@ -37,6 +37,7 @@
         //public T NewItem { get; set; }
         public ICommand AddNewItem { get; set; }
         public ICommand DeleteItem { get; set; }
+        public ICommand SaveItem { get; set; }
 
         /* Constructor */
         public BaseViewModel()
@@ -45,10 +46,17 @@
                 new RelayCommand(this.HandleAddNewItem);
             this.DeleteItem =
                 new RelayCommand(this.HandleDeleteItem);
-         //   this.NewItem = new T();
+            this.SaveItem =
+                new RelayCommand(this.HandleSaveItem);
         }
 
         /* Methods */
+
+        private void HandleSaveItem(object obj)
+        {
+            DataTranslator<T>.Serialize(this.itemPool);
+        }
+
         private void HandleDeleteItem(object obj)
         {
             var view = CollectionViewSource.GetDefaultView(this.itemPool);
