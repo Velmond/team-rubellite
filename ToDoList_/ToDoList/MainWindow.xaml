@@ -13,6 +13,7 @@
         </TabItem>
 
         <TabItem Header="Goals">
+            <views:GoalsView/>
         </TabItem>
 
         <TabItem Header="Birthdays">
@@ -20,6 +21,6 @@
 
         <TabItem Header="Notes">
         </TabItem>
-        
+
     </TabControl>
 </Window>
