@@ -14,10 +14,14 @@
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        /* Field */
+        /// <summary>
+        /// A dynamic data collection that provides notifications when items get added, removed, or when the whole list is refreshed.
+        /// </summary>
         protected ObservableCollection<T> itemPool;
 
-        /* Properties */
+        /// <summary>
+        /// An enumeration of all items read from a database
+        /// </summary>
         public IEnumerable<T> Items
         {
             get { return itemPool; }
@@ -78,7 +82,7 @@
             }
         }
 
-        public void Filter(string query)
+        public virtual void Filter(string query)
         {
             var itemView = CollectionViewSource.GetDefaultView(this.itemPool);
             if (query==string.Empty)
