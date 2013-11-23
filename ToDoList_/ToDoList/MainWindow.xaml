@@ -10,6 +10,7 @@
         </TabItem>
 
         <TabItem Header="Meetings">
+            <views:MeetingView/>
         </TabItem>
 
         <TabItem Header="Goals">
