@@ -16,6 +16,10 @@
     {
         private bool done;
         private string title;
+
+        /// <summary>
+        /// The entity's title
+        /// </summary>
         public string Title
         {
             get { return this.title; }
@@ -25,7 +29,15 @@
                 this.OnPropertyChanged("Title");
             }
         }
+
+        /// <summary>
+        /// The entity's description
+        /// </summary>
         public string Description { get; set; }
+
+        /// <summary>
+        /// A boolean property that shows if the entity has been done already
+        /// </summary>
         public bool Done
         {
             get { return this.done; }
@@ -35,15 +47,27 @@
                 this.OnPropertyChanged("Done");
             }
         }
+
+        /// <summary>
+        /// A collection of labels for easy grouping of entities
+        /// </summary>
         [XmlIgnore()] 
         public IEnumerable<string> Tags { get; set; }
 
+        /// <summary>
+        /// Basic class for ToDo entities
+        /// </summary>
         public BaseObjectModel() 
         {
             this.Title = "NewItem";
             this.Description = "Enter Description";
         }
 
+        /// <summary>
+        /// Basic class for ToDo entities
+        /// </summary>
+        /// <param name="title">Title for the entity</param>
+        /// <param name="description">Description for the entity</param>
         public BaseObjectModel(string title, string description)
         {
             this.Title = title;
