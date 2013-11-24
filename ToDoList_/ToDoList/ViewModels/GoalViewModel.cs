@@ -13,9 +13,7 @@
         public GoalViewModel()
             : base()
         {
-            // !!! There is some problem with reading the goals from the file
-            //this.itemPool = new ObservableCollection<Goal>(DataManager.GetGoals(@"..\..\tasks.xml"));
-        }
+            // !!! There is some problem in this row            this.itemPool = new ObservableCollection<Goal>(DataManager.GetGoals(@"..\..\tasks.xml"));        }
 
         public override void Filter(string query)
         {

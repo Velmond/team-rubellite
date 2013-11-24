@@ -84,7 +84,7 @@
                                                 Tags = task.Elements("tags").Elements("tag").Select(t => t.Value),
                                             }
                                         ).ToList<Task>(),
-                            EndDate = DateTime.Parse(goal.Element("enddate").Value),
+                            //EndDate = DateTime.Parse(goal.Element("enddate").Value),
                             Tags = goal.Elements("tags").Elements("tag").Select(t => t.Value)
                         };
 

@@ -31,13 +31,6 @@
             <Setter Property="TextWrapping"
                     Value="Wrap"/>
         </Style>
-        <Style x:Key="ListBox"
-               TargetType="ListBox">
-            <Setter Property="Width"
-                    Value="350"/>
-            <Setter Property="IsSynchronizedWithCurrentItem"
-                    Value="True"/>
-        </Style>
     </UserControl.Resources>
 
     <UserControl.DataContext>
@@ -47,7 +40,8 @@
     <DockPanel x:Name="root">
         <ListBox Name="ListBoxGoals"
                  ItemsSource="{Binding Path=Items}"
-                 Style="{StaticResource ListBox}"
+                 Width="350"
+                 IsSynchronizedWithCurrentItem="True"
                  DockPanel.Dock="Left">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -64,7 +58,8 @@
                                          Text="{Binding Mode=TwoWay, Path=Description}"/>
                                 <ListBox Name="Subtasks"
                                          ItemsSource="{Binding Path=Subtasks}"
-                                         Style="{StaticResource ListBox}">
+                                         Width="300"
+                                         IsSynchronizedWithCurrentItem="True">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
                                             <Expander>
@@ -79,35 +74,55 @@
                                                     <StackPanel>
                                                         <TextBox Style="{StaticResource DescriptionTextBox}" 
                                                                  Text="{Binding Mode=TwoWay, Path=Description}"/>
-                                                        <CheckBox Content="Urgent" 
-                                                                  IsChecked="{Binding Mode=TwoWay,
-                                                                              Path=Priority,
-                                                                              Converter={StaticResource UrgentConverter}}"/>
-                                                        <CheckBox Content="Important" 
-                                                                  IsChecked="{Binding Mode=TwoWay,
-                                                                              Path=Priority,
-                                                                              Converter={StaticResource ImportantConverter}}"/>
-                                                        <CheckBox Content="Done" 
-                                                                  IsChecked="{Binding Path=Done}"/>
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="100"/>
+                                                                <ColumnDefinition Width="100"/>
+                                                                <ColumnDefinition Width="100"/>
+                                                            </Grid.ColumnDefinitions>
+                                                            <CheckBox Content="Urgent"
+                                                                      Grid.Column="0"
+                                                                      IsChecked="{Binding Mode=TwoWay,
+                                                                                  Path=Priority,
+                                                                                  Converter={StaticResource UrgentConverter}}"/>
+                                                            <CheckBox Content="Important"
+                                                                      Grid.Column="1"
+                                                                      IsChecked="{Binding Mode=TwoWay,
+                                                                                  Path=Priority,
+                                                                                  Converter={StaticResource ImportantConverter}}"/>
+                                                            <CheckBox Content="Done"
+                                                                      Grid.Column="2"
+                                                                      IsChecked="{Binding Path=Done}"/>
+                                                        </Grid>
                                                     </StackPanel>
                                                 </Expander.Content>
                                             </Expander>
                                         </DataTemplate>
                                     </ListBox.ItemTemplate>
                                 </ListBox>
-                                
+
                                 <TextBox Style="{StaticResource DescriptionTextBox}"
                                          Text="{Binding Mode=TwoWay, Path=EndDate}"/>
-                                <CheckBox Content="Urgent"
-                                          IsChecked="{Binding Mode=TwoWay,
-                                                      Path=Priority,
-                                                      Converter={StaticResource UrgentConverter}}"/>
-                                <CheckBox Content="Important" 
-                                          IsChecked="{Binding Mode=TwoWay,
-                                                      Path=Priority,
-                                                      Converter={StaticResource ImportantConverter}}"/>
-                                <CheckBox Content="Done" 
-                                          IsChecked="{Binding Path=Done}"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="100"/>
+                                    </Grid.ColumnDefinitions>
+                                    <CheckBox Content="Urgent"
+                                              Grid.Column="0"
+                                              IsChecked="{Binding Mode=TwoWay,
+                                                          Path=Priority,
+                                                          Converter={StaticResource UrgentConverter}}"/>
+                                    <CheckBox Content="Important"
+                                              Grid.Column="1"
+                                              IsChecked="{Binding Mode=TwoWay,
+                                                          Path=Priority,
+                                                          Converter={StaticResource ImportantConverter}}"/>
+                                    <CheckBox Content="Done"
+                                              Grid.Column="2"
+                                              IsChecked="{Binding Path=Done}"/>
+                                </Grid>
                             </StackPanel>
                         </Expander.Content>
                     </Expander>
@@ -117,11 +132,11 @@
 
         <StackPanel DockPanel.Dock="Right">
             <TextBox SelectedText="Search"
-                     Name="TextBoxSearch" 
+                     Name="TextBoxSearch"
                      KeyUp="TextBoxSearch_KeyUp"/>
-            <Button Content="New Task"
+            <Button Content="New Goal"
                     Command="{Binding AddNewItem}"/>
-            <Button Content="Delete" 
+            <Button Content="Delete"
                     Command="{Binding Path=DeleteItem}"/>
             <Button Content="Save"
                     Command="{Binding Path=SaveItem}"/>
