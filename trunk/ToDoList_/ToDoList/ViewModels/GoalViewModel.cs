@@ -13,7 +13,8 @@
         public GoalViewModel()
             : base()
         {
-            // !!! There is some problem in this row            this.itemPool = new ObservableCollection<Goal>(DataManager.GetGoals(@"..\..\tasks.xml"));        }
+            this.itemPool = new ObservableCollection<Goal>(DataManager.GetGoals(@"..\..\tasks.xml"));
+        }
 
         public override void Filter(string query)
         {
