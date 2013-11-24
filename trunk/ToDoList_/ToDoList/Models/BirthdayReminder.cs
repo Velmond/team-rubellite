@@ -57,24 +57,14 @@ namespace TodoListConsole
                 this.birthDate = value;
             }
         }
-        public IEnumerable<string> Tags
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+      
         public DateTime DateCreated
         {
             get
             {
                 return this.dateCreated;
             }
-            private set
+            set
             {
                 this.dateCreated = value;
             }

@@ -62,50 +62,7 @@
                             <StackPanel>
                                 <TextBox Style="{StaticResource DescriptionTextBox}"  
                                          Text="{Binding Mode=TwoWay, Path=Description}"/>
-                                <ListBox Name="Subtasks"
-                                         ItemsSource="{Binding Path=Subtasks}"
-                                         Width="300"
-                                         IsSynchronizedWithCurrentItem="True">
-                                    <ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <Expander>
-                                                <Expander.Header>
-                                                    <TextBox Style="{StaticResource TitleTextBox}" 
-                                                             Text="{Binding Mode=TwoWay, Path=Title}"
-                                                             Background="{Binding Path=ListBoxTasks.Background}" 
-                                                             TextDecorations="{Binding Path=Done, 
-                                                                               Converter={StaticResource DoneConverter}}"/>
-                                                </Expander.Header>
-                                                <Expander.Content>
-                                                    <StackPanel>
-                                                        <TextBox Style="{StaticResource DescriptionTextBox}" 
-                                                                 Text="{Binding Mode=TwoWay, Path=Description}"/>
-                                                        <Grid>
-                                                            <Grid.ColumnDefinitions>
-                                                                <ColumnDefinition Width="100"/>
-                                                                <ColumnDefinition Width="100"/>
-                                                                <ColumnDefinition Width="100"/>
-                                                            </Grid.ColumnDefinitions>
-                                                            <CheckBox Content="Urgent"
-                                                                      Grid.Column="0"
-                                                                      IsChecked="{Binding Mode=TwoWay,
-                                                                                  Path=Priority,
-                                                                                  Converter={StaticResource UrgentConverter}}"/>
-                                                            <CheckBox Content="Important"
-                                                                      Grid.Column="1"
-                                                                      IsChecked="{Binding Mode=TwoWay,
-                                                                                  Path=Priority,
-                                                                                  Converter={StaticResource ImportantConverter}}"/>
-                                                            <CheckBox Content="Done"
-                                                                      Grid.Column="2"
-                                                                      IsChecked="{Binding Path=Done}"/>
-                                                        </Grid>
-                                                    </StackPanel>
-                                                </Expander.Content>
-                                            </Expander>
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                </ListBox>
+                               
 
                                 <TextBox Style="{StaticResource DescriptionTextBox}"
                                          Text="{Binding Mode=TwoWay, Path=EndDate}"/>
