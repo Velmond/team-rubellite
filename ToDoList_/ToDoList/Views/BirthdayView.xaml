@@ -1,0 +1,151 @@
+﻿<UserControl x:Class="ToDoList.Views.BirthdayView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:viewModels ="clr-namespace:ToDoList.ViewModels"
+             xmlns:converters ="clr-namespace:ToDoList.Converters"
+             mc:Ignorable="d" Width="291.387" Height="322.967">
+
+    <UserControl.Resources>
+        <converters:PriorityToIsUrgentCheck x:Key="UrgentConverter"/>
+        <converters:PriorityToIsImportantCheck x:Key="ImportantConverter"/>
+        <converters:DoneToStrikethrough x:Key="DoneConverter"/>
+        <!--
+            -->
+
+        <Style x:Key="TitleTextBox"
+               TargetType="TextBox">
+            <Setter Property="FontSize"
+                    Value="14"/>
+            <Setter Property="BorderThickness"
+                    Value="0"/>
+        </Style>
+        <Style x:Key="DescriptionTextBox"
+               TargetType="TextBox">
+            <Setter Property="Width"
+                    Value="220"/>
+            <Setter Property="AcceptsReturn"
+                    Value="True"/>
+            <Setter Property="TextWrapping"
+                    Value="Wrap"/>
+        </Style>
+    </UserControl.Resources>
+    <UserControl.DataContext>
+        <viewModels:BirthdayViewModel/>
+    </UserControl.DataContext>
+
+    <DockPanel x:Name="root">
+        <ListBox Name="ListBoxBirthday"
+                 ItemsSource="{Binding Path=Items}"
+                 Width="290"
+                 IsSynchronizedWithCurrentItem="True"
+                 DockPanel.Dock="Left" Margin="0,0,0,-136" RenderTransformOrigin="0.5,0.5">
+            <ListBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.034"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ListBox.RenderTransform>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Expander>
+                        <Expander.Header>
+                            <TextBox Style="{StaticResource TitleTextBox}" 
+                                     Text="{Binding Mode=TwoWay, Path=Title}"
+                                     Background="{Binding Path=ListBoxBirthday.Background}" 
+                                     TextDecorations="{Binding Path=Done, Converter={StaticResource DoneConverter}}"/>
+                        </Expander.Header>
+                        <Expander.Content>
+                            <StackPanel>
+                                <TextBox Style="{StaticResource DescriptionTextBox}"  
+                                         Text="{Binding Mode=TwoWay, Path=Description}"/>
+                                <ListBox Name="Subtasks"
+                                         ItemsSource="{Binding Path=Subtasks}"
+                                         Width="300"
+                                         IsSynchronizedWithCurrentItem="True">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Expander>
+                                                <Expander.Header>
+                                                    <TextBox Style="{StaticResource TitleTextBox}" 
+                                                             Text="{Binding Mode=TwoWay, Path=Title}"
+                                                             Background="{Binding Path=ListBoxTasks.Background}" 
+                                                             TextDecorations="{Binding Path=Done, 
+                                                                               Converter={StaticResource DoneConverter}}"/>
+                                                </Expander.Header>
+                                                <Expander.Content>
+                                                    <StackPanel>
+                                                        <TextBox Style="{StaticResource DescriptionTextBox}" 
+                                                                 Text="{Binding Mode=TwoWay, Path=Description}"/>
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="100"/>
+                                                                <ColumnDefinition Width="100"/>
+                                                                <ColumnDefinition Width="100"/>
+                                                            </Grid.ColumnDefinitions>
+                                                            <CheckBox Content="Urgent"
+                                                                      Grid.Column="0"
+                                                                      IsChecked="{Binding Mode=TwoWay,
+                                                                                  Path=Priority,
+                                                                                  Converter={StaticResource UrgentConverter}}"/>
+                                                            <CheckBox Content="Important"
+                                                                      Grid.Column="1"
+                                                                      IsChecked="{Binding Mode=TwoWay,
+                                                                                  Path=Priority,
+                                                                                  Converter={StaticResource ImportantConverter}}"/>
+                                                            <CheckBox Content="Done"
+                                                                      Grid.Column="2"
+                                                                      IsChecked="{Binding Path=Done}"/>
+                                                        </Grid>
+                                                    </StackPanel>
+                                                </Expander.Content>
+                                            </Expander>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+
+                                <TextBox Style="{StaticResource DescriptionTextBox}"
+                                         Text="{Binding Mode=TwoWay, Path=EndDate}"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="100"/>
+                                    </Grid.ColumnDefinitions>
+                                    <CheckBox Content="Urgent"
+                                              Grid.Column="0"
+                                              IsChecked="{Binding Mode=TwoWay,
+                                                          Path=Priority,
+                                                          Converter={StaticResource UrgentConverter}}"/>
+                                    <CheckBox Content="Important"
+                                              Grid.Column="1"
+                                              IsChecked="{Binding Mode=TwoWay,
+                                                          Path=Priority,
+                                                          Converter={StaticResource ImportantConverter}}"/>
+                                    <CheckBox Content="Done"
+                                              Grid.Column="2"
+                                              IsChecked="{Binding Path=Done}"/>
+                                </Grid>
+                            </StackPanel>
+                        </Expander.Content>
+                    </Expander>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel DockPanel.Dock="Right">
+            <!--<TextBox SelectedText="Search"
+                     Name="TextBoxSearch"
+                     KeyUp="TextBoxSearch_KeyUp"/>-->
+            <Button Content="New Goal"
+                    Command="{Binding AddNewItem}"/>
+            <Button Content="Delete"
+                    Command="{Binding Path=DeleteItem}"/>
+            <Button Content="Save"
+                    Command="{Binding Path=SaveItem}"/>
+        </StackPanel>
+    </DockPanel>
+</UserControl>
