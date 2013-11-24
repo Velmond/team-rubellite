@@ -72,6 +72,9 @@
     <Compile Include="ViewModels\BirthdayViewModel.cs" />
     <Compile Include="ViewModels\GoalViewModel.cs" />
     <Compile Include="ViewModels\TaskViewModel.cs" />
+    <Compile Include="Views\BirthdayView.xaml.cs">
+      <DependentUpon>BirthdayView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\GoalsView.xaml.cs">
       <DependentUpon>GoalsView.xaml</DependentUpon>
     </Compile>
