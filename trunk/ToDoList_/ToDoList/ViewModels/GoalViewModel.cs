@@ -1,11 +1,11 @@
-﻿namespace ToDoList.ViewModels
+ namespace ToDoList.ViewModels
 {
     using System;
     using System.Collections.ObjectModel;
     using System.Windows.Data;
     using ToDoList.Models;
 
-    public class GoalViewModel : BaseViewModel<Task>
+    public class GoalViewModel : BaseViewModel<Goal>
     {
         /// <summary>
         /// Constructor for the goal's view model
@@ -13,7 +13,7 @@
         public GoalViewModel()
             : base()
         {
-            // !!! There is some problem in this row \/ but I have yet to find out what is causing it
+            // !!! There is some problem with reading the goals from the file
             //this.itemPool = new ObservableCollection<Goal>(DataManager.GetGoals(@"..\..\tasks.xml"));
         }
 
