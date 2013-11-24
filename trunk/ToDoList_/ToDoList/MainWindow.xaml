@@ -9,9 +9,9 @@
             <views:TasksView/>
         </TabItem>
 
-        <!--<TabItem Header="Meetings">
+        <TabItem Header="Meetings">
             <views:MeetingView/>
-        </TabItem>-->
+        </TabItem>
 
         <TabItem Header="Goals">
             <views:GoalsView/>
