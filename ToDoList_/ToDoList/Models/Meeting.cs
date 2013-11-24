@@ -8,9 +8,10 @@ namespace ToDoList.Models
 {
 
     public class Meeting : BaseObjectModel, IComparable<Meeting>
-        {
-            public DateTime Beginning { get; protected set; }
-            public ushort Duration { get; protected set; }
+    {
+        //TODO encapsulation
+            public DateTime Beginning { get; set; }
+            public ushort Duration { get;  set; }
 
             public Meeting() { }
             public Meeting(string title, string description, DateTime start, ushort duration)
