@@ -43,9 +43,12 @@
     <UserControl.DataContext>
         <viewModels:MeetingViewModel/>
     </UserControl.DataContext>
-    <Button Content="Button" HorizontalAlignment="Left" Height="208" VerticalAlignment="Top" Width="211" Margin="0,92,0,0"/>
 
 
+    <DockPanel x:Name="root">
+        <Button Content="Button" Height="300" VerticalAlignment="Top" Width="75"/>
+
+    </DockPanel>
 
 
 </UserControl>

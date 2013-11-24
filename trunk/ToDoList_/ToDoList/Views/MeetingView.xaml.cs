@@ -12,18 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ToDoList.ViewModels;
 
 namespace ToDoList.Views
 {
     /// <summary>
     /// Interaction logic for Page1.xaml
     /// </summary>
-    public partial class Page1 : Page
+    public partial class MeetingView : UserControl
     {
-        public Page1()
+        public MeetingView()
         {
             //TODO
-            //InitializeComponent();
+            InitializeComponent();
         }
     }
 }
