@@ -74,16 +74,16 @@
                             Title = goal.Element("title").Value,
                             Description = goal.Element("description").Value,
                             Priority = (Priority)int.Parse(goal.Element("priority").Value),
-                            Subtasks = (
-                                            from task in goal.Elements("subtask")
-                                            select new Task()
-                                            {
-                                                Title = task.Element("title").Value,
-                                                Description = task.Element("description").Value,
-                                                Priority = (Priority)int.Parse(task.Element("priority").Value),
-                                                Tags = task.Elements("tags").Elements("tag").Select(t => t.Value),
-                                            }
-                                        ).ToList<Task>(),
+                            //Subtasks = (
+                            //                from task in goal.Elements("subtask")
+                            //                select new Task()
+                            //                {
+                            //                    Title = task.Element("title").Value,
+                            //                    Description = task.Element("description").Value,
+                            //                    Priority = (Priority)int.Parse(task.Element("priority").Value),
+                            //                    Tags = task.Elements("tags").Elements("tag").Select(t => t.Value),
+                            //                }
+                            //            ).ToList<Task>(),
                             //EndDate = DateTime.Parse(goal.Element("enddate").Value),
                             Tags = goal.Elements("tags").Elements("tag").Select(t => t.Value)
                         };

@@ -57,8 +57,8 @@
                                 <TextBox Style="{StaticResource DescriptionTextBox}"  
                                          Text="{Binding Mode=TwoWay, Path=Description}"/>
                                 <ListBox Name="Subtasks"
-                                         ItemsSource="{Binding Path=Subtasks}"
-                                         Width="300"
+                                         ItemsSource="{Binding Mode=TwoWay, Path=Subtasks}"
+                                         Width="320"
                                          IsSynchronizedWithCurrentItem="True">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
@@ -135,9 +135,13 @@
                      Name="TextBoxSearch"
                      KeyUp="TextBoxSearch_KeyUp"/>
             <Button Content="New Goal"
-                    Command="{Binding AddNewItem}"/>
+                    Command="{Binding Path=AddNewItem}"/>
             <Button Content="Delete"
                     Command="{Binding Path=DeleteItem}"/>
+            <Button Content="New Subtask"
+                    Command="{Binding Path=AddNewSubtask}"/>
+            <Button Content="Delete Subtask"
+                    Command="{Binding Path=DeleteSubtask}"/>
             <Button Content="Save"
                     Command="{Binding Path=SaveItem}"/>
         </StackPanel>

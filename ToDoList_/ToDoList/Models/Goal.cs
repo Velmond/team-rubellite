@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.Text;
 
     /// <summary>
@@ -11,7 +12,7 @@
     {
         // Goal specific fields
         private DateTime endDate;
-        private ICollection<Task> subtasks;
+        private ObservableCollection<Task> subtasks;
 
         /// <summary>
         /// Long term task which can contain subtasks and has a deadline
@@ -21,7 +22,7 @@
         {
             this.EndDate = DateTime.Now.AddMonths(1);
             // This is repeated in both constructors. Should see how to get rid of one of those.
-            this.subtasks = new List<Task>();
+            this.subtasks = new ObservableCollection<Task>();
         }
 
         /// <summary>
@@ -35,7 +36,7 @@
             : base(title, description, priority)
         {
             this.EndDate = DateTime.Now.AddMonths(endTimeInMonths);
-            this.subtasks = new List<Task>();
+            this.subtasks = new ObservableCollection<Task>();
         }
 
         /// <summary>
@@ -60,7 +61,7 @@
         /// A Collection of the subtasks for this goal
         /// </summary>
         /// <exception cref="NullReferenceException">Trying to assign null value to the goal's collection of the subtasks</exception>
-        public ICollection<Task> Subtasks
+        public ObservableCollection<Task> Subtasks
         {
             get { return this.subtasks; }
             set
