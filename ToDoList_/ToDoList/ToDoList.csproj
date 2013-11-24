@@ -65,9 +65,11 @@
     <Compile Include="Converters\DoneToStrikethrough.cs" />
     <Compile Include="Converters\PriorityToIsImportantCheck.cs" />
     <Compile Include="Converters\PriorityToIsUrgentCheck.cs" />
+    <Compile Include="Models\BirthdayReminder.cs" />
     <Compile Include="Models\DataTranslator.cs" />
     <Compile Include="Models\Goal.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\BirthdayViewModel.cs" />
     <Compile Include="ViewModels\GoalViewModel.cs" />
     <Compile Include="ViewModels\TaskViewModel.cs" />
     <Compile Include="Views\GoalsView.xaml.cs">
@@ -88,6 +90,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\BirthdayView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\GoalsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
