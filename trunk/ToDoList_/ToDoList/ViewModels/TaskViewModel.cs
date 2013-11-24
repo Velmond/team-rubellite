@@ -10,8 +10,9 @@
         public TaskViewModel()
             : base()
         {
-            this.itemPool = new ObservableCollection<Task>(
-                 DataManager.GetTasks(@"..\..\tasks.xml"));
+            //this.itemPool = new ObservableCollection<Task>(
+            //     DataManager.GetTasks(@"..\..\tasks.xml"));
+            this.itemPool = DataTranslator<Task>.Deserialize();
         }
     } 
 }

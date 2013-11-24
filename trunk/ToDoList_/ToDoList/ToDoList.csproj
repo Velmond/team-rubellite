@@ -67,16 +67,11 @@
     <Compile Include="Converters\PriorityToIsUrgentCheck.cs" />
     <Compile Include="Models\DataTranslator.cs" />
     <Compile Include="Models\Goal.cs" />
-    <Compile Include="Models\Meeting.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\GoalViewModel.cs" />
-    <Compile Include="ViewModels\MeetingViewModel.cs" />
     <Compile Include="ViewModels\TaskViewModel.cs" />
     <Compile Include="Views\GoalsView.xaml.cs">
       <DependentUpon>GoalsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MeetingView.xaml.cs">
-      <DependentUpon>MeetingView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TasksView.xaml.cs">
       <DependentUpon>TasksView.xaml</DependentUpon>
@@ -96,10 +91,6 @@
     <Page Include="Views\GoalsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\MeetingView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\TasksView.xaml">
       <SubType>Designer</SubType>
