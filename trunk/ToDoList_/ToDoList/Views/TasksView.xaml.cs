@@ -35,5 +35,10 @@ namespace ToDoList.Views
                 (this.DataContext as TaskViewModel).Filter(filterText);
             }
         }
+
+        private void ListBoxTasks_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
