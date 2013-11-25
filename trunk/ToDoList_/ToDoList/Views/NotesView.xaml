@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="ToDoList.Views.NotesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:viewModels ="clr-namespace:ToDoList.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.DataContext>
+        <viewModels:NoteViewModel/>
+    </UserControl.DataContext>
+    <DockPanel x:Name="root">
+        <ListBox Name="ListBoxNotes"
+                 ItemsSource="{Binding Path=Notes}"
+                 Width="350"
+                 IsSynchronizedWithCurrentItem="True"
+                 DockPanel.Dock="Left">
+        </ListBox>
+        <StackPanel DockPanel.Dock="Right">
+            <TextBox SelectedText="Search"
+                     Name="TextBoxSearch" 
+                     KeyUp="TextBoxSearch_KeyUp"/>
+            <Button Content="New Note"
+                    Command="{Binding AddNote}"/>
+            <Button Content="Delete" 
+                    Command="{Binding Path=DeleteItem}"/>
+            <Button Content="Save"
+                    Command="{Binding Path=SaveItem}"/>
+        </StackPanel>
+    </DockPanel>
+</UserControl>
