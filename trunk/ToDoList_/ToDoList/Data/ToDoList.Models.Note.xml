@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfNote xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+<ArrayOfNote xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Note>
+    <Title>doctor</Title>
+    <Description>Ivelina Stoyanova</Description>
+    <Done>false</Done>
+  </Note>
+</ArrayOfNote>
