@@ -8,7 +8,7 @@
              mc:Ignorable="d" Width="538.355" Height="393.493">
     
     <UserControl.DataContext>
-        <viewModels:NoteViewModel/>
+        <viewModels:MeetingViewModel/>
     </UserControl.DataContext>
     
     <DockPanel x:Name="root">

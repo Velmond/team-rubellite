@@ -46,8 +46,43 @@
 
 
     <DockPanel x:Name="root">
-        <Button Content="Button" Height="300" VerticalAlignment="Top" Width="75"/>
+        <ListBox Name="ListBoxTasks"
+                 ItemsSource="{Binding Path=Items}"
+                 Width="350"
+                 IsSynchronizedWithCurrentItem="True"
+                 DockPanel.Dock="Left" SelectionChanged="ListBoxTasks_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Expander>
+                        <Expander.Header>
+                            <TextBox>
+                            </TextBox>
+                        </Expander.Header>
+                        <Expander.Content>
+                            <StackPanel>
+                                <!--<TextBox />-->
+                                <!--<CheckBox />
+                                <CheckBox/ >
+                                <CheckBox />-->
+                            </StackPanel>
+                        </Expander.Content>
+                    </Expander>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel DockPanel.Dock="Right">
+            <!--<TextBox Text="{Binding Mode=TwoWay, ElementName=ListBoxTasks, Path=SelectedItem.Priority}"/>-->
+            <TextBox SelectedText="Search"
+                     Name="TextBoxSearch" 
+                     KeyUp="TextBoxSearch_KeyUp"/>
+            <Button Content="New Meeting"
+                    Command="{Binding AddNewItem}"/>
+            <Button Content="Delete" 
+                    Command="{Binding Path=DeleteItem}"/>
+            <Button Content="Save"
+                    Command="{Binding Path=SaveItem}"/>
 
+        </StackPanel>
     </DockPanel>
 
 

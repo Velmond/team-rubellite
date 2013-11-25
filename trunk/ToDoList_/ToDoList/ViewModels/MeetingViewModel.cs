@@ -16,7 +16,7 @@ namespace ToDoList.ViewModels
         //    this.itemPool = new ObservableCollection<Meeting>(
         //         DataTranslator<Meeting>.Serialize(@"..\..\tasks.xml"));
 
-            DataTranslator<Meeting>.Serialize(this.itemPool);
+            DataTranslator<Meeting>.Deserialize();
         }
     }
 }
