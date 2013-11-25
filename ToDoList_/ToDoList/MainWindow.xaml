@@ -22,6 +22,7 @@
         </TabItem>
 
         <TabItem Header="Notes">
+            <views:NotesView/>
         </TabItem>
 
     </TabControl>
