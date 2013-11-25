@@ -14,7 +14,8 @@ namespace ToDoList.Models
         public string Description { get; set; }
 
         //Constructors
-        public Note(string title, string description) : base(title, description)
+        public Note(string title, string description)
+            : base(title, description)
         {
             this.Notes = new ObservableCollection<Note>();
         }
