@@ -26,5 +26,19 @@ namespace ToDoList.Views
             //TODO
             InitializeComponent();
         }
+
+        private void TextBoxSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            var filterText = this.TextBoxSearch.Text;
+            if (filterText != null)
+            {
+                (this.DataContext as MeetingViewModel).Filter(filterText);
+            }
+        }
+
+        private void ListBoxTasks_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

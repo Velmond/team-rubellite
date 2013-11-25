@@ -70,7 +70,10 @@
 
         private void HandleAddNewItem(object obj)
         {
-            this.itemPool.Add(new T());
+            if (obj != null)
+            {
+                this.itemPool.Add(new T());
+            }
         }
 
         protected void OnPropertyChanged(string propertyName)
