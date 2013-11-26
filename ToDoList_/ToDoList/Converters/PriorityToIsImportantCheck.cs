@@ -8,6 +8,9 @@
 
     public class PriorityToIsImportantCheck : IValueConverter
     {
+        /// <summary>
+        /// Converts Priority to bool values
+        /// </summary>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             switch (value.ToString())

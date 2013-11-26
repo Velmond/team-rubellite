@@ -8,6 +8,9 @@
 
     public class PriorityToIsUrgentCheck : IValueConverter
     {
+        /// <summary>
+        /// Convert priority to bool value.
+        /// </summary>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             switch (value.ToString())

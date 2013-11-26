@@ -9,11 +9,16 @@
     using ToDoList.Commands;
     using ToDoList.Models;
 
-    public class BaseViewModel<T> : INotifyPropertyChanged
-                          where T : BaseObjectModel, new()
+    /// <summary>
+    /// Base ViewModel to address the common functionality of all Items
+    /// <para>AddNewItem - for adding Items</para>
+    /// <para>DeleteItem - for deleting Items</para>
+    /// <para>SaveItem - for saving Items to xml file</para>
+    /// <para>Filter - for searching within the Item collection</para>
+    /// </summary>
+    /// <typeparam name="T">Any successor of BaseObjectModel</typeparam>
+    public class BaseViewModel<T> where T : BaseObjectModel, new()
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         /// <summary>
         /// A dynamic data collection that provides notifications when items get added, removed, or when the whole list is refreshed.
         /// </summary>
@@ -25,20 +30,7 @@
         public IEnumerable<T> Items
         {
             get { return itemPool; }
-            //set
-            //{
-            //    if (this.tasks==null)
-            //    {
-            //        this.tasks = new ObservableCollection<Task>();
-            //    }
-            //    this.tasks.Clear();
-            //    foreach (var item in value)
-            //    {
-            //        this.tasks.Add(item);
-            //    }
-            //}
         }
-        //public T NewItem { get; set; }
         public ICommand AddNewItem { get; set; }
         public ICommand DeleteItem { get; set; }
         public ICommand SaveItem { get; set; }
@@ -56,11 +48,17 @@
 
         /* Methods */
 
+        /// <summary>
+        /// Serialize the collection of Items into xml file
+        /// </summary>
         private void HandleSaveItem(object obj)
         {
             DataTranslator<T>.Serialize(this.itemPool);
         }
 
+        /// <summary>
+        /// Delete selected Item from the collection.
+        /// </summary>
         private void HandleDeleteItem(object obj)
         {
             var view = CollectionViewSource.GetDefaultView(this.itemPool);
@@ -68,6 +66,9 @@
             this.itemPool.Remove(selected);
         }
 
+        /// <summary>
+        /// Add new Item into the collection.
+        /// </summary>
         private void HandleAddNewItem(object obj)
         {
             if (obj != null)
@@ -76,15 +77,9 @@
             }
         }
 
-        protected void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this,
-                    new PropertyChangedEventArgs(propertyName));
-            }
-        }
-
+        /// <summary>
+        /// Search for query within the Item collection.
+        /// </summary>
         public virtual void Filter(string query)
         {
             var itemView = CollectionViewSource.GetDefaultView(this.itemPool);
