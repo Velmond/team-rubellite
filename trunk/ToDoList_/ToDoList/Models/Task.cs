@@ -16,11 +16,19 @@
             set
             {
                 this.priority ^= value;
+                /* If property changes notify who is interested */
                 this.OnPropertyChanged("Priority");
             }
         }
 
-        public Task() { }
+        /// <summary>
+        /// Default task creation that can be modified.
+        /// </summary>
+        public Task() 
+        {
+            this.Title = "New Task";
+            this.Description = "Enter_description";
+        }
         public Task(string title, string description, Priority priority = Priority.None)
             : base(title, description)
         { this.Priority = priority; }

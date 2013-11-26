@@ -26,6 +26,7 @@
             set
             {
                 this.title = value;
+                /* If property changes notify who is interested */
                 this.OnPropertyChanged("Title");
             }
         }
@@ -44,6 +45,7 @@
             set
             {
                 this.done = value;
+                /* If property changes notify who is interested */
                 this.OnPropertyChanged("Done");
             }
         }
