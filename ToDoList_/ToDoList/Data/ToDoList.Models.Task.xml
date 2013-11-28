@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfTask xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Task>
-    <Title>Test tags</Title>
-    <Description>Test if tags are added to xml</Description>
+    <Title>NewItem</Title>
+    <Description>Enter Description</Description>
     <Done>true</Done>
-    <Tags>
-      <Tag>
-        <Name>task</Name>
-      </Tag>
-      <Tag>
-        <Name>task</Name>
-      </Tag>
-    </Tags>
     <Priority>Important</Priority>
   </Task>
   <Task>
-    <Title>make treeview</Title>
-    <Description>Try making treeview for all the items implementing the tagTank</Description>
+    <Title>NewItem</Title>
+    <Description>Enter Description</Description>
     <Done>false</Done>
-    <Tags>
-      <Tag>
-        <Name>task</Name>
-      </Tag>
-      <Tag>
-        <Name>task</Name>
-      </Tag>
-    </Tags>
-    <Priority>Important</Priority>
+    <Priority>Urgent</Priority>
+  </Task>
+  <Task>
+    <Title>NewItem</Title>
+    <Description>Enter Description</Description>
+    <Done>false</Done>
+    <Priority>None</Priority>
+  </Task>
+  <Task>
+    <Title>NewItem</Title>
+    <Description>Enter Description</Description>
+    <Done>false</Done>
+    <Priority>None</Priority>
+  </Task>
+  <Task>
+    <Title>NewItem</Title>
+    <Description>Enter Description</Description>
+    <Done>true</Done>
+    <Priority>Urgent Important</Priority>
   </Task>
 </ArrayOfTask>

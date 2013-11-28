@@ -55,15 +55,40 @@
                 <DataTemplate>
                     <Expander>
                         <Expander.Header>
-                            <TextBox>
+                            <TextBox> <!--FontSize="14" 
+                                     BorderThickness="0"-->
+                                     <TextBox.Text>
+                                       <MultiBinding StringFormat="{}{0} - {1:d}">
+                                         <Binding Path="Title" Mode="TwoWay" />
+                                        <Binding Path="Beginning" Mode="TwoWay"
+                                                 UpdateSourceTrigger="PropertyChanged"
+                                                  ValidatesOnDataErrors="True" TargetNullValue=''/>
+                                       </MultiBinding>
+                                     </TextBox.Text>
+
+                                <!--Background="{Binding Path=ListBoxTasks.Background}">-->
                             </TextBox>
                         </Expander.Header>
                         <Expander.Content>
                             <StackPanel>
-                                <!--<TextBox />-->
-                                <!--<CheckBox />
-                                <CheckBox/ >
-                                <CheckBox />-->
+                                <Label Content="Enter Title"></Label>
+                                <TextBox Width="220" 
+                                         AcceptsReturn="True" 
+                                         TextWrapping="Wrap" 
+                                         Text="{Binding Mode=TwoWay,Path=Title}"/>
+                                <Label Content="Enter Description"></Label>
+                                <TextBox Width="220" 
+                                         AcceptsReturn="True" 
+                                         TextWrapping="Wrap" 
+                                         Text="{Binding Mode=TwoWay,Path=Description}"/>
+                                <Label Content="Start date"></Label>
+                                <DatePicker Text="{Binding Mode=TwoWay,Path=Beginning}"/>
+                                <Label Content="Duration in minutes"></Label>
+                                <TextBox Width="220" 
+                                         AcceptsReturn="True" 
+                                         TextWrapping="Wrap" 
+                                         Text="{Binding Mode=TwoWay,Path=Duration}"/>
+                                
                             </StackPanel>
                         </Expander.Content>
                     </Expander>
