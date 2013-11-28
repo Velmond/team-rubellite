@@ -70,7 +70,6 @@
     <Compile Include="Models\Goal.cs" />
     <Compile Include="Models\Meeting.cs" />
     <Compile Include="Models\Note.cs" />
-    <Compile Include="Models\Tag.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\BirthdayViewModel.cs" />
     <Compile Include="ViewModels\GoalViewModel.cs" />

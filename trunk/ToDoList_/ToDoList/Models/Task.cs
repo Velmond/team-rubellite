@@ -24,11 +24,10 @@
         /// <summary>
         /// Default task creation that can be modified.
         /// </summary>
-        public Task()
+        public Task() 
         {
             this.Title = "New Task";
             this.Description = "Enter_description";
-            //this.Tags.Add(new Tag("task"));
         }
         public Task(string title, string description, Priority priority = Priority.None)
             : base(title, description)
