@@ -71,10 +71,9 @@
         /// </summary>
         private void HandleAddNewItem(object obj)
         {
-            if (obj != null)
-            {
+            
                 this.itemPool.Add(new T());
-            }
+           
         }
 
         /// <summary>
