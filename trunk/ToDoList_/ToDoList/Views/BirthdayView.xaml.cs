@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ToDoList.ViewModels;
 
 namespace ToDoList.Views
 {
@@ -23,5 +24,19 @@ namespace ToDoList.Views
         {
             InitializeComponent();
         }
+
+        private void TextBoxSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            var filterText = this.TextBoxSearch.Text;
+
+            (this.DataContext as BirthdayViewModel).Filter(filterText);
+
+        }
+
+        private void ListBoxTasks_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
     }
 }

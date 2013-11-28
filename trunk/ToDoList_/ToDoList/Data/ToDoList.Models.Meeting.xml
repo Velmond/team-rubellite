@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfMeeting xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+<ArrayOfMeeting xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Meeting>
+    <Title>New Meeting</Title>
+    <Description>Add Description</Description>
+    <Done>false</Done>
+    <Tags />
+    <Duration>0</Duration>
+    <Beginning>2013-11-28T00:00:00</Beginning>
+  </Meeting>
+</ArrayOfMeeting>
