@@ -5,6 +5,7 @@
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Xml.Serialization;
+    using System.Collections.ObjectModel;
 
     /// <summary>
     /// The basic class for ToDo list entities
@@ -14,8 +15,8 @@
     /// </summary>
     public abstract class BaseObjectModel : INotifyPropertyChanged
     {
-        private bool done;
-        private string title;
+        protected bool done;
+        protected string title;
 
         /// <summary>
         /// The entity's title
@@ -53,8 +54,7 @@
         /// <summary>
         /// A collection of labels for easy grouping of entities
         /// </summary>
-        [XmlIgnore()] 
-        public IEnumerable<string> Tags { get; set; }
+        public ObservableCollection<Tag> Tags { get; set; }
 
         /// <summary>
         /// Basic class for ToDo entities
@@ -63,6 +63,7 @@
         {
             this.Title = "NewItem";
             this.Description = "Enter Description";
+            this.Tags = new ObservableCollection<Tag>();
         }
 
         /// <summary>
@@ -70,7 +71,7 @@
         /// </summary>
         /// <param name="title">Title for the entity</param>
         /// <param name="description">Description for the entity</param>
-        public BaseObjectModel(string title, string description)
+        protected BaseObjectModel(string title, string description)
         {
             this.Title = title;
             this.Description = description;
