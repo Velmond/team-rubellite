@@ -10,6 +10,7 @@
         <converters:PriorityToIsUrgentCheck x:Key="UrgentConverter"/>
         <converters:PriorityToIsImportantCheck x:Key="ImportantConverter"/>
         <converters:DoneToStrikethrough x:Key="DoneConverter"/>
+        <converters:TagToText x:Key="TagConverter"/>
     </UserControl.Resources>
     <UserControl.DataContext>
         <viewModels:TaskViewModel/>
@@ -43,6 +44,7 @@
                                           IsChecked="{Binding Mode=TwoWay,Path=Priority,Converter={StaticResource ImportantConverter}}"/>
                                 <CheckBox Content="Done" 
                                           IsChecked="{Binding Path=Done}"/>
+                                <TextBox Text="{Binding Mode=TwoWay,Path=Tags,Converter={StaticResource TagConverter}}"/>
                             </StackPanel>
                         </Expander.Content>
                     </Expander>

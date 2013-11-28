@@ -5,6 +5,7 @@
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Xml.Serialization;
+    using System.Collections.ObjectModel;
 
     /// <summary>
     /// The basic class for ToDo list entities
@@ -16,6 +17,7 @@
     {
         private bool done;
         private string title;
+        protected ObservableCollection<string> tags;
 
         /// <summary>
         /// The entity's title
@@ -53,8 +55,26 @@
         /// <summary>
         /// A collection of labels for easy grouping of entities
         /// </summary>
-        [XmlIgnore()] 
-        public IEnumerable<string> Tags { get; set; }
+        //[XmlIgnore()] 
+        public ObservableCollection<string> Tags 
+        {
+            get
+            {
+                if (this.tags==null)
+                {
+                    this.tags = new ObservableCollection<string>();
+                }
+                return this.tags;
+            }
+            set
+            {
+                this.tags.Clear();
+                foreach (var tag in value)
+                {
+                    this.tags.Add(tag);
+                }
+            }
+        }
 
         /// <summary>
         /// Basic class for ToDo entities
@@ -63,6 +83,7 @@
         {
             this.Title = "NewItem";
             this.Description = "Enter Description";
+            //this.Tags = new ObservableCollection<string>();
         }
 
         /// <summary>
