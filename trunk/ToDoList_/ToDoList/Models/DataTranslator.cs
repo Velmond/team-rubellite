@@ -12,6 +12,7 @@
 
         public static void Serialize(ObservableCollection<T> list)
         {
+          
             XmlSerializer seri =
                 new XmlSerializer(typeof(ObservableCollection<T>));
             using (TextWriter writer = new StreamWriter(path+(typeof(T).ToString())+".xml"))
