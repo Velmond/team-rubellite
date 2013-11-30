@@ -19,7 +19,7 @@ namespace ToDoList.Models
             {
                 this.Title = "New Meeting";
                 this.Description = "Add Description";
-                this.Beginning = DateTime.Now;
+                //this.Beginning = DateTime.Now;
             }
             public Meeting(string title, string description, DateTime start, ushort duration)
                 : base(title, description)

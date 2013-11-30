@@ -1,18 +1,20 @@
 ﻿<UserControl x:Class="ToDoList.Views.MeetingView"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:viewModels ="clr-namespace:ToDoList.ViewModels"
              xmlns:converters ="clr-namespace:ToDoList.Converters"
+             
              mc:Ignorable="d" 
              d:DesignHeight="300"
              d:DesignWidth="300">
 
     <UserControl.Resources>
-        <converters:PriorityToIsUrgentCheck x:Key="UrgentConverter"/>
+        <!--<converters:PriorityToIsUrgentCheck x:Key="UrgentConverter"/>
         <converters:PriorityToIsImportantCheck x:Key="ImportantConverter"/>
-        <converters:DoneToStrikethrough x:Key="DoneConverter"/>
+        <converters:DoneToStrikethrough x:Key="DoneConverter"/>-->
         <!--
             -->
         <Style x:Key="TitleTextBox"
@@ -55,19 +57,21 @@
                 <DataTemplate>
                     <Expander>
                         <Expander.Header>
-                            <TextBox> <!--FontSize="14" 
+                            <TextBlock FontSize="14">
+                                <!--FontSize="14" 
                                      BorderThickness="0"-->
-                                     <TextBox.Text>
-                                       <MultiBinding StringFormat="{}{0} - {1:d}">
+                                <TextBlock.Text>
+                                    
+                                    <MultiBinding StringFormat="{}{0} - {1:d}">
                                          <Binding Path="Title" Mode="TwoWay" />
                                         <Binding Path="Beginning" Mode="TwoWay"
                                                  UpdateSourceTrigger="PropertyChanged"
                                                   ValidatesOnDataErrors="True" TargetNullValue=''/>
                                        </MultiBinding>
-                                     </TextBox.Text>
+                                </TextBlock.Text>
 
                                 <!--Background="{Binding Path=ListBoxTasks.Background}">-->
-                            </TextBox>
+                            </TextBlock>
                         </Expander.Header>
                         <Expander.Content>
                             <StackPanel>
@@ -82,7 +86,13 @@
                                          TextWrapping="Wrap" 
                                          Text="{Binding Mode=TwoWay,Path=Description}"/>
                                 <Label Content="Start date"></Label>
-                                <DatePicker Text="{Binding Mode=TwoWay,Path=Beginning}"/>
+                                <DatePicker 
+                                    Name="CalendarMeeting"
+                                    Text="{Binding Path=Beginning}" 
+                                    SelectedDate="{Binding Path=Beginning}"
+                                    />
+                                    <!--Text="{Binding Mode=TwoWay,
+                                    Path=Beginning}"-->
                                 <Label Content="Duration in minutes"></Label>
                                 <TextBox Width="220" 
                                          AcceptsReturn="True" 

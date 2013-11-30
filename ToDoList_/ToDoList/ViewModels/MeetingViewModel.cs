@@ -17,6 +17,7 @@ namespace ToDoList.ViewModels
         //         DataTranslator<Meeting>.Serialize(@"..\..\tasks.xml"));
 
             this.itemPool = DataTranslator<Meeting>.Deserialize();
+            
         }
     }
 }
