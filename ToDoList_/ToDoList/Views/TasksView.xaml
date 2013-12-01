@@ -62,6 +62,8 @@
                     Command="{Binding Path=DeleteItem}"/>
             <Button Content="Save"
                     Command="{Binding Path=SaveItem}"/>
+            <Button Content="Sort"
+                    Command="{Binding Path=SortItems}"/>
         </StackPanel>
     </DockPanel>
 </UserControl>
