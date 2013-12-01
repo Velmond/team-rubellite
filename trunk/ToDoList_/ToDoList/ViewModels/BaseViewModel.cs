@@ -29,8 +29,21 @@
         /// </summary>
         public IEnumerable<T> Items
         {
-            get { return itemPool; }
+            get { return this.itemPool; }
+            set
+            {
+                if (this.itemPool == null)
+                {
+                    this.itemPool = new ObservableCollection<T>();
+                }
+                this.itemPool.Clear();
+                foreach (var item in value)
+                {
+                    this.itemPool.Add(item);
+                }
+            }
         }
+
         public ICommand AddNewItem { get; set; }
         public ICommand DeleteItem { get; set; }
         public ICommand SaveItem { get; set; }

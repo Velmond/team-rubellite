@@ -9,6 +9,17 @@ Modify Tags property to take references into account</Description>
       <string>tag</string>
       <string>base</string>
     </Tags>
+    <Priority>Urgent Important</Priority>
+  </Task>
+  <Task>
+    <Title>Tree view</Title>
+    <Description>Try to make tree view for all tags</Description>
+    <Done>false</Done>
+    <Tags>
+      <string>tag</string>
+      <string>xaml</string>
+      <string>ViewModel</string>
+    </Tags>
     <Priority>Important</Priority>
   </Task>
   <Task>
@@ -33,14 +44,33 @@ Modify Tags property to take references into account</Description>
     <Priority>Important</Priority>
   </Task>
   <Task>
-    <Title>Tree view</Title>
-    <Description>Try to make tree view for all tags</Description>
-    <Done>false</Done>
+    <Title>Implement Sorting</Title>
+    <Description>Sorting of the list by priority</Description>
+    <Done>true</Done>
     <Tags>
-      <string>tag</string>
-      <string>xaml</string>
-      <string>ViewModel</string>
+      <string>sort</string>
+      <string>priority</string>
     </Tags>
     <Priority>Important</Priority>
+  </Task>
+  <Task>
+    <Title>Sort Test Important</Title>
+    <Description>Test Task with Important priority</Description>
+    <Done>false</Done>
+    <Tags>
+      <string>test</string>
+      <string>sort</string>
+    </Tags>
+    <Priority>Important</Priority>
+  </Task>
+  <Task>
+    <Title>Sort Test Urgent</Title>
+    <Description>Test Task with URGENT priority</Description>
+    <Done>false</Done>
+    <Tags>
+      <string>test</string>
+      <string>sort</string>
+    </Tags>
+    <Priority>Urgent</Priority>
   </Task>
 </ArrayOfTask>
