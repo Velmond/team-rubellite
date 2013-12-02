@@ -17,6 +17,10 @@
     {
         private bool done;
         private string title;
+
+        /// <summary>
+        /// A collection of descriptive labels for easy grouping of entities
+        /// </summary>
         protected ObservableCollection<string> tags;
 
         /// <summary>
@@ -56,11 +60,11 @@
         /// A collection of labels for easy grouping of entities
         /// </summary>
         //[XmlIgnore()] 
-        public ObservableCollection<string> Tags 
+        public ObservableCollection<string> Tags
         {
             get
             {
-                if (this.tags==null)
+                if (this.tags == null)
                 {
                     this.tags = new ObservableCollection<string>();
                 }
@@ -79,7 +83,7 @@
         /// <summary>
         /// Basic class for ToDo entities
         /// </summary>
-        public BaseObjectModel() 
+        public BaseObjectModel()
         {
             this.Title = "NewItem";
             this.Description = "Enter Description";
@@ -108,7 +112,7 @@
         //}
 
         /// <summary>
-        /// For debugging
+        /// Returns all the information of this BaseObjectModel as a string
         /// </summary>
         public override string ToString()
         {
