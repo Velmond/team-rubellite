@@ -11,17 +11,17 @@
     public class Goal : Task, IComparable<Goal>
     {
         // Goal specific fields
-        private DateTime endDate;
+        private DateTime deadLine;
         private ObservableCollection<Task> subtasks;
 
         /// <summary>
         /// Long term task which can contain subtasks and has a deadline
         /// </summary>
         public Goal()
-            : base()
         {
-            this.EndDate = DateTime.Now.AddMonths(1);
-            // This is repeated in both constructors. Should see how to get rid of one of those.
+            this.Title = "New Goal";
+            this.Description = "Enter_description";
+            this.DeadLine = DateTime.Now;
             this.subtasks = new ObservableCollection<Task>();
         }
 
@@ -32,28 +32,23 @@
         /// <param name="description">The goal's description</param>
         /// <param name="endTimeInMonths">The time limit for the goal's achievement in months</param>
         /// <param name="priority">The goal's priority</param>
-        public Goal(string title, string description, int endTimeInMonths, Priority priority = Priority.None)
+        public Goal(string title, string description, int deadLineInMonths, Priority priority = Priority.None)
             : base(title, description, priority)
         {
-            this.EndDate = DateTime.Now.AddMonths(endTimeInMonths);
+            this.DeadLine = DateTime.Now.AddMonths(deadLineInMonths);
             this.subtasks = new ObservableCollection<Task>();
         }
 
         /// <summary>
         /// The time set for accomplishing the goal
         /// </summary>
-        /// <exception cref="ArgumentOutOfRangeException">End date for the goal cannot be before the current one</exception>
-        public DateTime EndDate
+        ///// <exception cref="ArgumentOutOfRangeException">End date for the goal cannot be before the current one</exception>
+        public DateTime DeadLine
         {
-            get { return this.endDate.Date; }
+            get { return this.deadLine.Date; }
             set
             {
-                if (value.CompareTo(DateTime.Now) < 0)
-                {
-                    throw new ArgumentOutOfRangeException("endDate", "End date for the goal cannot be before the current one.");
-                }
-
-                this.endDate = value;
+                this.deadLine = value;
             }
         }
 
@@ -82,10 +77,7 @@
         /// <param name="subtask">Subtask to be added to the goal</param>
         public void AddSubtask(Task subtask)
         {
-            if (!this.subtasks.Contains(subtask))
-            {
-                this.subtasks.Add(subtask);
-            }
+            this.subtasks.Add(subtask);
         }
 
         /// <summary>
@@ -106,7 +98,7 @@
         /// <param name="months">The number of months to be added to the end date for this goal</param>
         public void ExtendDuration(int months)
         {
-            this.EndDate = this.EndDate.AddMonths(months);
+            this.DeadLine = this.DeadLine.AddMonths(months);
         }
 
         /// <summary>
@@ -117,7 +109,7 @@
         /// <returns>-1, 0, or 1 depending on the end dates of the goals that are compared</returns>
         public int CompareTo(Goal other)
         {
-            return this.EndDate.CompareTo(other.EndDate);
+            return this.DeadLine.CompareTo(other.DeadLine);
         }
 
         /// <summary>
@@ -126,7 +118,7 @@
         public override string ToString()
         {
             StringBuilder output = new StringBuilder();
-            output.AppendFormat("{0}\n{1}\n", base.ToString(), this.EndDate);
+            output.AppendFormat("{0}\n{1}\n", base.ToString(), this.DeadLine);
 
             foreach (Task subtask in this.Subtasks)
             {

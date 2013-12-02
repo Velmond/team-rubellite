@@ -2,8 +2,12 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:views="clr-namespace:ToDoList.Views"
-        Closing="Window_Closing"
-        Title="ToDoList" Height="350" Width="525">
+        Title="ToDoList"
+        Height="350"
+        Width="525"
+        ResizeMode="NoResize"
+        Closing="Window_Closing">
+
     <TabControl>
 
         <TabItem Header="Tasks">

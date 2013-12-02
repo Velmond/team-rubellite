@@ -36,7 +36,9 @@
                 {
                     this.itemPool = new ObservableCollection<T>();
                 }
+
                 this.itemPool.Clear();
+
                 foreach (var item in value)
                 {
                     this.itemPool.Add(item);
@@ -44,11 +46,24 @@
             }
         }
 
+        /// <summary>
+        /// Command to add a new item to the itemPool
+        /// </summary>
         public ICommand AddNewItem { get; set; }
+
+        /// <summary>
+        /// Command to delete a selected item from the itemPool
+        /// </summary>
         public ICommand DeleteItem { get; set; }
+
+        /// <summary>
+        /// Command to save all the items currently in the itemPool
+        /// </summary>
         public ICommand SaveItem { get; set; }
 
-        /* Constructor */
+        /// <summary>
+        /// A basic constructor for any view model
+        /// </summary>
         public BaseViewModel()
         {
             this.AddNewItem =
@@ -70,8 +85,9 @@
         }
 
         /// <summary>
-        /// Delete selected Item from the collection.
+        /// Delete selected item from the collection
         /// </summary>
+        /// <param name="obj">Item to be deleted from the collection</param>
         private void HandleDeleteItem(object obj)
         {
             var view = CollectionViewSource.GetDefaultView(this.itemPool);
@@ -80,33 +96,47 @@
         }
 
         /// <summary>
-        /// Add new Item into the collection.
+        /// Add new item to the itemPool
         /// </summary>
+        /// <param name="obj">Item to be added to the itemPool</param>
         private void HandleAddNewItem(object obj)
         {
-            
-                this.itemPool.Add(new T());
-           
+            this.itemPool.Add(new T());
         }
 
         /// <summary>
-        /// Search for query within the Item collection.
+        /// Search for string within the titles and descriptions of the collection of items
         /// </summary>
+        /// <param name="query">The string that is sought within the collection of items</param>
         public virtual void Filter(string query)
         {
             var itemView = CollectionViewSource.GetDefaultView(this.itemPool);
-            if (query==string.Empty)
+
+            if (query == string.Empty)
             {
                 itemView.Filter = null;
             }
             else
             {
                 var queryToLower = query.ToLower();
+
                 itemView.Filter = (item) =>
                     {
                         var currentItem = item as T;
-                        if (currentItem==null)
-                        { return false; }
+
+                        if (currentItem == null)
+                        {
+                            return false;
+                        }
+
+                        foreach (var tag in currentItem.Tags)
+                        {
+                            if (tag.ToLower().Contains(queryToLower))
+                            {
+                                return true;
+                            }
+                        }
+
                         return currentItem.Title.ToLower().Contains(queryToLower) ||
                                currentItem.Description.ToLower().Contains(queryToLower);
                     };
