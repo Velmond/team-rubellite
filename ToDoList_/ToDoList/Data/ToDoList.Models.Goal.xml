@@ -11,7 +11,7 @@
     <DeadLine>2014-03-31T00:00:00</DeadLine>
     <Subtasks>
       <Task>
-        <Title>Up my English skills</Title>
+        <Title>Improve my English skills</Title>
         <Description>Do a course in English to make yourself useful when buisiness is done with foreign companies.</Description>
         <Done>false</Done>
         <Tags>
@@ -61,7 +61,7 @@
       <string>teamwork</string>
     </Tags>
     <Priority>None</Priority>
-    <DeadLine>2013-12-13T00:00:00</DeadLine>
+    <DeadLine>2013-12-09T00:00:00</DeadLine>
     <Subtasks>
       <Task>
         <Title>Meetings</Title>
