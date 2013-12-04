@@ -10,7 +10,7 @@
              d:DesignWidth="300">
     
     <UserControl.DataContext>
-        <viewModels:MeetingViewModel/>
+        <viewModels:NoteViewModel/>
     </UserControl.DataContext>
     
     <DockPanel x:Name="root">
