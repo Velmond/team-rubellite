@@ -14,7 +14,7 @@
     </UserControl.DataContext>
     
     <DockPanel x:Name="root">
-        <ListBox Name="ListBoxTasks"
+        <ListBox Name="ListBoxNotes"
                  ItemsSource="{Binding Path=Items}"
                  Width="350"
                  IsSynchronizedWithCurrentItem="True"
@@ -26,7 +26,7 @@
                             <TextBox FontSize="14" 
                                      BorderThickness="0" 
                                      Text="{Binding Mode=TwoWay,Path=Title}"
-                                     Background="{Binding Path=ListBoxTasks.Background}">
+                                     Background="{Binding Path=ListBoxNotes.Background}">
                             </TextBox>
                         </Expander.Header>
                         <Expander.Content>
@@ -46,7 +46,7 @@
             <TextBox SelectedText="Search"
                      Name="TextBoxSearch" 
                      KeyUp="TextBoxSearch_KeyUp"/>
-            <Button Content="New Task"
+            <Button Content="New Note"
                     Command="{Binding AddNewItem}"/>
             <Button Content="Delete" 
                     Command="{Binding Path=DeleteItem}"/>
