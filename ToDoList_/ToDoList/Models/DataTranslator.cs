@@ -52,69 +52,33 @@
             {
                 if ((item as Goal) != null)
                 {
-                    (item as Goal).DeadLine = CorrectGoalDeadLine(item as Goal);
+                    (item as Goal).DeadLine = CorrectDate((item as Goal).DeadLine);
                 }
 
                 if ((item as Meeting) != null)
                 {
-                    (item as Meeting).Beginning = CorrectMeetingBeginning(item as Meeting);
+                    (item as Meeting).Beginning = CorrectDate((item as Meeting).Beginning);
                 }
 
                 if ((item as BirthdayReminder) != null)
                 {
-                    (item as BirthdayReminder).BirthDate = CorrectBirthdayReminderBirthDate(item as BirthdayReminder);
-                    (item as BirthdayReminder).DateCreated = CorrectBirthdayReminderDateCreated(item as BirthdayReminder);
+                    (item as BirthdayReminder).BirthDate = CorrectDate((item as BirthdayReminder).BirthDate);
+                    (item as BirthdayReminder).DateCreated = CorrectDate((item as BirthdayReminder).DateCreated);
                 }
             }
 
             return result;
         }
 
-        private static DateTime CorrectGoalDeadLine(Goal goal)
+        private static DateTime CorrectDate(DateTime date)
         {
-            if (goal.DeadLine.Day < 12)
+            if (date.Day < 12)
             {
-                return new DateTime(goal.DeadLine.Year, goal.DeadLine.Day, goal.DeadLine.Month);
+                return new DateTime(date.Year, date.Day, date.Month);
             }
             else
             {
-                return goal.DeadLine;
-            }
-        }
-
-        private static DateTime CorrectMeetingBeginning(Meeting meeting)
-        {
-            if (meeting.Beginning.Day < 12)
-            {
-                return new DateTime(meeting.Beginning.Year, meeting.Beginning.Day, meeting.Beginning.Month);
-            }
-            else
-            {
-                return meeting.Beginning;
-            }
-        }
-
-        private static DateTime CorrectBirthdayReminderBirthDate(BirthdayReminder birthdayReminder)
-        {
-            if (birthdayReminder.BirthDate.Day < 12)
-            {
-                return new DateTime(birthdayReminder.BirthDate.Year, birthdayReminder.BirthDate.Day, birthdayReminder.BirthDate.Month);
-            }
-            else
-            {
-                return birthdayReminder.BirthDate;
-            }
-        }
-
-        private static DateTime CorrectBirthdayReminderDateCreated(BirthdayReminder birthdayReminder)
-        {
-            if (birthdayReminder.DateCreated.Day < 12)
-            {
-                return new DateTime(birthdayReminder.DateCreated.Year, birthdayReminder.DateCreated.Day, birthdayReminder.DateCreated.Month);
-            }
-            else
-            {
-                return birthdayReminder.DateCreated;
+                return date;
             }
         }
     }
