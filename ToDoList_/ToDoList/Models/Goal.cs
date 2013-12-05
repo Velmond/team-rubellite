@@ -12,17 +12,17 @@
     {
         // Goal specific fields
         private DateTime deadLine;
-        private ObservableCollection<Task> subtasks;
+        private ObservableCollection<Goal> subtasks;
 
         /// <summary>
         /// Long term task which can contain subtasks and has a deadline
         /// </summary>
         public Goal()
         {
-            this.Title = "New Goal";
-            this.Description = "Enter_description";
+            this.Title = "";
+            this.Description = "";
             this.DeadLine = DateTime.Now;
-            this.subtasks = new ObservableCollection<Task>();
+            this.subtasks = new ObservableCollection<Goal>();
         }
 
         /// <summary>
@@ -30,13 +30,13 @@
         /// </summary>
         /// <param name="title">The goal's title</param>
         /// <param name="description">The goal's description</param>
-        /// <param name="endTimeInMonths">The time limit for the goal's achievement in months</param>
+        /// <param name="deadLine">The time by which the goal should be achieved</param>
         /// <param name="priority">The goal's priority</param>
-        public Goal(string title, string description, int deadLineInMonths, Priority priority = Priority.None)
+        public Goal(string title, string description, DateTime deadLine, Priority priority = Priority.None)
             : base(title, description, priority)
         {
-            this.DeadLine = DateTime.Now.AddMonths(deadLineInMonths);
-            this.subtasks = new ObservableCollection<Task>();
+            this.DeadLine = deadLine;
+            this.subtasks = new ObservableCollection<Goal>();
         }
 
         /// <summary>
@@ -56,7 +56,7 @@
         /// A Collection of the subtasks for this goal
         /// </summary>
         /// <exception cref="NullReferenceException">Trying to assign null value to the goal's collection of the subtasks</exception>
-        public ObservableCollection<Task> Subtasks
+        public ObservableCollection<Goal> Subtasks
         {
             get { return this.subtasks; }
             set
@@ -75,7 +75,7 @@
         /// Add a subtask to the goal
         /// </summary>
         /// <param name="subtask">Subtask to be added to the goal</param>
-        public void AddSubtask(Task subtask)
+        public void AddSubtask(Goal subtask)
         {
             this.subtasks.Add(subtask);
         }
@@ -84,7 +84,7 @@
         /// Remove a subtask from the goal
         /// </summary>
         /// <param name="subtask">Subtask to be removed from the goal</param>
-        public void RemoveSubtask(Task subtask)
+        public void RemoveSubtask(Goal subtask)
         {
             if (this.subtasks.Contains(subtask))
             {

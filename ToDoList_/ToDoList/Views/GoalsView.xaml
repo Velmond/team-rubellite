@@ -136,12 +136,12 @@
                                                     <TextBlock TextDecorations="{Binding Path=Done, Converter={StaticResource DoneConverter}}"
                                                                FontSize="14">
                                                         <TextBlock.Text>
-                                                            <MultiBinding StringFormat="{}{0} / {1}">
+                                                            <MultiBinding StringFormat="{}{0} / {1:dd.MM.yyyy}">
                                                                 <Binding Path="Title"
                                                                          Mode="TwoWay"
                                                                          UpdateSourceTrigger="PropertyChanged"
                                                                          ValidatesOnDataErrors="True"/>
-                                                                <Binding Path="Priority"
+                                                                <Binding Path="DeadLine"
                                                                          Mode="TwoWay"
                                                                          UpdateSourceTrigger="PropertyChanged"
                                                                          ValidatesOnDataErrors="True"/>
@@ -164,6 +164,17 @@
                                                                        Width="70"/>
                                                             <DatePickerTextBox Text="{Binding Mode=TwoWay, Path=Description}"
                                                                                Style="{StaticResource DescriptionTextBox}"/>
+                                                        </StackPanel>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <TextBlock Width="25"/>
+                                                            <TextBlock Text="Deadline:"
+                                                                       VerticalAlignment="Center"
+                                                                       Width="67"/>
+                                                            <DatePicker Text="{Binding Mode=TwoWay, Path=DeadLine}"
+                                                                        SelectedDate="{Binding Mode=TwoWay, Path=DeadLine}"
+                                                                        SelectedDateFormat="Long"
+                                                                        Width="223"
+                                                                        BorderBrush="Transparent"/>
                                                         </StackPanel>
                                                         <StackPanel Orientation="Horizontal">
                                                             <TextBlock Width="25"/>
@@ -198,16 +209,25 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-
+        
         <StackPanel DockPanel.Dock="Right">
-            <TextBox SelectedText="Search"
-                     Name="TextBoxSearch"
-                     KeyUp="TextBoxSearch_KeyUp"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="5"/>
+                <TextBlock Text="Search:"
+                           TextAlignment="Center"/>
+                <TextBlock Width="5"/>
+                <TextBox KeyUp="TextBoxSearch_KeyUp"
+                         Name="TextBoxSearch"
+                         Width="100"/>
+            </StackPanel>
             <Button Content="New Goal"
                     Command="{Binding Path=AddNewItem}"
                     Style="{StaticResource TransparantButtonStyle}"/>
-            <Button Content="Delete"
+            <Button Content="Delete Goal"
                     Command="{Binding Path=DeleteItem}"
+                    Style="{StaticResource TransparantButtonStyle}"/>
+            <Button Content="Sort"
+                    Command="{Binding Path=SortItems}"
                     Style="{StaticResource TransparantButtonStyle}"/>
             <Button Content="New Subtask"
                     Command="{Binding Path=AddNewSubtask}"
@@ -217,9 +237,6 @@
                     Style="{StaticResource TransparantButtonStyle}"/>
             <Button Content="Save"
                     Command="{Binding Path=SaveItem}"
-                    Style="{StaticResource TransparantButtonStyle}"/>
-            <Button Content="Sort"
-                    Command="{Binding Path=SortItems}"
                     Style="{StaticResource TransparantButtonStyle}"/>
         </StackPanel>
     </DockPanel>
