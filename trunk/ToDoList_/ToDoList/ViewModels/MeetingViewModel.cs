@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using ToDoList.Models;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Windows;
 
 namespace ToDoList.ViewModels
 {
@@ -17,7 +19,15 @@ namespace ToDoList.ViewModels
         //         DataTranslator<Meeting>.Serialize(@"..\..\tasks.xml"));
 
             this.itemPool = DataTranslator<Meeting>.Deserialize();
-            
+    
+        }
+
+        public void OnWindowClosing(object sender, CancelEventArgs e)
+        {
+            // Handle closing logic, set e.Cancel as needed
+            //tried to set event on closing the window, but it's not working
+
+            //MessageBox.Show("Exit The Project");
         }
     }
 }

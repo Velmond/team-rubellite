@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,12 +26,16 @@ namespace ToDoList
     {
         public MainWindow()
         {
+           
             InitializeComponent();
+           
             
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            //tried to implement serialization on all objects on closing the window, but was not able
+
             //TODO Implement writing the info in the xml files
             //Can't figure out how to pass the itemPool here, so it can be serialized
 
@@ -38,6 +44,7 @@ namespace ToDoList
 
 
             //MessageBox.Show("Wow");
+            
         }
 
     }

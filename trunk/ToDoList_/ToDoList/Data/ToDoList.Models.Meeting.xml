@@ -6,6 +6,52 @@
     <Done>false</Done>
     <Tags />
     <Duration>0</Duration>
+    <StartTime>--:-- h</StartTime>
     <Beginning>2013-11-28T00:00:00</Beginning>
+  </Meeting>
+  <Meeting>
+    <Title>test</Title>
+    <Description>Add Description</Description>
+    <Done>false</Done>
+    <Tags />
+    <Duration>0</Duration>
+    <StartTime>--:-- h</StartTime>
+    <Beginning>0001-01-01T00:00:00</Beginning>
+  </Meeting>
+  <Meeting>
+    <Title>asdasdasd</Title>
+    <Description>Add Description</Description>
+    <Done>false</Done>
+    <Tags />
+    <Duration>0</Duration>
+    <StartTime>--:-- h</StartTime>
+    <Beginning>0001-01-01T00:00:00</Beginning>
+  </Meeting>
+  <Meeting>
+    <Title>New Meeting</Title>
+    <Description>Add Description</Description>
+    <Done>false</Done>
+    <Tags />
+    <Duration>0</Duration>
+    <StartTime>--:-- h</StartTime>
+    <Beginning>0026-08-22T00:00:00</Beginning>
+  </Meeting>
+  <Meeting>
+    <Title>New Meeting</Title>
+    <Description>Add Description</Description>
+    <Done>false</Done>
+    <Tags />
+    <Duration>0</Duration>
+    <StartTime>18:12 h</StartTime>
+    <Beginning>2014-01-18T00:00:00</Beginning>
+  </Meeting>
+  <Meeting>
+    <Title>Sre6ta s Nasko</Title>
+    <Description>Da mi dade 20-te leva</Description>
+    <Done>false</Done>
+    <Tags />
+    <Duration>222</Duration>
+    <StartTime>13:45 h</StartTime>
+    <Beginning>2013-12-21T00:00:00</Beginning>
   </Meeting>
 </ArrayOfMeeting>
