@@ -14,7 +14,6 @@
         <converters:PriorityToIsImportantCheck x:Key="ImportantConverter"/>
         <converters:DoneToStrikethrough x:Key="DoneConverter"/>
         <converters:TagToText x:Key="TagConverter"/>
-
         <Style x:Key="TitleTextBox"
                TargetType="TextBox">
             <Setter Property="FontSize"
@@ -31,9 +30,9 @@
             <Setter Property="TextWrapping"
                     Value="Wrap"/>
         </Style>
-        <Style BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+        <Style x:Key="TransparantButtonStyle"
                TargetType="Button"
-               x:Key="TransparantButtonStyle">
+               BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
             <Setter Property="BorderThickness"
                     Value="0"/>
             <Setter Property="FontWeight"
@@ -48,94 +47,145 @@
     </UserControl.DataContext>
 
     <DockPanel x:Name="root">
-        <ListBox Name="ListBoxGoals"
-                 ItemsSource="{Binding Path=Items}"
-                 Width="350"
+        <ListBox ItemsSource="{Binding Path=Items}"
                  IsSynchronizedWithCurrentItem="True"
-                 DockPanel.Dock="Left">
+                 Name="ListBoxGoals"
+                 Width="350"
+                 DockPanel.Dock="Left"
+                 ScrollViewer.CanContentScroll="False"
+                 ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Expander>
                         <Expander.Header>
-                            <TextBox Style="{StaticResource TitleTextBox}" 
-                                     Text="{Binding Mode=TwoWay, Path=Title}"
-                                     Background="{Binding Path=ListBoxGoals.Background}" 
-                                     TextDecorations="{Binding Path=Done, Converter={StaticResource DoneConverter}}"/>
+                            <TextBlock TextDecorations="{Binding Path=Done, Converter={StaticResource DoneConverter}}"
+                                       FontSize="14"
+                                       TextWrapping="WrapWithOverflow">
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0} / {1:dd.MM.yyyy}">
+                                        <Binding Path="Title"
+                                                 Mode="TwoWay"
+                                                 UpdateSourceTrigger="PropertyChanged"
+                                                 ValidatesOnDataErrors="True"/>
+                                        <Binding Path="DeadLine"
+                                                 Mode="TwoWay"
+                                                 UpdateSourceTrigger="PropertyChanged"
+                                                 ValidatesOnDataErrors="True"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
                         </Expander.Header>
                         <Expander.Content>
                             <StackPanel>
-                                <TextBox Style="{StaticResource DescriptionTextBox}"  
-                                         Text="{Binding Mode=TwoWay, Path=Description}"/>
-                                <DatePicker Text="{Binding Path=DeadLine}"
-                                            SelectedDate="{Binding Path=DeadLine}"
-                                            Width="220"
-                                            BorderBrush="Transparent"/>
-                                <TextBox Style="{StaticResource DescriptionTextBox}"
-                                         Text="{Binding Mode=TwoWay,
-                                                        Path=Tags,
-                                                        Converter={StaticResource TagConverter}}"/>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="100"/>
-                                        <ColumnDefinition Width="100"/>
-                                        <ColumnDefinition Width="100"/>
-                                    </Grid.ColumnDefinitions>
-                                    <CheckBox Content="Urgent"
-                                              Grid.Column="0"
-                                              IsChecked="{Binding Mode=TwoWay,
-                                                                  Path=Priority,
-                                                                  Converter={StaticResource UrgentConverter}}"/>
-                                    <CheckBox Content="Important"
-                                              Grid.Column="1"
-                                              IsChecked="{Binding Mode=TwoWay,
-                                                                  Path=Priority,
-                                                                  Converter={StaticResource ImportantConverter}}"/>
-                                    <CheckBox Content="Done"
-                                              Grid.Column="2"
-                                              IsChecked="{Binding Path=Done}"/>
-                                </Grid>
-                                <ListBox Name="Subtasks"
-                                         ItemsSource="{Binding Mode=TwoWay, Path=Subtasks}"
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Width="25"/>
+                                    <TextBlock Text="Title:"
+                                               Width="70"/>
+                                    <DatePickerTextBox Text="{Binding Mode=TwoWay, Path=Title}"
+                                                       Style="{StaticResource DescriptionTextBox}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Width="25"/>
+                                    <TextBlock Text="Description:"
+                                               Width="70"/>
+                                    <DatePickerTextBox Text="{Binding Mode=TwoWay, Path=Description}"
+                                                       Style="{StaticResource DescriptionTextBox}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Width="25"/>
+                                    <TextBlock Text="Deadline:"
+                                               VerticalAlignment="Center"
+                                               Width="67"/>
+                                    <DatePicker Text="{Binding Mode=TwoWay, Path=DeadLine}"
+                                                SelectedDate="{Binding Mode=TwoWay, Path=DeadLine}"
+                                                SelectedDateFormat="Long"
+                                                Width="223"
+                                                BorderBrush="Transparent"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Width="25"/>
+                                    <TextBlock Text="Tags:"
+                                               Width="70"/>
+                                    <DatePickerTextBox Text="{Binding Mode=TwoWay, Path=Tags, Converter={StaticResource TagConverter}}"
+                                                       Style="{StaticResource DescriptionTextBox}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Width="25"/>
+                                    <TextBlock Text="Priority:"
+                                               Width="70"/>
+                                    <CheckBox IsChecked="{Binding Mode=TwoWay, Path=Priority, Converter={StaticResource UrgentConverter}}"
+                                              Content="Urgent"
+                                              Width="80"/>
+                                    <CheckBox IsChecked="{Binding Mode=TwoWay, Path=Priority, Converter={StaticResource ImportantConverter}}"
+                                              Content="Important"
+                                              Width="80"/>
+                                    <CheckBox IsChecked="{Binding Path=Done}"
+                                              Content="Done"
+                                              Width="80"/>
+                                </StackPanel>
+                                <ListBox ItemsSource="{Binding Mode=TwoWay, Path=Subtasks}"
+                                         IsSynchronizedWithCurrentItem="True"
+                                         Name="Subtasks"
                                          Width="320"
-                                         IsSynchronizedWithCurrentItem="True">
+                                         ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
                                             <Expander>
                                                 <Expander.Header>
-                                                    <TextBox Style="{StaticResource TitleTextBox}" 
-                                                             Text="{Binding Mode=TwoWay, Path=Title}"
-                                                             Background="{Binding Path=ListBoxTasks.Background}" 
-                                                             TextDecorations="{Binding Path=Done, 
-                                                                               Converter={StaticResource DoneConverter}}"/>
+                                                    <TextBlock TextDecorations="{Binding Path=Done, Converter={StaticResource DoneConverter}}"
+                                                               FontSize="14">
+                                                        <TextBlock.Text>
+                                                            <MultiBinding StringFormat="{}{0} / {1}">
+                                                                <Binding Path="Title"
+                                                                         Mode="TwoWay"
+                                                                         UpdateSourceTrigger="PropertyChanged"
+                                                                         ValidatesOnDataErrors="True"/>
+                                                                <Binding Path="Priority"
+                                                                         Mode="TwoWay"
+                                                                         UpdateSourceTrigger="PropertyChanged"
+                                                                         ValidatesOnDataErrors="True"/>
+                                                            </MultiBinding>
+                                                        </TextBlock.Text>
+                                                    </TextBlock>
                                                 </Expander.Header>
                                                 <Expander.Content>
                                                     <StackPanel>
-                                                        <TextBox Style="{StaticResource DescriptionTextBox}" 
-                                                                 Text="{Binding Mode=TwoWay, Path=Description}"/>
-                                                        <TextBox Style="{StaticResource DescriptionTextBox}"
-                                                                 Text="{Binding Mode=TwoWay,
-                                                                                Path=Tags,
-                                                                                Converter={StaticResource TagConverter}}"/>
-                                                        <Grid>
-                                                            <Grid.ColumnDefinitions>
-                                                                <ColumnDefinition Width="100"/>
-                                                                <ColumnDefinition Width="100"/>
-                                                                <ColumnDefinition Width="100"/>
-                                                            </Grid.ColumnDefinitions>
-                                                            <CheckBox Content="Urgent"
-                                                                      Grid.Column="0"
-                                                                      IsChecked="{Binding Mode=TwoWay,
-                                                                                  Path=Priority,
-                                                                                  Converter={StaticResource UrgentConverter}}"/>
-                                                            <CheckBox Content="Important"
-                                                                      Grid.Column="1"
-                                                                      IsChecked="{Binding Mode=TwoWay,
-                                                                                  Path=Priority,
-                                                                                  Converter={StaticResource ImportantConverter}}"/>
-                                                            <CheckBox Content="Done"
-                                                                      Grid.Column="2"
-                                                                      IsChecked="{Binding Path=Done}"/>
-                                                        </Grid>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <TextBlock Width="25"/>
+                                                            <TextBlock Text="Title:"
+                                                                       Width="70"/>
+                                                            <DatePickerTextBox Text="{Binding Mode=TwoWay, Path=Title}"
+                                                                               Style="{StaticResource DescriptionTextBox}"/>
+                                                        </StackPanel>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <TextBlock Width="25"/>
+                                                            <TextBlock Text="Description:"
+                                                                       Width="70"/>
+                                                            <DatePickerTextBox Text="{Binding Mode=TwoWay, Path=Description}"
+                                                                               Style="{StaticResource DescriptionTextBox}"/>
+                                                        </StackPanel>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <TextBlock Width="25"/>
+                                                            <TextBlock Text="Tags:"
+                                                                       Width="70"/>
+                                                            <DatePickerTextBox Text="{Binding Mode=TwoWay, Path=Tags, Converter={StaticResource TagConverter}}"
+                                                                               Style="{StaticResource DescriptionTextBox}"/>
+                                                        </StackPanel>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <TextBlock Width="25"/>
+                                                            <TextBlock Text="Priority:"
+                                                                       Width="70"/>
+                                                            <CheckBox IsChecked="{Binding Mode=TwoWay, Path=Priority, Converter={StaticResource UrgentConverter}}"
+                                                                      Content="Urgent"
+                                                                      Width="80"/>
+                                                            <CheckBox IsChecked="{Binding Mode=TwoWay, Path=Priority, Converter={StaticResource ImportantConverter}}"
+                                                                      Content="Important"
+                                                                      Width="80"/>
+                                                            <CheckBox IsChecked="{Binding Path=Done}"
+                                                                      Content="Done"
+                                                                      Width="80"/>
+                                                        </StackPanel>
                                                     </StackPanel>
                                                 </Expander.Content>
                                             </Expander>
@@ -154,18 +204,23 @@
                      Name="TextBoxSearch"
                      KeyUp="TextBoxSearch_KeyUp"/>
             <Button Content="New Goal"
-                    Command="{Binding Path=AddNewItem}"/>
-                    <!--Style="{StaticResource TransparantButtonStyle}"-->
+                    Command="{Binding Path=AddNewItem}"
+                    Style="{StaticResource TransparantButtonStyle}"/>
             <Button Content="Delete"
-                    Command="{Binding Path=DeleteItem}"/>
+                    Command="{Binding Path=DeleteItem}"
+                    Style="{StaticResource TransparantButtonStyle}"/>
             <Button Content="New Subtask"
-                    Command="{Binding Path=AddNewSubtask}"/>
+                    Command="{Binding Path=AddNewSubtask}"
+                    Style="{StaticResource TransparantButtonStyle}"/>
             <Button Content="Delete Subtask"
-                    Command="{Binding Path=DeleteSubtask}"/>
+                    Command="{Binding Path=DeleteSubtask}"
+                    Style="{StaticResource TransparantButtonStyle}"/>
             <Button Content="Save"
-                    Command="{Binding Path=SaveItem}"/>
+                    Command="{Binding Path=SaveItem}"
+                    Style="{StaticResource TransparantButtonStyle}"/>
             <Button Content="Sort"
-                    Command="{Binding Path=SortItems}"/>
+                    Command="{Binding Path=SortItems}"
+                    Style="{StaticResource TransparantButtonStyle}"/>
         </StackPanel>
     </DockPanel>
 </UserControl>
