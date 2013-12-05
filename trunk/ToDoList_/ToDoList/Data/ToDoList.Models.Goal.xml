@@ -10,15 +10,17 @@
     <Priority>Important</Priority>
     <DeadLine>2014-03-31T00:00:00</DeadLine>
     <Subtasks>
-      <Task>
+      <Goal>
         <Title>Improve my English skills</Title>
         <Description>Do a course in English to make yourself useful when buisiness is done with foreign companies.</Description>
         <Done>false</Done>
         <Tags>
           <string>EnglishCourse</string>
         </Tags>
-        <Priority>None</Priority>
-      </Task>
+        <Priority>Important</Priority>
+        <DeadLine>2014-03-31T00:00:00</DeadLine>
+        <Subtasks />
+      </Goal>
     </Subtasks>
   </Goal>
   <Goal>
@@ -26,13 +28,13 @@
     <Description>Give my GPA a little boost by the end of this semester.</Description>
     <Done>false</Done>
     <Tags>
-      <string>school  </string>
+      <string>school</string>
       <string>GPA</string>
     </Tags>
     <Priority>Important</Priority>
-    <DeadLine>2014-01-31T00:00:00</DeadLine>
+    <DeadLine>2014-02-05T00:00:00</DeadLine>
     <Subtasks>
-      <Task>
+      <Goal>
         <Title>Math</Title>
         <Description>Ace my math test... shouldn't be that hard.</Description>
         <Done>false</Done>
@@ -40,8 +42,10 @@
           <string>math</string>
         </Tags>
         <Priority>None</Priority>
-      </Task>
-      <Task>
+        <DeadLine>2014-02-05T00:00:00</DeadLine>
+        <Subtasks />
+      </Goal>
+      <Goal>
         <Title>Biology</Title>
         <Description>Get the time to catch up on the lessons. There's no time to waste anymore.</Description>
         <Done>false</Done>
@@ -49,7 +53,9 @@
           <string>biology</string>
         </Tags>
         <Priority>Urgent</Priority>
-      </Task>
+        <DeadLine>2014-02-05T00:00:00</DeadLine>
+        <Subtasks />
+      </Goal>
     </Subtasks>
   </Goal>
   <Goal>
@@ -63,27 +69,52 @@
     <Priority>None</Priority>
     <DeadLine>2013-12-09T00:00:00</DeadLine>
     <Subtasks>
-      <Task>
+      <Goal>
         <Title>Meetings</Title>
         <Description>Do regular meetings to make sure everyone's on the same page about where the projects going.</Description>
         <Done>false</Done>
         <Tags />
         <Priority>Important</Priority>
-      </Task>
-      <Task>
+        <DeadLine>2013-12-09T00:00:00</DeadLine>
+        <Subtasks />
+      </Goal>
+      <Goal>
         <Title>Skype chat</Title>
         <Description>Stay in contact to make sure you know what's going on.</Description>
         <Done>false</Done>
         <Tags />
         <Priority>Important</Priority>
-      </Task>
-      <Task>
+        <DeadLine>2013-12-09T00:00:00</DeadLine>
+        <Subtasks />
+      </Goal>
+      <Goal>
         <Title>Work</Title>
         <Description>Do all you can.</Description>
         <Done>false</Done>
         <Tags />
         <Priority>Urgent</Priority>
-      </Task>
+        <DeadLine>2013-12-09T00:00:00</DeadLine>
+        <Subtasks />
+      </Goal>
+    </Subtasks>
+  </Goal>
+  <Goal>
+    <Title>New_Goal</Title>
+    <Description>Enter_description</Description>
+    <Done>false</Done>
+    <Tags />
+    <Priority>None</Priority>
+    <DeadLine>2013-12-26T00:00:00</DeadLine>
+    <Subtasks>
+      <Goal>
+        <Title />
+        <Description />
+        <Done>false</Done>
+        <Tags />
+        <Priority>None</Priority>
+        <DeadLine>2013-12-05T00:00:00+02:00</DeadLine>
+        <Subtasks />
+      </Goal>
     </Subtasks>
   </Goal>
 </ArrayOfGoal>

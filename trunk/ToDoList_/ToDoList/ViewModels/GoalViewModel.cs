@@ -44,7 +44,7 @@ namespace ToDoList.ViewModels
         {
             var view = CollectionViewSource.GetDefaultView(this.itemPool);
             int index = this.itemPool.IndexOf(view.CurrentItem as Goal);
-            this.itemPool[index].AddSubtask(new Task());
+            this.itemPool[index].AddSubtask(new Goal("", "", itemPool[index].DeadLine));
         }
 
         private void HandleDeleteSubtask(object obj)
@@ -52,7 +52,7 @@ namespace ToDoList.ViewModels
             var view = CollectionViewSource.GetDefaultView(this.itemPool);
             int index = this.itemPool.IndexOf(view.CurrentItem as Goal);
             var subview = CollectionViewSource.GetDefaultView(this.itemPool[index].Subtasks);
-            var selected = subview.CurrentItem as Task;
+            var selected = subview.CurrentItem as Goal;
             this.itemPool[index].RemoveSubtask(selected);
         }
 
