@@ -25,6 +25,8 @@ namespace ToDoList.Views
         {
             //TODO
             InitializeComponent();
+            //this.DataContext = new MeetingViewModel();
+            
         }
 
         private void TextBoxSearch_KeyUp(object sender, KeyEventArgs e)
@@ -37,7 +39,9 @@ namespace ToDoList.Views
 
         private void ListBoxTasks_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            
         }
+
+            
     }
 }

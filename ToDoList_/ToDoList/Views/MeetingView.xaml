@@ -7,16 +7,19 @@
              xmlns:viewModels ="clr-namespace:ToDoList.ViewModels"
              xmlns:converters ="clr-namespace:ToDoList.Converters"
              
+             Name="MeetingWindow"
+             
              mc:Ignorable="d" 
              d:DesignHeight="300"
              d:DesignWidth="300">
-
+    
     <UserControl.Resources>
         <!--<converters:PriorityToIsUrgentCheck x:Key="UrgentConverter"/>
         <converters:PriorityToIsImportantCheck x:Key="ImportantConverter"/>
         <converters:DoneToStrikethrough x:Key="DoneConverter"/>-->
         <!--
             -->
+       
         <Style x:Key="TitleTextBox"
                TargetType="TextBox">
             <Setter Property="FontSize"
@@ -61,12 +64,18 @@
                                 <!--FontSize="14" 
                                      BorderThickness="0"-->
                                 <TextBlock.Text>
-                                    
-                                    <MultiBinding StringFormat="{}{0} - {1:d}">
-                                         <Binding Path="Title" Mode="TwoWay" />
+
+                                    <MultiBinding StringFormat="{}{0} - {1:dd.MM.yyyy}  {2}">
+                                        <Binding Path="Title" Mode="TwoWay" 
+                                                 UpdateSourceTrigger="PropertyChanged"
+                                                 ValidatesOnDataErrors="True"/>
                                         <Binding Path="Beginning" Mode="TwoWay"
                                                  UpdateSourceTrigger="PropertyChanged"
-                                                  ValidatesOnDataErrors="True" TargetNullValue=''/>
+                                                  ValidatesOnDataErrors="True" />
+                                        <Binding Path="StartTime" Mode="TwoWay"
+                                                 UpdateSourceTrigger="PropertyChanged"
+                                                  ValidatesOnDataErrors="True" />
+                                                 
                                        </MultiBinding>
                                 </TextBlock.Text>
 
@@ -87,12 +96,20 @@
                                          Text="{Binding Mode=TwoWay,Path=Description}"/>
                                 <Label Content="Start date"></Label>
                                 <DatePicker 
+                                    
                                     Name="CalendarMeeting"
-                                    Text="{Binding Path=Beginning}" 
-                                    SelectedDate="{Binding Path=Beginning}"
+                                     
+                                    SelectedDate="{Binding Mode=TwoWay, Path=Beginning}"
+                                    SelectedDateFormat="Long"
                                     />
                                     <!--Text="{Binding Mode=TwoWay,
                                     Path=Beginning}"-->
+                                <Label Content="Enter start time"></Label>
+                                <TextBox Width="220" 
+                                         AcceptsReturn="True" 
+                                         TextWrapping="Wrap" 
+                                         Text="{Binding Mode=TwoWay,Path=StartTime}"/>
+                                <Label Content="Enter Description"></Label>
                                 <Label Content="Duration in minutes"></Label>
                                 <TextBox Width="220" 
                                          AcceptsReturn="True" 

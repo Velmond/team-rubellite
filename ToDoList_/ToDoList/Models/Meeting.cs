@@ -12,27 +12,58 @@ namespace ToDoList.Models
     public class Meeting : BaseObjectModel, IComparable<Meeting>, INotifyPropertyChanged
     {
         //TODO encapsulation
-            private DateTime beginning; 
+            private DateTime beginning ; 
             public ushort Duration { get;  set; }
+            private string startTime;
+            
 
             public Meeting():base()
             {
                 this.Title = "New Meeting";
                 this.Description = "Add Description";
-                //this.Beginning = DateTime.Now;
+                this.Beginning = DateTime.Now;
+                this.StartTime = "--:-- h";
             }
-            public Meeting(string title, string description, DateTime start, ushort duration)
+            public Meeting(string title, string description, DateTime startDate, ushort duration, string startTime)
                 : base(title, description)
             {
-                this.Beginning = start;
+                this.Beginning = startDate;
                 this.Duration = duration;
+                this.StartTime = startTime;
+            }
+
+            public Meeting(string title, string description, DateTime startDate, string startTime)
+                : base(title, description)
+            {
+                this.Beginning = startDate;
+                this.StartTime = startTime;
+            }
+
+            public Meeting(string title, string description, DateTime startDate)
+                : base(title, description)
+            {
+                this.Beginning = startDate;
+               
+            }
+
+            public string StartTime
+            {
+                get
+                {
+                    return this.startTime;
+                }
+                set
+                {
+                    this.startTime = value;
+                    this.OnPropertyChanged("StartTime");
+                }
             }
 
             public DateTime Beginning
             {
                 get
                 {
-                    return this.beginning;
+                    return this.beginning.Date;
                 }
                 set
                 {
@@ -41,10 +72,9 @@ namespace ToDoList.Models
                 }
             }
 
-            public Meeting(string title, string description, DateTime start)
-                : base(title, description)
+            public void EditStartTime(string newStartTime)
             {
-                this.Beginning = start;
+                this.StartTime = newStartTime;
             }
 
             public void EditBeginning(DateTime newBeginning)
