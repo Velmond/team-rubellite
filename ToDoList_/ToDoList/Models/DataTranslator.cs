@@ -48,38 +48,7 @@
                 result = deseri.Deserialize(reader) as ObservableCollection<T>;
             }
 
-            foreach (var item in result)
-            {
-                if ((item as Goal) != null)
-                {
-                    (item as Goal).DeadLine = CorrectDate((item as Goal).DeadLine);
-                }
-
-                if ((item as Meeting) != null)
-                {
-                    (item as Meeting).Beginning = CorrectDate((item as Meeting).Beginning);
-                }
-
-                if ((item as BirthdayReminder) != null)
-                {
-                    (item as BirthdayReminder).BirthDate = CorrectDate((item as BirthdayReminder).BirthDate);
-                    (item as BirthdayReminder).DateCreated = CorrectDate((item as BirthdayReminder).DateCreated);
-                }
-            }
-
             return result;
-        }
-
-        private static DateTime CorrectDate(DateTime date)
-        {
-            if (date.Day < 12)
-            {
-                return new DateTime(date.Year, date.Day, date.Month);
-            }
-            else
-            {
-                return date;
-            }
         }
     }
 }
