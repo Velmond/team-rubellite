@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfMeeting xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Meeting>
-    <Title>New Meeting</Title>
-    <Description>Add Description</Description>
+    <Title>Sre6ta s Nasko</Title>
+    <Description>Da mi dade 20-te leva</Description>
     <Done>false</Done>
     <Tags />
-    <Duration>0</Duration>
-    <StartTime>--:-- h</StartTime>
-    <Beginning>2013-11-28T00:00:00</Beginning>
-  </Meeting>
-  <Meeting>
-    <Title>test</Title>
-    <Description>Add Description</Description>
-    <Done>false</Done>
-    <Tags />
-    <Duration>0</Duration>
-    <StartTime>--:-- h</StartTime>
-    <Beginning>0001-01-01T00:00:00</Beginning>
+    <Duration>222</Duration>
+    <StartTime>13:45</StartTime>
+    <EventDate>2013-12-06T00:00:00+02:00</EventDate>
   </Meeting>
   <Meeting>
     <Title>asdasdasd</Title>
@@ -24,8 +15,8 @@
     <Done>false</Done>
     <Tags />
     <Duration>0</Duration>
-    <StartTime>--:-- h</StartTime>
-    <Beginning>0001-01-01T00:00:00</Beginning>
+    <StartTime>15:15</StartTime>
+    <EventDate>2013-12-06T00:00:00+02:00</EventDate>
   </Meeting>
   <Meeting>
     <Title>New Meeting</Title>
@@ -33,8 +24,8 @@
     <Done>false</Done>
     <Tags />
     <Duration>0</Duration>
-    <StartTime>--:-- h</StartTime>
-    <Beginning>0026-08-22T00:00:00</Beginning>
+    <StartTime>17:11</StartTime>
+    <EventDate>2013-12-06T00:00:00+02:00</EventDate>
   </Meeting>
   <Meeting>
     <Title>New Meeting</Title>
@@ -42,16 +33,16 @@
     <Done>false</Done>
     <Tags />
     <Duration>0</Duration>
-    <StartTime>18:12 h</StartTime>
-    <Beginning>2014-01-18T00:00:00</Beginning>
+    <StartTime>18:12</StartTime>
+    <EventDate>2013-12-06T00:00:00+02:00</EventDate>
   </Meeting>
   <Meeting>
-    <Title>Sre6ta s Nasko</Title>
-    <Description>Da mi dade 20-te leva</Description>
+    <Title>New Meeting</Title>
+    <Description>Add Description</Description>
     <Done>false</Done>
     <Tags />
-    <Duration>222</Duration>
-    <StartTime>13:45 h</StartTime>
-    <Beginning>2013-12-21T00:00:00</Beginning>
+    <Duration>0</Duration>
+    <StartTime>hh:mm</StartTime>
+    <EventDate>2013-12-06T00:00:00+02:00</EventDate>
   </Meeting>
 </ArrayOfMeeting>

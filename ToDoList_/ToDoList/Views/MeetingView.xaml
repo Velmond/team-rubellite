@@ -111,12 +111,12 @@
                                          AcceptsReturn="True" 
                                          TextWrapping="Wrap" 
                                          Text="{Binding Mode=TwoWay,Path=StartTime}"/>
-                                <Label Content="Enter Description"></Label>
                                 <Label Content="Duration in minutes"></Label>
                                 <TextBox Width="220" 
                                          AcceptsReturn="True" 
                                          TextWrapping="Wrap" 
                                          Text="{Binding Mode=TwoWay,Path=Duration}"/>
+                                
                                 
                             </StackPanel>
                         </Expander.Content>
@@ -135,6 +135,8 @@
                     Command="{Binding Path=DeleteItem}"/>
             <Button Content="Save"
                     Command="{Binding Path=SaveItem}"/>
+            <Button Name="SortButton" Content="Sort"
+                    Command="{Binding Path=SortItems}"/>
 
         </StackPanel>
     </DockPanel>
