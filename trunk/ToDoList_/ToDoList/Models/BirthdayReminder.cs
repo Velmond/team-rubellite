@@ -8,7 +8,7 @@ using ToDoList.Models;
 
 namespace TodoListConsole
 {
-    public class BirthdayReminder : BaseObjectModel
+    public class BirthdayReminder : BaseObjectModel, IDateable
     {
         private string personName = null;
         private byte age = 0;
@@ -46,7 +46,7 @@ namespace TodoListConsole
                 this.age = value;
             }
         }
-        public DateTime BirthDate
+        public DateTime EventDate
         {
             get
             {
@@ -80,7 +80,7 @@ namespace TodoListConsole
             this.DateCreated = DateTime.Now;
             this.PersonName = personName;
             this.Age = age;
-            this.BirthDate = birthDate;
+            this.EventDate = birthDate;
         }
     }
 }

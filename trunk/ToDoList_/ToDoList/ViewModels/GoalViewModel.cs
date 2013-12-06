@@ -44,7 +44,7 @@ namespace ToDoList.ViewModels
         {
             var view = CollectionViewSource.GetDefaultView(this.itemPool);
             int index = this.itemPool.IndexOf(view.CurrentItem as Goal);
-            this.itemPool[index].AddSubtask(new Goal("", "", itemPool[index].DeadLine));
+            this.itemPool[index].AddSubtask(new Goal("", "", itemPool[index].EventDate));
         }
 
         private void HandleDeleteSubtask(object obj)
@@ -58,7 +58,7 @@ namespace ToDoList.ViewModels
 
         private void HandleSortItems(object obj)
         {
-            this.Items = new ObservableCollection<Goal>(this.itemPool.OrderBy(goal => goal.DeadLine)
+            this.Items = new ObservableCollection<Goal>(this.itemPool.OrderBy(goal => goal.EventDate)
                                                                      .ThenByDescending(goal => goal.Priority));
         }
 

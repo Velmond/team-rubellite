@@ -55,7 +55,9 @@
                  ItemsSource="{Binding Path=Items}"
                  Width="350"
                  IsSynchronizedWithCurrentItem="True"
-                 DockPanel.Dock="Left" SelectionChanged="ListBoxTasks_SelectionChanged">
+                 ScrollViewer.CanContentScroll="False"
+                 DockPanel.Dock="Left"
+                 SelectionChanged="ListBoxTasks_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Expander>
@@ -69,7 +71,7 @@
                                         <Binding Path="Title" Mode="TwoWay" 
                                                  UpdateSourceTrigger="PropertyChanged"
                                                  ValidatesOnDataErrors="True"/>
-                                        <Binding Path="Beginning" Mode="TwoWay"
+                                        <Binding Path="EventDate" Mode="TwoWay"
                                                  UpdateSourceTrigger="PropertyChanged"
                                                   ValidatesOnDataErrors="True" />
                                         <Binding Path="StartTime" Mode="TwoWay"
@@ -99,11 +101,11 @@
                                     
                                     Name="CalendarMeeting"
                                      
-                                    SelectedDate="{Binding Mode=TwoWay, Path=Beginning}"
+                                    SelectedDate="{Binding Mode=TwoWay, Path=EventDate}"
                                     SelectedDateFormat="Long"
                                     />
                                     <!--Text="{Binding Mode=TwoWay,
-                                    Path=Beginning}"-->
+                                    Path=EventDate}"-->
                                 <Label Content="Enter start time"></Label>
                                 <TextBox Width="220" 
                                          AcceptsReturn="True" 

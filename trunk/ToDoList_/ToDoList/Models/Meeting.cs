@@ -9,7 +9,7 @@ using System.ComponentModel;
 namespace ToDoList.Models
 {
 
-    public class Meeting : BaseObjectModel, IComparable<Meeting>, INotifyPropertyChanged
+    public class Meeting : BaseObjectModel, IComparable<Meeting>, INotifyPropertyChanged, IDateable
     {
         //TODO encapsulation
             private DateTime beginning ; 
@@ -21,13 +21,13 @@ namespace ToDoList.Models
             {
                 this.Title = "New Meeting";
                 this.Description = "Add Description";
-                this.Beginning = DateTime.Now;
+                this.EventDate = DateTime.Now;
                 this.StartTime = "--:-- h";
             }
             public Meeting(string title, string description, DateTime startDate, ushort duration, string startTime)
                 : base(title, description)
             {
-                this.Beginning = startDate;
+                this.EventDate = startDate;
                 this.Duration = duration;
                 this.StartTime = startTime;
             }
@@ -35,14 +35,14 @@ namespace ToDoList.Models
             public Meeting(string title, string description, DateTime startDate, string startTime)
                 : base(title, description)
             {
-                this.Beginning = startDate;
+                this.EventDate = startDate;
                 this.StartTime = startTime;
             }
 
             public Meeting(string title, string description, DateTime startDate)
                 : base(title, description)
             {
-                this.Beginning = startDate;
+                this.EventDate = startDate;
                
             }
 
@@ -59,7 +59,7 @@ namespace ToDoList.Models
                 }
             }
 
-            public DateTime Beginning
+            public DateTime EventDate
             {
                 get
                 {
@@ -68,7 +68,7 @@ namespace ToDoList.Models
                 set
                 {
                     this.beginning = value;
-                    this.OnPropertyChanged("Beginning");
+                    this.OnPropertyChanged("EventDate");
                 }
             }
 
@@ -79,7 +79,7 @@ namespace ToDoList.Models
 
             public void EditBeginning(DateTime newBeginning)
             {
-                this.Beginning = newBeginning;
+                this.EventDate = newBeginning;
             }
 
             public void EditDuration(ushort newDuration)
@@ -89,7 +89,7 @@ namespace ToDoList.Models
 
             public int CompareTo(Meeting other)
             {
-                return this.Beginning.CompareTo(other.Beginning);
+                return this.EventDate.CompareTo(other.EventDate);
             }
         }
     }

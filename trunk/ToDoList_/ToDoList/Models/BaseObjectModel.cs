@@ -13,7 +13,7 @@
     /// <para>Description - Description of the entity</para>
     /// <para>Tags - Multiple references describing the entity NotImplemented</para>
     /// </summary>
-    public abstract class BaseObjectModel : INotifyPropertyChanged
+    public abstract class BaseObjectModel : INotifyPropertyChanged, ITaggable
     {
         private bool done;
         private string title;

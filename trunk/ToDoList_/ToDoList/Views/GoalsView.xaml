@@ -39,6 +39,8 @@
                     Value="ExtraBold"/>
             <Setter Property="Width"
                     Value="200"/>
+            <Setter Property="Focusable"
+                    Value="False"/>
         </Style>
     </UserControl.Resources>
 
@@ -68,7 +70,7 @@
                                                  Mode="TwoWay"
                                                  UpdateSourceTrigger="PropertyChanged"
                                                  ValidatesOnDataErrors="True"/>
-                                        <Binding Path="DeadLine"
+                                        <Binding Path="EventDate"
                                                  Mode="TwoWay"
                                                  UpdateSourceTrigger="PropertyChanged"
                                                  ValidatesOnDataErrors="True"/>
@@ -94,11 +96,12 @@
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Width="25"/>
-                                    <TextBlock Text="Deadline:"
+                                    <TextBlock Text="EventDate:"
                                                VerticalAlignment="Center"
                                                Width="67"/>
-                                    <DatePicker Text="{Binding Mode=TwoWay, Path=DeadLine}"
-                                                SelectedDate="{Binding Mode=TwoWay, Path=DeadLine}"
+                                    <DatePicker SelectedDate="{Binding Mode=TwoWay, Path=EventDate}"
+                                                DisplayDateStart="01.01.2000"
+                                                DisplayDateEnd="12.31.2999"
                                                 SelectedDateFormat="Long"
                                                 Width="223"
                                                 BorderBrush="Transparent"/>
@@ -141,7 +144,7 @@
                                                                          Mode="TwoWay"
                                                                          UpdateSourceTrigger="PropertyChanged"
                                                                          ValidatesOnDataErrors="True"/>
-                                                                <Binding Path="DeadLine"
+                                                                <Binding Path="EventDate"
                                                                          Mode="TwoWay"
                                                                          UpdateSourceTrigger="PropertyChanged"
                                                                          ValidatesOnDataErrors="True"/>
@@ -167,11 +170,12 @@
                                                         </StackPanel>
                                                         <StackPanel Orientation="Horizontal">
                                                             <TextBlock Width="25"/>
-                                                            <TextBlock Text="Deadline:"
+                                                            <TextBlock Text="EventDate:"
                                                                        VerticalAlignment="Center"
                                                                        Width="67"/>
-                                                            <DatePicker Text="{Binding Mode=TwoWay, Path=DeadLine}"
-                                                                        SelectedDate="{Binding Mode=TwoWay, Path=DeadLine}"
+                                                            <DatePicker SelectedDate="{Binding Mode=TwoWay, Path=EventDate}"
+                                                                        DisplayDateStart="01.01.2000"
+                                                                        DisplayDateEnd="12.31.2999"
                                                                         SelectedDateFormat="Long"
                                                                         Width="223"
                                                                         BorderBrush="Transparent"/>

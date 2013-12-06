@@ -61,9 +61,11 @@
                                 <TextBox.Text>
                                     <MultiBinding StringFormat="{}{0} - {1:d}">
                                         <Binding Path="Title" Mode="TwoWay" />
-                                        <Binding Path="Beginning" Mode="TwoWay"
+                                        <Binding Path="EventDate"
+                                                 Mode="TwoWay"
                                                  UpdateSourceTrigger="PropertyChanged"
-                                                  ValidatesOnDataErrors="True" TargetNullValue=''/>
+                                                 ValidatesOnDataErrors="True"
+                                                 TargetNullValue=''/>
                                     </MultiBinding>
                                 </TextBox.Text>
 
@@ -83,7 +85,7 @@
                                          TextWrapping="Wrap" 
                                          Text="{Binding Mode=TwoWay,Path=Description}"/>
                                 <Label Content="Birth date"></Label>
-                                <DatePicker Text="{Binding Mode=TwoWay,Path=Beginning}"/>
+                                <DatePicker Text="{Binding Mode=TwoWay,Path=EventDate}"/>
                             </StackPanel>
                         </Expander.Content>
                     </Expander>

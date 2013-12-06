@@ -8,7 +8,7 @@
       <string>work</string>
     </Tags>
     <Priority>Important</Priority>
-    <DeadLine>2014-03-31T00:00:00</DeadLine>
+    <EventDate>2013-12-06T00:00:00+02:00</EventDate>
     <Subtasks>
       <Goal>
         <Title>Improve my English skills</Title>
@@ -18,7 +18,7 @@
           <string>EnglishCourse</string>
         </Tags>
         <Priority>Important</Priority>
-        <DeadLine>2014-03-31T00:00:00</DeadLine>
+        <EventDate>2013-12-06T00:00:00+02:00</EventDate>
         <Subtasks />
       </Goal>
     </Subtasks>
@@ -32,7 +32,7 @@
       <string>GPA</string>
     </Tags>
     <Priority>Important</Priority>
-    <DeadLine>2014-02-05T00:00:00</DeadLine>
+    <EventDate>2013-12-06T00:00:00+02:00</EventDate>
     <Subtasks>
       <Goal>
         <Title>Math</Title>
@@ -42,7 +42,7 @@
           <string>math</string>
         </Tags>
         <Priority>None</Priority>
-        <DeadLine>2014-02-05T00:00:00</DeadLine>
+        <EventDate>2013-12-06T00:00:00+02:00</EventDate>
         <Subtasks />
       </Goal>
       <Goal>
@@ -53,7 +53,7 @@
           <string>biology</string>
         </Tags>
         <Priority>Urgent</Priority>
-        <DeadLine>2014-02-05T00:00:00</DeadLine>
+        <EventDate>2013-12-06T00:00:00+02:00</EventDate>
         <Subtasks />
       </Goal>
     </Subtasks>
@@ -67,7 +67,7 @@
       <string>teamwork</string>
     </Tags>
     <Priority>None</Priority>
-    <DeadLine>2013-12-09T00:00:00</DeadLine>
+    <EventDate>2013-12-06T00:00:00+02:00</EventDate>
     <Subtasks>
       <Goal>
         <Title>Meetings</Title>
@@ -75,7 +75,7 @@
         <Done>false</Done>
         <Tags />
         <Priority>Important</Priority>
-        <DeadLine>2013-12-09T00:00:00</DeadLine>
+        <EventDate>2013-12-06T00:00:00+02:00</EventDate>
         <Subtasks />
       </Goal>
       <Goal>
@@ -84,7 +84,7 @@
         <Done>false</Done>
         <Tags />
         <Priority>Important</Priority>
-        <DeadLine>2013-12-09T00:00:00</DeadLine>
+        <EventDate>2013-12-06T00:00:00+02:00</EventDate>
         <Subtasks />
       </Goal>
       <Goal>
@@ -93,46 +93,9 @@
         <Done>false</Done>
         <Tags />
         <Priority>Urgent</Priority>
-        <DeadLine>2013-12-09T00:00:00</DeadLine>
+        <EventDate>2013-12-06T00:00:00+02:00</EventDate>
         <Subtasks />
       </Goal>
     </Subtasks>
-  </Goal>
-  <Goal>
-    <Title>New_Goal</Title>
-    <Description>Enter_description</Description>
-    <Done>false</Done>
-    <Tags />
-    <Priority>None</Priority>
-    <DeadLine>2013-12-26T00:00:00</DeadLine>
-    <Subtasks>
-      <Goal>
-        <Title />
-        <Description />
-        <Done>false</Done>
-        <Tags />
-        <Priority>None</Priority>
-        <DeadLine>2013-12-05T00:00:00+02:00</DeadLine>
-        <Subtasks />
-      </Goal>
-    </Subtasks>
-  </Goal>
-  <Goal>
-    <Title>sfsdfsdf</Title>
-    <Description />
-    <Done>false</Done>
-    <Tags />
-    <Priority>None</Priority>
-    <DeadLine>2013-12-05T00:00:00+02:00</DeadLine>
-    <Subtasks />
-  </Goal>
-  <Goal>
-    <Title />
-    <Description />
-    <Done>false</Done>
-    <Tags />
-    <Priority>None</Priority>
-    <DeadLine>2013-12-05T00:00:00+02:00</DeadLine>
-    <Subtasks />
   </Goal>
 </ArrayOfGoal>

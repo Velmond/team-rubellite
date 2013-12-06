@@ -8,10 +8,10 @@
     /// <summary>
     /// Long term task which can contain subtasks and has a deadline
     /// </summary>
-    public class Goal : Task, IComparable<Goal>
+    public class Goal : Task, IComparable<Goal>, IDateable
     {
         // Goal specific fields
-        private DateTime deadLine;
+        private DateTime deadline;
         private ObservableCollection<Goal> subtasks;
 
         /// <summary>
@@ -21,7 +21,7 @@
         {
             this.Title = "";
             this.Description = "";
-            this.DeadLine = DateTime.Now;
+            this.EventDate = DateTime.Today;
             this.subtasks = new ObservableCollection<Goal>();
         }
 
@@ -30,25 +30,25 @@
         /// </summary>
         /// <param name="title">The goal's title</param>
         /// <param name="description">The goal's description</param>
-        /// <param name="deadLine">The time by which the goal should be achieved</param>
+        /// <param name="deadline">The time by which the goal should be achieved</param>
         /// <param name="priority">The goal's priority</param>
         public Goal(string title, string description, DateTime deadLine, Priority priority = Priority.None)
             : base(title, description, priority)
         {
-            this.DeadLine = deadLine;
+            this.EventDate = deadLine;
             this.subtasks = new ObservableCollection<Goal>();
         }
 
         /// <summary>
         /// The time set for accomplishing the goal
         /// </summary>
-        ///// <exception cref="ArgumentOutOfRangeException">End date for the goal cannot be before the current one</exception>
-        public DateTime DeadLine
+        public DateTime EventDate
         {
-            get { return this.deadLine.Date; }
+            get { return this.deadline.Date; }
             set
             {
-                this.deadLine = value;
+                this.deadline = value;
+                this.OnPropertyChanged("EventDate");
             }
         }
 
@@ -98,7 +98,7 @@
         /// <param name="months">The number of months to be added to the end date for this goal</param>
         public void ExtendDuration(int months)
         {
-            this.DeadLine = this.DeadLine.AddMonths(months);
+            this.EventDate = this.EventDate.AddMonths(months);
         }
 
         /// <summary>
@@ -109,7 +109,7 @@
         /// <returns>-1, 0, or 1 depending on the end dates of the goals that are compared</returns>
         public int CompareTo(Goal other)
         {
-            return this.DeadLine.CompareTo(other.DeadLine);
+            return this.EventDate.CompareTo(other.EventDate);
         }
 
         /// <summary>
@@ -118,7 +118,7 @@
         public override string ToString()
         {
             StringBuilder output = new StringBuilder();
-            output.AppendFormat("{0}\n{1}\n", base.ToString(), this.DeadLine);
+            output.AppendFormat("{0}\n{1}\n", base.ToString(), this.EventDate);
 
             foreach (Task subtask in this.Subtasks)
             {
