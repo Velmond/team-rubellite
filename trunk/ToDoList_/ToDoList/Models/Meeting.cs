@@ -22,7 +22,7 @@ namespace ToDoList.Models
                 this.Title = "New Meeting";
                 this.Description = "Add Description";
                 this.EventDate = DateTime.Now;
-                this.StartTime = "--:-- h";
+                this.StartTime = "hh:mm";
             }
             public Meeting(string title, string description, DateTime startDate, ushort duration, string startTime)
                 : base(title, description)
@@ -91,5 +91,6 @@ namespace ToDoList.Models
             {
                 return this.EventDate.CompareTo(other.EventDate);
             }
+
         }
     }
