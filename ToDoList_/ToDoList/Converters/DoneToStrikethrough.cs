@@ -4,17 +4,22 @@
     using System.Windows.Data;
     using ToDoList.Models;
 
-    class DoneToStrikethrough:IValueConverter
+    /// <summary>
+    /// Handles conversion of boolean values to TextDecorations value - Strikethrough
+    /// </summary>
+    public class DoneToStrikethrough : IValueConverter
     {
         /// <summary>
-        /// Convert bool values to TextDecorations value - Strikethrough
+        /// Convert boolean values to TextDecorations value - Strikethrough
         /// </summary>
+        /// <returns>A string determining whether some text should be stricken through or not</returns>
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             if ((bool)value)
             {
                 return "Strikethrough";
             }
+
             return string.Empty;
         }
 

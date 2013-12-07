@@ -9,26 +9,20 @@
         Closing="Window_Closing">
 
     <TabControl>
-
         <TabItem Header="Tasks">
             <views:TasksView/>
         </TabItem>
-
         <TabItem Header="Meetings">
             <views:MeetingView/>
         </TabItem>
-
         <TabItem Header="Goals">
             <views:GoalsView/>
         </TabItem>
-
         <TabItem Header="Birthdays">
             <views:BirthdayView/>
         </TabItem>
-
         <TabItem Header="Notes">
             <views:NotesView/>
         </TabItem>
-
     </TabControl>
 </Window>

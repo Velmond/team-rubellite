@@ -1,123 +1,97 @@
 ﻿<UserControl x:Class="ToDoList.Views.MeetingView"
-             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:viewModels ="clr-namespace:ToDoList.ViewModels"
              xmlns:converters ="clr-namespace:ToDoList.Converters"
-             
-             Name="MeetingWindow"
-             
              mc:Ignorable="d" 
              d:DesignHeight="300"
              d:DesignWidth="300">
-    
+
     <UserControl.Resources>
-        <!--<converters:PriorityToIsUrgentCheck x:Key="UrgentConverter"/>
-        <converters:PriorityToIsImportantCheck x:Key="ImportantConverter"/>
-        <converters:DoneToStrikethrough x:Key="DoneConverter"/>-->
-        <!--
-            -->
-       
-        <Style x:Key="TitleTextBox"
-               TargetType="TextBox">
-            <Setter Property="FontSize"
-                    Value="14"/>
-            <Setter Property="BorderThickness"
-                    Value="0"/>
-        </Style>
-        <Style x:Key="DescriptionTextBox"
-               TargetType="TextBox">
-            <Setter Property="Width"
-                    Value="220"/>
-            <Setter Property="AcceptsReturn"
-                    Value="True"/>
-            <Setter Property="TextWrapping"
-                    Value="Wrap"/>
-        </Style>
-        <Style x:Key="ListBox"
-               TargetType="ListBox">
-            <Setter Property="Width"
-                    Value="350"/>
-            <Setter Property="IsSynchronizedWithCurrentItem"
-                    Value="True"/>
-        </Style>
+        <converters:TagToText x:Key="TagConverter"/>
     </UserControl.Resources>
 
     <UserControl.DataContext>
         <viewModels:MeetingViewModel/>
     </UserControl.DataContext>
 
-
     <DockPanel x:Name="root">
-        <ListBox Name="ListBoxTasks"
-                 ItemsSource="{Binding Path=Items}"
-                 Width="350"
-                 IsSynchronizedWithCurrentItem="True"
-                 ScrollViewer.CanContentScroll="False"
-                 DockPanel.Dock="Left"
+        <ListBox ItemsSource="{Binding Path=Items}"
+                 Style="{StaticResource OuterListBox}"
+                 Name="ListBoxTasks"
                  SelectionChanged="ListBoxTasks_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Expander>
                         <Expander.Header>
-                            <TextBlock FontSize="14">
-                                <!--FontSize="14" 
-                                     BorderThickness="0"-->
+                            <TextBlock FontSize="14"
+                                       Width="300"
+                                       TextWrapping="WrapWithOverflow">
                                 <TextBlock.Text>
-
-                                    <MultiBinding StringFormat="{}{0} - {1:dd.MM.yyyy}  {2}">
-                                        <Binding Path="Title" Mode="TwoWay" 
+                                    <MultiBinding StringFormat="{}{0} / {1:dd.MM.yyyy} - {2}">
+                                        <Binding Path="Title"
+                                                 Mode="TwoWay"
                                                  UpdateSourceTrigger="PropertyChanged"
                                                  ValidatesOnDataErrors="True"/>
-                                        <Binding Path="EventDate" Mode="TwoWay"
+                                        <Binding Path="EventDate"
+                                                 Mode="TwoWay"
                                                  UpdateSourceTrigger="PropertyChanged"
-                                                  ValidatesOnDataErrors="True" />
-                                        <Binding Path="StartTime" Mode="TwoWay"
+                                                 ValidatesOnDataErrors="True"/>
+                                        <Binding Path="StartTime"
+                                                 Mode="TwoWay"
                                                  UpdateSourceTrigger="PropertyChanged"
-                                                  ValidatesOnDataErrors="True" />
-                                                 
-                                       </MultiBinding>
+                                                 ValidatesOnDataErrors="True"/>
+                                    </MultiBinding>
                                 </TextBlock.Text>
-
-                                <!--Background="{Binding Path=ListBoxTasks.Background}">-->
                             </TextBlock>
                         </Expander.Header>
                         <Expander.Content>
                             <StackPanel>
-                                <Label Content="Enter Title"></Label>
-                                <TextBox Width="220" 
-                                         AcceptsReturn="True" 
-                                         TextWrapping="Wrap" 
-                                         Text="{Binding Mode=TwoWay,Path=Title}"/>
-                                <Label Content="Enter Description"></Label>
-                                <TextBox Width="220" 
-                                         AcceptsReturn="True" 
-                                         TextWrapping="Wrap" 
-                                         Text="{Binding Mode=TwoWay,Path=Description}"/>
-                                <Label Content="Start date"></Label>
-                                <DatePicker 
-                                    
-                                    Name="CalendarMeeting"
-                                     
-                                    SelectedDate="{Binding Mode=TwoWay, Path=EventDate}"
-                                    SelectedDateFormat="Long"
-                                    />
-                                    <!--Text="{Binding Mode=TwoWay,
-                                    Path=EventDate}"-->
-                                <Label Content="Enter start time"></Label>
-                                <TextBox Width="220" 
-                                         AcceptsReturn="True" 
-                                         TextWrapping="Wrap" 
-                                         Text="{Binding Mode=TwoWay,Path=StartTime}"/>
-                                <Label Content="Duration in minutes"></Label>
-                                <TextBox Width="220" 
-                                         AcceptsReturn="True" 
-                                         TextWrapping="Wrap" 
-                                         Text="{Binding Mode=TwoWay,Path=Duration}"/>
-                                
-                                
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Title:"
+                                               Width="80"
+                                               Style="{StaticResource PropertyNameTextBlock}"/>
+                                    <DatePickerTextBox Text="{Binding Mode=TwoWay, Path=Title}"
+                                                       Style="{StaticResource DescriptionTextBox}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Description:"
+                                               Width="80"
+                                               Style="{StaticResource PropertyNameTextBlock}"/>
+                                    <DatePickerTextBox Text="{Binding Mode=TwoWay, Path=Description}"
+                                                       Style="{StaticResource DescriptionTextBox}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Date:"
+                                               Width="77"
+                                               Style="{StaticResource PropertyNameTextBlock}"
+                                               VerticalAlignment="Center"/>
+                                    <DatePicker SelectedDate="{Binding Mode=TwoWay, Path=EventDate}"
+                                                Style="{StaticResource DatePicker}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Starting Time:"
+                                               Width="80"
+                                               Style="{StaticResource PropertyNameTextBlock}"/>
+                                    <DatePickerTextBox Text="{Binding Mode=TwoWay, Path=StartTime}"
+                                                       Style="{StaticResource DescriptionTextBox}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Duration [min]:"
+                                               Width="80"
+                                               Style="{StaticResource PropertyNameTextBlock}"/>
+                                    <DatePickerTextBox Text="{Binding Mode=TwoWay, Path=Duration}"
+                                                       Style="{StaticResource DescriptionTextBox}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Tags:"
+                                               Width="80"
+                                               Style="{StaticResource PropertyNameTextBlock}"/>
+                                    <DatePickerTextBox Text="{Binding Mode=TwoWay, Path=Tags, Converter={StaticResource TagConverter}}"
+                                                       Style="{StaticResource DescriptionTextBox}"/>
+                                </StackPanel>
                             </StackPanel>
                         </Expander.Content>
                     </Expander>
@@ -126,20 +100,27 @@
         </ListBox>
         <StackPanel DockPanel.Dock="Right">
             <!--<TextBox Text="{Binding Mode=TwoWay, ElementName=ListBoxTasks, Path=SelectedItem.Priority}"/>-->
-            <TextBox SelectedText="Search"
-                     Name="TextBoxSearch" 
-                     KeyUp="TextBoxSearch_KeyUp"/>
-            <Button Content="New Meeting"
-                    Command="{Binding AddNewItem}"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Search:"
+                           Name="listlist"
+                           Margin="5,0,5,0"
+                           TextAlignment="Center"/>
+                <TextBox KeyUp="TextBoxSearch_KeyUp"
+                         Name="TextBoxSearch"
+                         Width="100"/>
+            </StackPanel>
+            <Button Content="New"
+                    Command="{Binding AddNewItem}"
+                    Style="{StaticResource TransparantButtonStyle}"/>
             <Button Content="Delete" 
-                    Command="{Binding Path=DeleteItem}"/>
+                    Command="{Binding Path=DeleteItem}"
+                    Style="{StaticResource TransparantButtonStyle}"/>
             <Button Content="Save"
-                    Command="{Binding Path=SaveItem}"/>
-            <Button Name="SortButton" Content="Sort"
-                    Command="{Binding Path=SortItems}"/>
-
+                    Command="{Binding Path=SaveItem}"
+                    Style="{StaticResource TransparantButtonStyle}"/>
+            <Button Content="Sort"
+                    Command="{Binding Path=SortItems}"
+                    Style="{StaticResource TransparantButtonStyle}"/>
         </StackPanel>
     </DockPanel>
-
-
 </UserControl>

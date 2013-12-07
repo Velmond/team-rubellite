@@ -21,9 +21,12 @@
     /// </summary>
     public partial class GoalsView : UserControl
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GoalsView"/> class
+        /// </summary>
         public GoalsView()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         private void TextBoxSearch_KeyUp(object sender, KeyEventArgs e)
