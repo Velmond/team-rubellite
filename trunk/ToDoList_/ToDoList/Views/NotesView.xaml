@@ -8,50 +8,74 @@
              mc:Ignorable="d" 
              d:DesignHeight="300"
              d:DesignWidth="300">
-    
+
+    <UserControl.Resources>
+        <converters:TagToText x:Key="TagConverter"/>
+    </UserControl.Resources>
+
     <UserControl.DataContext>
         <viewModels:NoteViewModel/>
     </UserControl.DataContext>
     
     <DockPanel x:Name="root">
-        <ListBox Name="ListBoxNotes"
-                 ItemsSource="{Binding Path=Items}"
-                 Width="350"
-                 IsSynchronizedWithCurrentItem="True"
-                 DockPanel.Dock="Left">
+        <ListBox ItemsSource="{Binding Path=Items}"
+                 Style="{StaticResource OuterListBox}"
+                 Name="ListBoxNotes">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Expander>
                         <Expander.Header>
-                            <TextBox FontSize="14" 
-                                     BorderThickness="0" 
-                                     Text="{Binding Mode=TwoWay,Path=Title}"
-                                     Background="{Binding Path=ListBoxNotes.Background}">
-                            </TextBox>
+                            <TextBlock Text="{Binding Mode=TwoWay,Path=Title}"
+                                       FontSize="14"
+                                       Width="300"
+                                       TextWrapping="WrapWithOverflow"/>
                         </Expander.Header>
                         <Expander.Content>
                             <StackPanel>
-                                <TextBox Width="220" 
-                                         AcceptsReturn="True" 
-                                         TextWrapping="Wrap" 
-                                         Text="{Binding Mode=TwoWay,Path=Description}">
-                                </TextBox> 
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Title:"
+                                               Style="{StaticResource PropertyNameTextBlock}"/>
+                                    <DatePickerTextBox Text="{Binding Mode=TwoWay, Path=Title}"
+                                                       Style="{StaticResource DescriptionTextBox}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Description:"
+                                               Style="{StaticResource PropertyNameTextBlock}"/>
+                                    <DatePickerTextBox Text="{Binding Mode=TwoWay, Path=Description}"
+                                                       Style="{StaticResource DescriptionTextBox}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Tags:"
+                                               Style="{StaticResource PropertyNameTextBlock}"/>
+                                    <DatePickerTextBox Text="{Binding Mode=TwoWay, Path=Tags, Converter={StaticResource TagConverter}}"
+                                                       Style="{StaticResource DescriptionTextBox}"/>
+                                </StackPanel>
                             </StackPanel>
                         </Expander.Content>
                     </Expander>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        
         <StackPanel DockPanel.Dock="Right">
-            <TextBox SelectedText="Search"
-                     Name="TextBoxSearch" 
-                     KeyUp="TextBoxSearch_KeyUp"/>
-            <Button Content="New Note"
-                    Command="{Binding AddNewItem}"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Search:"
+                           Name="listlist"
+                           Margin="5,0,5,0"
+                           TextAlignment="Center"/>
+                <TextBox KeyUp="TextBoxSearch_KeyUp"
+                         Name="TextBoxSearch"
+                         Width="100"/>
+            </StackPanel>
+            <Button Content="New"
+                    Command="{Binding AddNewItem}"
+                    Style="{StaticResource TransparantButtonStyle}"/>
             <Button Content="Delete" 
-                    Command="{Binding Path=DeleteItem}"/>
+                    Command="{Binding Path=DeleteItem}"
+                    Style="{StaticResource TransparantButtonStyle}"/>
             <Button Content="Save"
-                    Command="{Binding Path=SaveItem}"/>
+                    Command="{Binding Path=SaveItem}"
+                    Style="{StaticResource TransparantButtonStyle}"/>
         </StackPanel>
     </DockPanel>
 </UserControl>

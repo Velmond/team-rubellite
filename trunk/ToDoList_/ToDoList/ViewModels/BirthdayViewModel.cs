@@ -1,22 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ToDoList.Models;
-using TodoListConsole;
-
-namespace ToDoList.ViewModels
+﻿namespace ToDoList.ViewModels
 {
-    class BirthdayViewModel : BaseViewModel<BirthdayReminder>
+    using ToDoList.Models;
+
+    /// <summary>
+    /// View model for all objects of type ToDoList.Models.BirthdayReminder
+    /// </summary>
+    public class BirthdayViewModel : BaseViewModel<BirthdayReminder>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BirthdayViewModel"/> class
+        /// </summary>
         public BirthdayViewModel()
             : base()
         {
-            this.itemPool = new ObservableCollection<BirthdayReminder>(DataTranslator<BirthdayReminder>.Deserialize());
+            this.itemPool = DataTranslator<BirthdayReminder>.Deserialize();
         }
-
-
     }
 }

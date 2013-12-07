@@ -10,23 +10,31 @@
     /// </summary>
     public class Goal : Task, IComparable<Goal>, IDateable
     {
-        // Goal specific fields
+        /// <summary>
+        /// The time set for accomplishing the goal
+        /// </summary>
         private DateTime deadline;
+
+        /// <summary>
+        /// The collection of subtasks for this goal
+        /// </summary>
         private ObservableCollection<Goal> subtasks;
 
         /// <summary>
-        /// Long term task which can contain subtasks and has a deadline
+        /// Initializes a new instance of the <see cref="Goal"/> class
+        /// <para>Long term task which can contain subtasks and has a deadline</para>
         /// </summary>
         public Goal()
         {
-            this.Title = "";
-            this.Description = "";
+            this.Title = string.Empty;
+            this.Description = string.Empty;
             this.EventDate = DateTime.Today;
             this.subtasks = new ObservableCollection<Goal>();
         }
 
         /// <summary>
-        /// Long term task which can contain subtasks and has a deadline
+        /// Initializes a new instance of the <see cref="Goal"/> class
+        /// <para>Long term task which can contain subtasks and has a deadline</para>
         /// </summary>
         /// <param name="title">The goal's title</param>
         /// <param name="description">The goal's description</param>
@@ -40,11 +48,15 @@
         }
 
         /// <summary>
-        /// The time set for accomplishing the goal
+        /// Gets or sets the time set for accomplishing the goal
         /// </summary>
         public DateTime EventDate
         {
-            get { return this.deadline.Date; }
+            get
+            {
+                return this.deadline.Date;
+            }
+
             set
             {
                 this.deadline = value;
@@ -53,12 +65,16 @@
         }
 
         /// <summary>
-        /// A Collection of the subtasks for this goal
+        /// Gets or sets a collection of subtasks for this goal
         /// </summary>
         /// <exception cref="NullReferenceException">Trying to assign null value to the goal's collection of the subtasks</exception>
         public ObservableCollection<Goal> Subtasks
         {
-            get { return this.subtasks; }
+            get
+            {
+                return this.subtasks;
+            }
+
             set
             {
                 if (value == null)
@@ -113,8 +129,9 @@
         }
 
         /// <summary>
-        /// Returns all the information of this instance of Goal as a string
+        /// Returns all the information of this instance of <see cref="Goal"/> as a string
         /// </summary>
+        /// <returns>A string representation of this object</returns>
         public override string ToString()
         {
             StringBuilder output = new StringBuilder();

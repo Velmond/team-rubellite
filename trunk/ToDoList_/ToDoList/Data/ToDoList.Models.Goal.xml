@@ -8,7 +8,7 @@
       <string>work</string>
     </Tags>
     <Priority>Important</Priority>
-    <EventDate>2013-12-06T00:00:00+02:00</EventDate>
+    <EventDate>2014-03-31T00:00:00</EventDate>
     <Subtasks>
       <Goal>
         <Title>Improve my English skills</Title>
@@ -32,7 +32,7 @@
       <string>GPA</string>
     </Tags>
     <Priority>Important</Priority>
-    <EventDate>2013-12-06T00:00:00+02:00</EventDate>
+    <EventDate>2014-02-05T00:00:00</EventDate>
     <Subtasks>
       <Goal>
         <Title>Math</Title>
@@ -67,7 +67,7 @@
       <string>teamwork</string>
     </Tags>
     <Priority>None</Priority>
-    <EventDate>2013-12-06T00:00:00+02:00</EventDate>
+    <EventDate>2013-12-09T00:00:00</EventDate>
     <Subtasks>
       <Goal>
         <Title>Meetings</Title>
@@ -75,7 +75,7 @@
         <Done>false</Done>
         <Tags />
         <Priority>Important</Priority>
-        <EventDate>2013-12-06T00:00:00+02:00</EventDate>
+        <EventDate>2013-12-09T00:00:00</EventDate>
         <Subtasks />
       </Goal>
       <Goal>
@@ -84,7 +84,7 @@
         <Done>false</Done>
         <Tags />
         <Priority>Important</Priority>
-        <EventDate>2013-12-06T00:00:00+02:00</EventDate>
+        <EventDate>2013-12-09T00:00:00</EventDate>
         <Subtasks />
       </Goal>
       <Goal>
@@ -93,7 +93,7 @@
         <Done>false</Done>
         <Tags />
         <Priority>Urgent</Priority>
-        <EventDate>2013-12-06T00:00:00+02:00</EventDate>
+        <EventDate>2013-12-09T00:00:00</EventDate>
         <Subtasks />
       </Goal>
     </Subtasks>

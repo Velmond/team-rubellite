@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ToDoList.Models;
-
-namespace ToDoList.ViewModels
+﻿namespace ToDoList.ViewModels
 {
+    using ToDoList.Models;
+
+    /// <summary>
+    /// View model for all objects of type ToDoList.Models.Note
+    /// </summary>
     public class NoteViewModel : BaseViewModel<Note>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NoteViewModel"/> class
+        /// </summary>
         public NoteViewModel()
             : base()
         {
