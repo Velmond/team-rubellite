@@ -109,8 +109,9 @@
                 else
                 {
                     this.startTime = value;
-                    this.OnPropertyChanged("StartTime");
+                    
                 }
+                this.OnPropertyChanged("StartTime");
             }
         }
 

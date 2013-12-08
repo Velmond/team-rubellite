@@ -77,7 +77,7 @@
                                     <TextBlock Text="Starting Time:"
                                                Width="80"
                                                Style="{StaticResource PropertyNameTextBlock}"/>
-                                    <DatePickerTextBox Text="{Binding Mode=TwoWay, Path=StartTime}"
+                                    <DatePickerTextBox Text="{Binding Mode=TwoWay, Path=StartTime, ValidatesOnExceptions=True}"
                                                        Style="{StaticResource DescriptionTextBox}"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
