@@ -11,7 +11,7 @@
     /// <summary>
     /// An object that keeps all the information about a meeting
     /// </summary>
-    public class Meeting : BaseObjectModel, IComparable<Meeting>, INotifyPropertyChanged, IDateable
+    public class Meeting : BaseObjectModel, IComparable<Meeting>, IDateable
     {
         /// <summary>
         /// The meeting's date

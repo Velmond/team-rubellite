@@ -13,7 +13,9 @@
     <Title>Gosho</Title>
     <Description>Enter Description</Description>
     <Done>false</Done>
-    <Tags />
+    <Tags>
+      <string>Party!</string>
+    </Tags>
     <PersonName>Gosho</PersonName>
     <EventDate>1988-01-20T00:00:00</EventDate>
     <DateCreated>2013-12-06T00:00:00</DateCreated>
@@ -31,9 +33,29 @@
     <Title>New Item</Title>
     <Description>Description</Description>
     <Done>false</Done>
-    <Tags />
+    <Tags>
+      <string>PartyAllNightLong</string>
+    </Tags>
     <PersonName>Stamat</PersonName>
     <EventDate>1935-03-07T00:00:00</EventDate>
+    <DateCreated>0001-01-01T00:00:00</DateCreated>
+  </BirthdayReminder>
+  <BirthdayReminder>
+    <Title>New Item</Title>
+    <Description>Description</Description>
+    <Done>false</Done>
+    <Tags />
+    <PersonName>Maria</PersonName>
+    <EventDate>1991-07-10T00:00:00</EventDate>
+    <DateCreated>0001-01-01T00:00:00</DateCreated>
+  </BirthdayReminder>
+  <BirthdayReminder>
+    <Title>New Item</Title>
+    <Description>Description</Description>
+    <Done>false</Done>
+    <Tags />
+    <PersonName>Nivelina</PersonName>
+    <EventDate>1939-10-12T00:00:00</EventDate>
     <DateCreated>0001-01-01T00:00:00</DateCreated>
   </BirthdayReminder>
 </ArrayOfBirthdayReminder>

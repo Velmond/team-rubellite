@@ -11,7 +11,7 @@
     /// <summary>
     /// Simple task containing a title and a description
     /// </summary>
-    public class Note : BaseObjectModel, INotifyPropertyChanged
+    public class Note : BaseObjectModel
     {
         /// <summary>
         /// A collection of objects of type <see cref="Note"/>

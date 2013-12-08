@@ -76,6 +76,9 @@
             <Button Content="Save"
                     Command="{Binding Path=SaveItem}"
                     Style="{StaticResource TransparantButtonStyle}"/>
+            <Button Content="Sort"
+                    Command="{Binding Path=SortItems}"
+                    Style="{StaticResource TransparantButtonStyle}"/>
         </StackPanel>
     </DockPanel>
 </UserControl>
