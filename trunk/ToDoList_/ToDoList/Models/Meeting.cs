@@ -99,7 +99,7 @@
 
             set
             {
-                if (value != @"[0-2][0-9]:[0-5][0-9]" || value != "hh:mm")
+                if (value != @"[0-2][0-9]:[0-5][0-9]" && value != "hh:mm")
                 {
                     throw new WrongFormatException("Enter time in the format hh:mm e.g. 13:45");
                 }
