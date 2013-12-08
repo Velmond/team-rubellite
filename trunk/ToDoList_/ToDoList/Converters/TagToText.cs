@@ -12,7 +12,7 @@
     /// <summary>
     /// Provides a way to convert a collection of 'tags' (strings) to a single string and vice versa
     /// </summary>
-    public class TagToText : IValueConverter
+    public struct TagToText : IValueConverter
     {
         /// <summary>
         /// Convert the collection of 'tags' (strings) from the source to a string consisting of all of them

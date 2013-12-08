@@ -102,15 +102,20 @@
 
             set
             {
-                if (!Regex.IsMatch(value, StartTimeRegexMatch) && value != "hh:mm")
+                this.startTime = value;
+
+                try
                 {
-                    throw new WrongFormatException("Enter time in the format hh:mm e.g. 13:45");
+                    if (!Regex.IsMatch(this.startTime, StartTimeRegexMatch) && this.startTime != "hh:mm")
+                    {
+                        throw new WrongFormatException("Enter time in the format hh:mm e.g. 13:45");
+                    }
                 }
-                else
+                catch(WrongFormatException)
                 {
-                    this.startTime = value;
-                    
+                    throw ;
                 }
+                
                 this.OnPropertyChanged("StartTime");
             }
         }
