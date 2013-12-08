@@ -68,8 +68,9 @@ Modify Tags property to take references into account</Description>
     <Description>Test Task with URGENT priority</Description>
     <Done>false</Done>
     <Tags>
-      <string>test</string>
-      <string>sort</string>
+      <string>test </string>
+      <string>sort </string>
+      <string>dfasda</string>
     </Tags>
     <Priority>Urgent</Priority>
   </Task>

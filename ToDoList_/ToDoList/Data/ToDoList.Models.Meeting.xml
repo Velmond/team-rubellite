@@ -42,7 +42,10 @@
     <Title>Среща с Обама</Title>
     <Description />
     <Done>false</Done>
-    <Tags />
+    <Tags>
+      <string>dfasda </string>
+      <string>trsa</string>
+    </Tags>
     <Duration>0</Duration>
     <StartTime>15:15</StartTime>
     <EventDate>2013-12-11T00:00:00</EventDate>
