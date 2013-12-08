@@ -7,6 +7,7 @@
     using System.Text;
     using System.Threading.Tasks;
     using System.Xml.Serialization;
+    using ToDoList.Exceptions;
 
     /// <summary>
     /// An object that keeps all the information about a meeting
@@ -98,8 +99,15 @@
 
             set
             {
-                this.startTime = value;
-                this.OnPropertyChanged("StartTime");
+                if (value != @"[0-2][0-9]:[0-5][0-9]" || value != "hh:mm")
+                {
+                    throw new WrongFormatException("Enter time in the format hh:mm e.g. 13:45");
+                }
+                else
+                {
+                    this.startTime = value;
+                    this.OnPropertyChanged("StartTime");
+                }
             }
         }
 
