@@ -15,7 +15,10 @@
     /// </summary>
     public class Meeting : BaseObjectModel, IComparable<Meeting>, IDateable
     {
-        private const string StartTimeRegexMatch = @"[0-2][0-9]:[0-5][0-9]";
+        /// <summary>
+        /// A regular expression representing the format for the meeting's starting time
+        /// </summary>
+        private const string StartTimeRegexMatch = @"^(([0-9])|([0-1][0-9])|([2][0-3])):([0-5][0-9])$";
 
         /// <summary>
         /// The meeting's date
