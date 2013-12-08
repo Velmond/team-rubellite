@@ -5,6 +5,7 @@
     using System.ComponentModel;
     using System.Linq;
     using System.Text;
+    using System.Text.RegularExpressions;
     using System.Threading.Tasks;
     using System.Xml.Serialization;
     using ToDoList.Exceptions;
@@ -14,6 +15,8 @@
     /// </summary>
     public class Meeting : BaseObjectModel, IComparable<Meeting>, IDateable
     {
+        private const string StartTimeRegexMatch = @"[0-2][0-9]:[0-5][0-9]";
+
         /// <summary>
         /// The meeting's date
         /// </summary>
@@ -99,7 +102,7 @@
 
             set
             {
-                if (value != @"[0-2][0-9]:[0-5][0-9]" && value != "hh:mm")
+                if (!Regex.IsMatch(value, StartTimeRegexMatch) && value != "hh:mm")
                 {
                     throw new WrongFormatException("Enter time in the format hh:mm e.g. 13:45");
                 }
