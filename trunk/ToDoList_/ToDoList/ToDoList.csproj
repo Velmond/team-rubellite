@@ -66,6 +66,7 @@
     <Compile Include="Converters\PriorityToIsImportantCheck.cs" />
     <Compile Include="Converters\PriorityToIsUrgentCheck.cs" />
     <Compile Include="Converters\TagToText.cs" />
+    <Compile Include="Exceptions\WrongFormatException.cs" />
     <Compile Include="Models\BirthdayReminder.cs" />
     <Compile Include="Models\DataTranslator.cs" />
     <Compile Include="Models\Goal.cs" />
