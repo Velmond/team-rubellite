@@ -11,6 +11,7 @@
 
     <UserControl.Resources>
         <converters:TagToText x:Key="TagConverter"/>
+        <converters:DoneToStrikethrough x:Key="DoneConverter"/>
     </UserControl.Resources>
 
     <UserControl.DataContext>
@@ -26,7 +27,8 @@
                 <DataTemplate>
                     <Expander>
                         <Expander.Header>
-                            <TextBlock FontSize="14"
+                            <TextBlock TextDecorations="{Binding Path=Done, Converter={StaticResource DoneConverter}}"
+                                       FontSize="14"
                                        Width="300"
                                        TextWrapping="WrapWithOverflow">
                                 <TextBlock.Text>
@@ -83,7 +85,13 @@
                                                Width="80"
                                                Style="{StaticResource PropertyNameTextBlock}"/>
                                     <DatePickerTextBox Text="{Binding Mode=TwoWay, Path=Duration}"
-                                                       Style="{StaticResource DescriptionTextBox}"/>
+                                                       Style="{StaticResource DescriptionTextBox}"
+                                                       Width="80"/>
+                                    <TextBlock Text="Done? "
+                                               Style="{StaticResource PropertyNameTextBlock}"
+                                               TextAlignment="Center"
+                                               Width="40"/>
+                                    <CheckBox IsChecked="{Binding Path=Done}"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="Tags:"
