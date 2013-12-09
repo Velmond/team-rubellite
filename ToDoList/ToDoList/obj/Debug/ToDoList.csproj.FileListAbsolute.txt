@@ -1,1 +1,2 @@
 D:\Velmond\School\Telerik\Projects\ToDoList\ToDoList\bin\Debug\ToDoList.exe.config
+C:\Users\Angel\Documents\Visual Studio 2012\Projects\OOP Team Work\ToDoList\ToDoList\bin\Debug\ToDoList.exe.config
