@@ -1,0 +1,1 @@
+Teamwork project for the OOP course at the Telerik Software Academy.
